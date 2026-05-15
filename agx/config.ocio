@@ -1,0 +1,1179 @@
+# OpenColorIO configuration file for Blender
+#
+# ACEScg and ACES2065-1 spaces using OpenColorIO's BuiltinTransform
+#
+# Based on original AgX by Troy Sobotka: https://github.com/sobotka/AgX https://github.com/sobotka/SB2383-Configuration-Generation
+# Further Developed by Zijun Eary Zhou法纤净, Mark Faderbauer, and Sakari Kapanen
+# Repository for this version: https://github.com/EaryChow/AgX
+#
+# See ocio-license.txt for details.
+
+ocio_profile_version: 2.4
+
+search_path: "luts"
+strictparsing: true
+luma: [0.2126, 0.7152, 0.0722]
+
+description: RRT version ut33
+
+roles:
+  reference: Linear CIE-XYZ E
+
+  # Internal scene linear space
+  scene_linear: Linear Rec.2020
+  rendering: Linear Rec.2020
+
+  # Default color space for byte image
+  default_byte: sRGB
+
+  # Default color space for float images
+  default_float: Linear Rec.2020
+
+  # Default color space sequencer is working in
+  default_sequencer: sRGB
+
+  # Distribution of colors in color picker
+  color_picking: sRGB
+
+  # Non-color data
+  data: Non-Color
+
+  # For interop between configs, and to determine XYZ for rendering
+  aces_interchange: ACES2065-1
+  cie_xyz_d65_interchange: Linear CIE-XYZ D65
+
+  # Specified by OCIO, not used in Blender
+  color_timing: AgX Log
+  compositing_linear: Linear Rec.2020
+  compositing_log: AgX Log
+  default: Linear Rec.2020
+  matte_paint: Linear Rec.2020
+  texture_paint: Linear Rec.2020
+
+file_rules:
+  - !<Rule> {name: houdini_raw_data, colorspace: Non-Color, regex: "(^|.*[._-])(raw|data|noncolor|non-color|utility-raw|mask|matte|alpha|opacity|rough(ness)?|gloss(y|iness)?|metal(ness|lic)?|specularlevel|ior|normal|nrm|bump|height|disp(lacement)?|ao|ambientocclusion|cavity)([._-].*|\\..*|$)"}
+  - !<Rule> {name: houdini_aces2065_1, colorspace: ACES2065-1, regex: "(^|.*[._-])(aces2065[-_]?1|aces[-_]?ap0|lin[-_]?ap0)([._-].*|\\..*|$)"}
+  - !<Rule> {name: houdini_acescg, colorspace: ACEScg, regex: "(^|.*[._-])(acescg|aces[-_]?cg|aces[-_]?ap1|lin[-_]?ap1)([._-].*|\\..*|$)"}
+  - !<Rule> {name: houdini_lin_rec2020, colorspace: Linear Rec.2020, regex: "(^|.*[._-])(lin[-_]?rec2020|linear[-_]?rec2020|bt2020|rec2020|render[-_]?linear)([._-].*|\\..*|$)"}
+  - !<Rule> {name: houdini_lin_rec709, colorspace: Linear Rec.709, regex: "(^|.*[._-])(lin[-_]?srgb|lin[-_]?rec709|linear[-_]?srgb|linear[-_]?rec709)([._-].*|\\..*|$)"}
+  - !<Rule> {name: houdini_srgb_texture, colorspace: sRGB, regex: "(^|.*[._-])(srgb|srgb[-_]?tx|srgb[-_]?texture|basecolor|base[-_]?color|diffuse|diff|albedo|color|colour|col)([._-].*|\\..*|$)"}
+  - !<Rule> {name: srgb_tx, colorspace: sRGB, pattern: "*srgb_tx*", extension: "*"}
+  - !<Rule> {name: srgb_texture, colorspace: sRGB, pattern: "*srgb_texture*", extension: "*"}
+  - !<Rule> {name: acescg, colorspace: ACEScg, pattern: "*ACEScg*", extension: "*"}
+  - !<Rule> {name: acescg_lower, colorspace: ACEScg, pattern: "*acescg*", extension: "*"}
+  - !<Rule> {name: lin_rec2020, colorspace: Linear Rec.2020, pattern: "*lin_rec2020*", extension: "*"}
+  - !<Rule> {name: linear_rec2020, colorspace: Linear Rec.2020, pattern: "*linear_rec2020*", extension: "*"}
+  - !<Rule> {name: lin_rec709, colorspace: Linear Rec.709, pattern: "*lin_rec709*", extension: "*"}
+  - !<Rule> {name: lin_srgb, colorspace: Linear Rec.709, pattern: "*lin_srgb*", extension: "*"}
+  - !<Rule> {name: rat, colorspace: Linear Rec.2020, pattern: "*", extension: rat}
+  - !<Rule> {name: hdr, colorspace: Linear Rec.2020, pattern: "*", extension: hdr}
+  - !<Rule> {name: jpg, colorspace: sRGB, pattern: "*", extension: jpg}
+  - !<Rule> {name: jpeg, colorspace: sRGB, pattern: "*", extension: jpeg}
+  - !<Rule> {name: png, colorspace: sRGB, pattern: "*", extension: png}
+  - !<Rule> {name: tga, colorspace: sRGB, pattern: "*", extension: tga}
+  - !<Rule> {name: bmp, colorspace: sRGB, pattern: "*", extension: bmp}
+  - !<Rule> {name: tif, colorspace: sRGB, pattern: "*", extension: tif}
+  - !<Rule> {name: tiff, colorspace: sRGB, pattern: "*", extension: tiff}
+  - !<Rule> {name: exr, colorspace: Linear Rec.2020, pattern: "*", extension: exr}
+  - !<Rule> {name: Default, colorspace: Linear Rec.2020}
+
+displays:
+  sRGB:
+    - !<View> {name: Un-tone-mapped, view_transform: Un-tone-mapped, display_colorspace: sRGB}
+    - !<View> {name: AgX, view_transform: AgX Base Rec.1886, display_colorspace: sRGB}
+    - !<View> {name: AgX - Editorial Split, view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Editorial Split"}
+    - !<View> {name: AgX - Editorial Split (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Editorial Split (CDL Stack)"}
+    - !<View> {name: AgX - Graphite Matte, view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Graphite Matte"}
+    - !<View> {name: AgX - Graphite Matte (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Graphite Matte (CDL Shift)"}
+    - !<View> {name: AgX - Graphite Matte (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Graphite Matte (CDL Shift 2)"}
+    - !<View> {name: AgX - Cold Steel Neutral, view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Cold Steel Neutral"}
+    - !<View> {name: AgX - Carbon Black, view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Carbon Black"}
+    - !<View> {name: AgX - Carbon Black (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Carbon Black (CDL Shift 2)"}
+    - !<View> {name: AgX - Carbon Plate, view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Carbon Plate"}
+    - !<View> {name: AgX - Carbon Plate (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Carbon Plate (CDL Shift)"}
+    - !<View> {name: AgX - Archival Warm-Gray, view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Archival Warm-Gray"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Archival Warm-Gray (CDL Shift)"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Archival Warm-Gray (CDL Shift 2)"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Archival Warm-Gray (CDL Stack)"}
+    - !<View> {name: AgX - Archival Extreme Matte (CDL Matte Fade), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Archival Extreme Matte (CDL Matte Fade)"}
+    - !<View> {name: AgX - Film Dense, view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Film Dense"}
+    - !<View> {name: AgX - Film Dense (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Film Dense (CDL Shift)"}
+    - !<View> {name: AgX - Film Dense (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Film Dense (CDL Stack)"}
+    - !<View> {name: AgX - Photochemical, view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Photochemical"}
+    - !<View> {name: AgX - Photochemical (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Photochemical (CDL Shift)"}
+    - !<View> {name: AgX - Photochemical (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Photochemical (CDL Shift 2)"}
+    - !<View> {name: AgX - Photochemical (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Photochemical (CDL Stack)"}
+    - !<View> {name: AgX - Vitrine, view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Vitrine"}
+    - !<View> {name: AgX - Vitrine (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Vitrine (CDL Shift 2)"}
+    - !<View> {name: AgX - Chemical Drift, view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Chemical Drift"}
+    - !<View> {name: AgX - Chemical Drift (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Chemical Drift (CDL Shift 2)"}
+    - !<View> {name: AgX - Chemical Drift (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Chemical Drift (CDL Stack)"}
+    - !<View> {name: AgX - Phoenix Drift, view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Phoenix Drift"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Phoenix Drift (CDL Shift)"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Phoenix Drift (CDL Shift 2)"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: sRGB, looks: "Phoenix Drift (CDL Stack)"}
+  Display P3:
+    - !<View> {name: Un-tone-mapped, view_transform: Un-tone-mapped, display_colorspace: Display P3}
+    - !<View> {name: AgX, view_transform: AgX Base Display P3, display_colorspace: Display P3}
+    - !<View> {name: AgX - Editorial Split, view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Editorial Split"}
+    - !<View> {name: AgX - Editorial Split (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Editorial Split (CDL Stack)"}
+    - !<View> {name: AgX - Graphite Matte, view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Graphite Matte"}
+    - !<View> {name: AgX - Graphite Matte (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Graphite Matte (CDL Shift)"}
+    - !<View> {name: AgX - Graphite Matte (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Graphite Matte (CDL Shift 2)"}
+    - !<View> {name: AgX - Cold Steel Neutral, view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Cold Steel Neutral"}
+    - !<View> {name: AgX - Carbon Black, view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Carbon Black"}
+    - !<View> {name: AgX - Carbon Black (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Carbon Black (CDL Shift 2)"}
+    - !<View> {name: AgX - Carbon Plate, view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Carbon Plate"}
+    - !<View> {name: AgX - Carbon Plate (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Carbon Plate (CDL Shift)"}
+    - !<View> {name: AgX - Archival Warm-Gray, view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Archival Warm-Gray"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Archival Warm-Gray (CDL Shift)"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Archival Warm-Gray (CDL Shift 2)"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Archival Warm-Gray (CDL Stack)"}
+    - !<View> {name: AgX - Archival Extreme Matte (CDL Matte Fade), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Archival Extreme Matte (CDL Matte Fade)"}
+    - !<View> {name: AgX - Film Dense, view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Film Dense"}
+    - !<View> {name: AgX - Film Dense (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Film Dense (CDL Shift)"}
+    - !<View> {name: AgX - Film Dense (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Film Dense (CDL Stack)"}
+    - !<View> {name: AgX - Photochemical, view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Photochemical"}
+    - !<View> {name: AgX - Photochemical (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Photochemical (CDL Shift)"}
+    - !<View> {name: AgX - Photochemical (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Photochemical (CDL Shift 2)"}
+    - !<View> {name: AgX - Photochemical (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Photochemical (CDL Stack)"}
+    - !<View> {name: AgX - Vitrine, view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Vitrine"}
+    - !<View> {name: AgX - Vitrine (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Vitrine (CDL Shift 2)"}
+    - !<View> {name: AgX - Chemical Drift, view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Chemical Drift"}
+    - !<View> {name: AgX - Chemical Drift (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Chemical Drift (CDL Shift 2)"}
+    - !<View> {name: AgX - Chemical Drift (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Chemical Drift (CDL Stack)"}
+    - !<View> {name: AgX - Phoenix Drift, view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Phoenix Drift"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Phoenix Drift (CDL Shift)"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Phoenix Drift (CDL Shift 2)"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Display P3, looks: "Phoenix Drift (CDL Stack)"}
+  Rec.1886:
+    - !<View> {name: Un-tone-mapped, view_transform: Un-tone-mapped, display_colorspace: Rec.1886}
+    - !<View> {name: AgX, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886}
+    - !<View> {name: AgX - Editorial Split, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Editorial Split"}
+    - !<View> {name: AgX - Editorial Split (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Editorial Split (CDL Stack)"}
+    - !<View> {name: AgX - Graphite Matte, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Graphite Matte"}
+    - !<View> {name: AgX - Graphite Matte (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Graphite Matte (CDL Shift)"}
+    - !<View> {name: AgX - Graphite Matte (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Graphite Matte (CDL Shift 2)"}
+    - !<View> {name: AgX - Cold Steel Neutral, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Cold Steel Neutral"}
+    - !<View> {name: AgX - Carbon Black, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Carbon Black"}
+    - !<View> {name: AgX - Carbon Black (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Carbon Black (CDL Shift 2)"}
+    - !<View> {name: AgX - Carbon Plate, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Carbon Plate"}
+    - !<View> {name: AgX - Carbon Plate (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Carbon Plate (CDL Shift)"}
+    - !<View> {name: AgX - Archival Warm-Gray, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Archival Warm-Gray"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Archival Warm-Gray (CDL Shift)"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Archival Warm-Gray (CDL Shift 2)"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Archival Warm-Gray (CDL Stack)"}
+    - !<View> {name: AgX - Archival Extreme Matte (CDL Matte Fade), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Archival Extreme Matte (CDL Matte Fade)"}
+    - !<View> {name: AgX - Film Dense, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Film Dense"}
+    - !<View> {name: AgX - Film Dense (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Film Dense (CDL Shift)"}
+    - !<View> {name: AgX - Film Dense (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Film Dense (CDL Stack)"}
+    - !<View> {name: AgX - Photochemical, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Photochemical"}
+    - !<View> {name: AgX - Photochemical (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Photochemical (CDL Shift)"}
+    - !<View> {name: AgX - Photochemical (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Photochemical (CDL Shift 2)"}
+    - !<View> {name: AgX - Photochemical (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Photochemical (CDL Stack)"}
+    - !<View> {name: AgX - Vitrine, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Vitrine"}
+    - !<View> {name: AgX - Vitrine (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Vitrine (CDL Shift 2)"}
+    - !<View> {name: AgX - Chemical Drift, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Chemical Drift"}
+    - !<View> {name: AgX - Chemical Drift (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Chemical Drift (CDL Shift 2)"}
+    - !<View> {name: AgX - Chemical Drift (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Chemical Drift (CDL Stack)"}
+    - !<View> {name: AgX - Phoenix Drift, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Phoenix Drift"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Shift), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Phoenix Drift (CDL Shift)"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Shift 2), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Phoenix Drift (CDL Shift 2)"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Stack), view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886, looks: "Phoenix Drift (CDL Stack)"}
+  Rec.2020:
+    - !<View> {name: Un-tone-mapped, view_transform: Un-tone-mapped, display_colorspace: Rec.2020}
+    - !<View> {name: AgX, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020}
+    - !<View> {name: AgX - Editorial Split, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Editorial Split"}
+    - !<View> {name: AgX - Editorial Split (CDL Stack), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Editorial Split (CDL Stack)"}
+    - !<View> {name: AgX - Graphite Matte, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Graphite Matte"}
+    - !<View> {name: AgX - Graphite Matte (CDL Shift), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Graphite Matte (CDL Shift)"}
+    - !<View> {name: AgX - Graphite Matte (CDL Shift 2), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Graphite Matte (CDL Shift 2)"}
+    - !<View> {name: AgX - Cold Steel Neutral, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Cold Steel Neutral"}
+    - !<View> {name: AgX - Carbon Black, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Carbon Black"}
+    - !<View> {name: AgX - Carbon Black (CDL Shift 2), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Carbon Black (CDL Shift 2)"}
+    - !<View> {name: AgX - Carbon Plate, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Carbon Plate"}
+    - !<View> {name: AgX - Carbon Plate (CDL Shift), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Carbon Plate (CDL Shift)"}
+    - !<View> {name: AgX - Archival Warm-Gray, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Archival Warm-Gray"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Shift), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Archival Warm-Gray (CDL Shift)"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Shift 2), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Archival Warm-Gray (CDL Shift 2)"}
+    - !<View> {name: AgX - Archival Warm-Gray (CDL Stack), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Archival Warm-Gray (CDL Stack)"}
+    - !<View> {name: AgX - Archival Extreme Matte (CDL Matte Fade), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Archival Extreme Matte (CDL Matte Fade)"}
+    - !<View> {name: AgX - Film Dense, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Film Dense"}
+    - !<View> {name: AgX - Film Dense (CDL Shift), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Film Dense (CDL Shift)"}
+    - !<View> {name: AgX - Film Dense (CDL Stack), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Film Dense (CDL Stack)"}
+    - !<View> {name: AgX - Photochemical, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Photochemical"}
+    - !<View> {name: AgX - Photochemical (CDL Shift), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Photochemical (CDL Shift)"}
+    - !<View> {name: AgX - Photochemical (CDL Shift 2), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Photochemical (CDL Shift 2)"}
+    - !<View> {name: AgX - Photochemical (CDL Stack), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Photochemical (CDL Stack)"}
+    - !<View> {name: AgX - Vitrine, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Vitrine"}
+    - !<View> {name: AgX - Vitrine (CDL Shift 2), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Vitrine (CDL Shift 2)"}
+    - !<View> {name: AgX - Chemical Drift, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Chemical Drift"}
+    - !<View> {name: AgX - Chemical Drift (CDL Shift 2), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Chemical Drift (CDL Shift 2)"}
+    - !<View> {name: AgX - Chemical Drift (CDL Stack), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Chemical Drift (CDL Stack)"}
+    - !<View> {name: AgX - Phoenix Drift, view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Phoenix Drift"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Shift), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Phoenix Drift (CDL Shift)"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Shift 2), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Phoenix Drift (CDL Shift 2)"}
+    - !<View> {name: AgX - Phoenix Drift (CDL Stack), view_transform: AgX Base Rec.2020, display_colorspace: Rec.2020, looks: "Phoenix Drift (CDL Stack)"}
+  Rec.2100-PQ:
+    - !<View> {name: Un-tone-mapped, view_transform: Un-tone-mapped, display_colorspace: Rec.2100-PQ}
+    - !<View> {name: AgX - HDR 1000 nits, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ}
+    - !<View> {name: AgX HDR - Editorial Split, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Editorial Split"}
+    - !<View> {name: AgX HDR - Editorial Split (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Editorial Split (CDL Stack)"}
+    - !<View> {name: AgX HDR - Graphite Matte, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Graphite Matte"}
+    - !<View> {name: AgX HDR - Graphite Matte (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Graphite Matte (CDL Shift)"}
+    - !<View> {name: AgX HDR - Graphite Matte (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Graphite Matte (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Cold Steel Neutral, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Cold Steel Neutral"}
+    - !<View> {name: AgX HDR - Carbon Black, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Carbon Black"}
+    - !<View> {name: AgX HDR - Carbon Black (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Carbon Black (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Carbon Plate, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Carbon Plate"}
+    - !<View> {name: AgX HDR - Carbon Plate (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Carbon Plate (CDL Shift)"}
+    - !<View> {name: AgX HDR - Archival Warm-Gray, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Archival Warm-Gray"}
+    - !<View> {name: AgX HDR - Archival Warm-Gray (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Archival Warm-Gray (CDL Shift)"}
+    - !<View> {name: AgX HDR - Archival Warm-Gray (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Archival Warm-Gray (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Archival Warm-Gray (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Archival Warm-Gray (CDL Stack)"}
+    - !<View> {name: AgX HDR - Archival Extreme Matte (CDL Matte Fade), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Archival Extreme Matte (CDL Matte Fade)"}
+    - !<View> {name: AgX HDR - Film Dense, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Film Dense"}
+    - !<View> {name: AgX HDR - Film Dense (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Film Dense (CDL Shift)"}
+    - !<View> {name: AgX HDR - Film Dense (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Film Dense (CDL Stack)"}
+    - !<View> {name: AgX HDR - Photochemical, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Photochemical"}
+    - !<View> {name: AgX HDR - Photochemical (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Photochemical (CDL Shift)"}
+    - !<View> {name: AgX HDR - Photochemical (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Photochemical (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Photochemical (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Photochemical (CDL Stack)"}
+    - !<View> {name: AgX HDR - Vitrine, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Vitrine"}
+    - !<View> {name: AgX HDR - Vitrine (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Vitrine (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Chemical Drift, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Chemical Drift"}
+    - !<View> {name: AgX HDR - Chemical Drift (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Chemical Drift (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Chemical Drift (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Chemical Drift (CDL Stack)"}
+    - !<View> {name: AgX HDR - Phoenix Drift, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Phoenix Drift"}
+    - !<View> {name: AgX HDR - Phoenix Drift (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Phoenix Drift (CDL Shift)"}
+    - !<View> {name: AgX HDR - Phoenix Drift (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Phoenix Drift (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Phoenix Drift (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-PQ, looks: "Phoenix Drift (CDL Stack)"}
+    - !<View> {name: AgX - SDR, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ}
+    - !<View> {name: AgX SDR - Editorial Split, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Editorial Split"}
+    - !<View> {name: AgX SDR - Editorial Split (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Editorial Split (CDL Stack)"}
+    - !<View> {name: AgX SDR - Graphite Matte, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Graphite Matte"}
+    - !<View> {name: AgX SDR - Graphite Matte (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Graphite Matte (CDL Shift)"}
+    - !<View> {name: AgX SDR - Graphite Matte (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Graphite Matte (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Cold Steel Neutral, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Cold Steel Neutral"}
+    - !<View> {name: AgX SDR - Carbon Black, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Carbon Black"}
+    - !<View> {name: AgX SDR - Carbon Black (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Carbon Black (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Carbon Plate, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Carbon Plate"}
+    - !<View> {name: AgX SDR - Carbon Plate (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Carbon Plate (CDL Shift)"}
+    - !<View> {name: AgX SDR - Archival Warm-Gray, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Archival Warm-Gray"}
+    - !<View> {name: AgX SDR - Archival Warm-Gray (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Archival Warm-Gray (CDL Shift)"}
+    - !<View> {name: AgX SDR - Archival Warm-Gray (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Archival Warm-Gray (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Archival Warm-Gray (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Archival Warm-Gray (CDL Stack)"}
+    - !<View> {name: AgX SDR - Archival Extreme Matte (CDL Matte Fade), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Archival Extreme Matte (CDL Matte Fade)"}
+    - !<View> {name: AgX SDR - Film Dense, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Film Dense"}
+    - !<View> {name: AgX SDR - Film Dense (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Film Dense (CDL Shift)"}
+    - !<View> {name: AgX SDR - Film Dense (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Film Dense (CDL Stack)"}
+    - !<View> {name: AgX SDR - Photochemical, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Photochemical"}
+    - !<View> {name: AgX SDR - Photochemical (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Photochemical (CDL Shift)"}
+    - !<View> {name: AgX SDR - Photochemical (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Photochemical (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Photochemical (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Photochemical (CDL Stack)"}
+    - !<View> {name: AgX SDR - Vitrine, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Vitrine"}
+    - !<View> {name: AgX SDR - Vitrine (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Vitrine (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Chemical Drift, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Chemical Drift"}
+    - !<View> {name: AgX SDR - Chemical Drift (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Chemical Drift (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Chemical Drift (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Chemical Drift (CDL Stack)"}
+    - !<View> {name: AgX SDR - Phoenix Drift, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Phoenix Drift"}
+    - !<View> {name: AgX SDR - Phoenix Drift (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Phoenix Drift (CDL Shift)"}
+    - !<View> {name: AgX SDR - Phoenix Drift (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Phoenix Drift (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Phoenix Drift (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-PQ, looks: "Phoenix Drift (CDL Stack)"}
+  Rec.2100-HLG:
+    - !<View> {name: Un-tone-mapped, view_transform: Un-tone-mapped, display_colorspace: Rec.2100-HLG}
+    - !<View> {name: AgX - HDR 1000 nits, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG}
+    - !<View> {name: AgX HDR - Editorial Split, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Editorial Split"}
+    - !<View> {name: AgX HDR - Editorial Split (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Editorial Split (CDL Stack)"}
+    - !<View> {name: AgX HDR - Graphite Matte, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Graphite Matte"}
+    - !<View> {name: AgX HDR - Graphite Matte (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Graphite Matte (CDL Shift)"}
+    - !<View> {name: AgX HDR - Graphite Matte (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Graphite Matte (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Cold Steel Neutral, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Cold Steel Neutral"}
+    - !<View> {name: AgX HDR - Carbon Black, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Carbon Black"}
+    - !<View> {name: AgX HDR - Carbon Black (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Carbon Black (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Carbon Plate, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Carbon Plate"}
+    - !<View> {name: AgX HDR - Carbon Plate (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Carbon Plate (CDL Shift)"}
+    - !<View> {name: AgX HDR - Archival Warm-Gray, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Archival Warm-Gray"}
+    - !<View> {name: AgX HDR - Archival Warm-Gray (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Archival Warm-Gray (CDL Shift)"}
+    - !<View> {name: AgX HDR - Archival Warm-Gray (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Archival Warm-Gray (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Archival Warm-Gray (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Archival Warm-Gray (CDL Stack)"}
+    - !<View> {name: AgX HDR - Archival Extreme Matte (CDL Matte Fade), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Archival Extreme Matte (CDL Matte Fade)"}
+    - !<View> {name: AgX HDR - Film Dense, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Film Dense"}
+    - !<View> {name: AgX HDR - Film Dense (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Film Dense (CDL Shift)"}
+    - !<View> {name: AgX HDR - Film Dense (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Film Dense (CDL Stack)"}
+    - !<View> {name: AgX HDR - Photochemical, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Photochemical"}
+    - !<View> {name: AgX HDR - Photochemical (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Photochemical (CDL Shift)"}
+    - !<View> {name: AgX HDR - Photochemical (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Photochemical (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Photochemical (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Photochemical (CDL Stack)"}
+    - !<View> {name: AgX HDR - Vitrine, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Vitrine"}
+    - !<View> {name: AgX HDR - Vitrine (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Vitrine (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Chemical Drift, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Chemical Drift"}
+    - !<View> {name: AgX HDR - Chemical Drift (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Chemical Drift (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Chemical Drift (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Chemical Drift (CDL Stack)"}
+    - !<View> {name: AgX HDR - Phoenix Drift, view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Phoenix Drift"}
+    - !<View> {name: AgX HDR - Phoenix Drift (CDL Shift), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Phoenix Drift (CDL Shift)"}
+    - !<View> {name: AgX HDR - Phoenix Drift (CDL Shift 2), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Phoenix Drift (CDL Shift 2)"}
+    - !<View> {name: AgX HDR - Phoenix Drift (CDL Stack), view_transform: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65), display_colorspace: Rec.2100-HLG, looks: "Phoenix Drift (CDL Stack)"}
+    - !<View> {name: AgX - SDR, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG}
+    - !<View> {name: AgX SDR - Editorial Split, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Editorial Split"}
+    - !<View> {name: AgX SDR - Editorial Split (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Editorial Split (CDL Stack)"}
+    - !<View> {name: AgX SDR - Graphite Matte, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Graphite Matte"}
+    - !<View> {name: AgX SDR - Graphite Matte (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Graphite Matte (CDL Shift)"}
+    - !<View> {name: AgX SDR - Graphite Matte (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Graphite Matte (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Cold Steel Neutral, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Cold Steel Neutral"}
+    - !<View> {name: AgX SDR - Carbon Black, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Carbon Black"}
+    - !<View> {name: AgX SDR - Carbon Black (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Carbon Black (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Carbon Plate, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Carbon Plate"}
+    - !<View> {name: AgX SDR - Carbon Plate (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Carbon Plate (CDL Shift)"}
+    - !<View> {name: AgX SDR - Archival Warm-Gray, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Archival Warm-Gray"}
+    - !<View> {name: AgX SDR - Archival Warm-Gray (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Archival Warm-Gray (CDL Shift)"}
+    - !<View> {name: AgX SDR - Archival Warm-Gray (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Archival Warm-Gray (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Archival Warm-Gray (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Archival Warm-Gray (CDL Stack)"}
+    - !<View> {name: AgX SDR - Archival Extreme Matte (CDL Matte Fade), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Archival Extreme Matte (CDL Matte Fade)"}
+    - !<View> {name: AgX SDR - Film Dense, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Film Dense"}
+    - !<View> {name: AgX SDR - Film Dense (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Film Dense (CDL Shift)"}
+    - !<View> {name: AgX SDR - Film Dense (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Film Dense (CDL Stack)"}
+    - !<View> {name: AgX SDR - Photochemical, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Photochemical"}
+    - !<View> {name: AgX SDR - Photochemical (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Photochemical (CDL Shift)"}
+    - !<View> {name: AgX SDR - Photochemical (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Photochemical (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Photochemical (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Photochemical (CDL Stack)"}
+    - !<View> {name: AgX SDR - Vitrine, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Vitrine"}
+    - !<View> {name: AgX SDR - Vitrine (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Vitrine (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Chemical Drift, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Chemical Drift"}
+    - !<View> {name: AgX SDR - Chemical Drift (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Chemical Drift (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Chemical Drift (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Chemical Drift (CDL Stack)"}
+    - !<View> {name: AgX SDR - Phoenix Drift, view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Phoenix Drift"}
+    - !<View> {name: AgX SDR - Phoenix Drift (CDL Shift), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Phoenix Drift (CDL Shift)"}
+    - !<View> {name: AgX SDR - Phoenix Drift (CDL Shift 2), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Phoenix Drift (CDL Shift 2)"}
+    - !<View> {name: AgX SDR - Phoenix Drift (CDL Stack), view_transform: AgX Base Display P3, display_colorspace: Rec.2100-HLG, looks: "Phoenix Drift (CDL Stack)"}
+active_displays: [sRGB, Display P3, Rec.1886, Rec.2020, Rec.2100-PQ, Rec.2100-HLG]
+active_views: [Un-tone-mapped, AgX, AgX - HDR 1000 nits, AgX - SDR, AgX - Editorial Split, AgX - Editorial Split (CDL Stack), AgX - Graphite Matte, AgX - Graphite Matte (CDL Shift), AgX - Graphite Matte (CDL Shift 2), AgX - Cold Steel Neutral, AgX - Carbon Black, AgX - Carbon Black (CDL Shift 2), AgX - Carbon Plate, AgX - Carbon Plate (CDL Shift), AgX - Archival Warm-Gray, AgX - Archival Warm-Gray (CDL Shift), AgX - Archival Warm-Gray (CDL Shift 2), AgX - Archival Warm-Gray (CDL Stack), AgX - Archival Extreme Matte (CDL Matte Fade), AgX - Film Dense, AgX - Film Dense (CDL Shift), AgX - Film Dense (CDL Stack), AgX - Photochemical, AgX - Photochemical (CDL Shift), AgX - Photochemical (CDL Shift 2), AgX - Photochemical (CDL Stack), AgX - Vitrine, AgX - Vitrine (CDL Shift 2), AgX - Chemical Drift, AgX - Chemical Drift (CDL Shift 2), AgX - Chemical Drift (CDL Stack), AgX - Phoenix Drift, AgX - Phoenix Drift (CDL Shift), AgX - Phoenix Drift (CDL Shift 2), AgX - Phoenix Drift (CDL Stack), AgX HDR - Editorial Split, AgX HDR - Editorial Split (CDL Stack), AgX HDR - Graphite Matte, AgX HDR - Graphite Matte (CDL Shift), AgX HDR - Graphite Matte (CDL Shift 2), AgX HDR - Cold Steel Neutral, AgX HDR - Carbon Black, AgX HDR - Carbon Black (CDL Shift 2), AgX HDR - Carbon Plate, AgX HDR - Carbon Plate (CDL Shift), AgX HDR - Archival Warm-Gray, AgX HDR - Archival Warm-Gray (CDL Shift), AgX HDR - Archival Warm-Gray (CDL Shift 2), AgX HDR - Archival Warm-Gray (CDL Stack), AgX HDR - Archival Extreme Matte (CDL Matte Fade), AgX HDR - Film Dense, AgX HDR - Film Dense (CDL Shift), AgX HDR - Film Dense (CDL Stack), AgX HDR - Photochemical, AgX HDR - Photochemical (CDL Shift), AgX HDR - Photochemical (CDL Shift 2), AgX HDR - Photochemical (CDL Stack), AgX HDR - Vitrine, AgX HDR - Vitrine (CDL Shift 2), AgX HDR - Chemical Drift, AgX HDR - Chemical Drift (CDL Shift 2), AgX HDR - Chemical Drift (CDL Stack), AgX HDR - Phoenix Drift, AgX HDR - Phoenix Drift (CDL Shift), AgX HDR - Phoenix Drift (CDL Shift 2), AgX HDR - Phoenix Drift (CDL Stack), AgX SDR - Editorial Split, AgX SDR - Editorial Split (CDL Stack), AgX SDR - Graphite Matte, AgX SDR - Graphite Matte (CDL Shift), AgX SDR - Graphite Matte (CDL Shift 2), AgX SDR - Cold Steel Neutral, AgX SDR - Carbon Black, AgX SDR - Carbon Black (CDL Shift 2), AgX SDR - Carbon Plate, AgX SDR - Carbon Plate (CDL Shift), AgX SDR - Archival Warm-Gray, AgX SDR - Archival Warm-Gray (CDL Shift), AgX SDR - Archival Warm-Gray (CDL Shift 2), AgX SDR - Archival Warm-Gray (CDL Stack), AgX SDR - Archival Extreme Matte (CDL Matte Fade), AgX SDR - Film Dense, AgX SDR - Film Dense (CDL Shift), AgX SDR - Film Dense (CDL Stack), AgX SDR - Photochemical, AgX SDR - Photochemical (CDL Shift), AgX SDR - Photochemical (CDL Shift 2), AgX SDR - Photochemical (CDL Stack), AgX SDR - Vitrine, AgX SDR - Vitrine (CDL Shift 2), AgX SDR - Chemical Drift, AgX SDR - Chemical Drift (CDL Shift 2), AgX SDR - Chemical Drift (CDL Stack), AgX SDR - Phoenix Drift, AgX SDR - Phoenix Drift (CDL Shift), AgX SDR - Phoenix Drift (CDL Shift 2), AgX SDR - Phoenix Drift (CDL Stack)]
+inactive_colorspaces: [Luminance Compensation Rec.2020]
+
+display_colorspaces:
+  - !<ColorSpace>
+    name: Linear CIE-XYZ D65
+    aliases: [lin_ciexyzd65_scene, cie_xyz_d65, CIE-XYZ-D65, XYZ, Linear CIE-XYZ I-D65]
+    family: Chromaticity
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      1931 CIE XYZ with adapted illuminant D65 white point
+    isdata: false
+    encoding: display-linear
+
+  - !<ColorSpace>
+    name: sRGB
+    aliases: [srgb, srgb8, srgb_rec709_display, srgb_rec709_scene, sRGB 2.2, sRGB I-D65, srgb_display, sRGB - Display, g22_rec709, Utility - Gamma 2.2 - Rec.709 - Texture, Utility - sRGB - Texture, sRGB - Texture, srgb_tx, srgb_texture, Input - Generic - sRGB - Texture, texture_srgb, basecolor_srgb, albedo_srgb, "sRGB Display: 2.2 Gamma - Rec.709"]
+    family: Display
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      sRGB IEC 61966-2-1 compound (piece-wise) encoding
+    isdata: false
+    from_display_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: cie_xyz_d65_interchange, dst: Linear Rec.709}
+        - !<ExponentWithLinearTransform> {gamma: 2.4, offset: 0.055, direction: inverse}
+
+  - !<ColorSpace>
+    name: Display P3
+    aliases: [srgb_p3d65_display, srgb_p3d65_scene, Display P3 2.2, Display P3 I-D65, P3-D65 - Display, p3_d65_display, p3d65_display, AppleP3 sRGB OETF]
+    family: Display
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      Apple's Display P3 with sRGB compound (piece-wise) encoding transfer function, common on Mac devices
+    isdata: false
+    from_display_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: cie_xyz_d65_interchange, dst: Linear DCI-P3 D65}
+        - !<ExponentWithLinearTransform> {gamma: 2.4, offset: 0.055, direction: inverse}
+
+  - !<ColorSpace>
+    name: Rec.1886
+    aliases: [g24_rec709_display, BT.1886, BT.1886 2.4, BT.1886 EOTF, BT.1886 I-D65, Rec.1886 / Rec.709 Video - Display, rec1886_rec709_display, rec1886_rec709_video_display, Rec.1886 Rec.709 - Display, "Rec1886: 2.4 Gamma - Rec.709"]
+    family: Display
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      BT.1886 2.4 Exponent EOTF Display, commonly used for TVs
+    isdata: false
+    from_display_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: cie_xyz_d65_interchange, dst: Linear Rec.709}
+        - !<ExponentTransform> {value: 2.4, direction: inverse}
+
+  - !<ColorSpace>
+    name: Rec.2020
+    aliases: [g24_rec2020_display, BT.2020, BT.2020 2.4, BT.2020 I-D65, Rec.1886 / Rec.2020 Video - Display, rec1886_rec2020_display, rec1886_rec2020_video_display, Rec.1886 Rec.2020 - Display, "Rec1886: 2.4 Gamma - Rec.2020"]
+    family: Display
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      BT.2020 2.4 Exponent EOTF Display
+    isdata: false
+    from_display_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: cie_xyz_d65_interchange, dst: Linear Rec.2020}
+        - !<ExponentTransform> {value: 2.4, direction: inverse}
+
+  - !<ColorSpace>
+    name: Rec.2100-PQ
+    aliases: [pq_rec2020_display, rec2100_pq_display, Rec.2100-PQ - Display]
+    family: Display
+    equalitygroup: ""
+    bitdepth: 32f
+    description: Rec.2100-PQ 10000 nits peak display with reference white at 100 nits
+    isdata: false
+    encoding: hdr-video
+    allocation: uniform
+    from_display_reference: !<GroupTransform>
+      children:
+        - !<BuiltinTransform> {style: DISPLAY - CIE-XYZ-D65_to_REC.2100-PQ}
+
+  - !<ColorSpace>
+    name: Rec.2100-HLG
+    aliases: [hlg_rec2020_display, rec2100_hlg_display, Rec.2100-HLG - Display]
+    family: Display
+    equalitygroup: ""
+    bitdepth: 32f
+    description: Rec.2100-HLG 1000 nits peak display with reference white at 100 nits
+    isdata: false
+    encoding: hdr-video
+    allocation: uniform
+    from_display_reference: !<GroupTransform>
+      children:
+        - !<BuiltinTransform> {style: DISPLAY - CIE-XYZ-D65_to_REC.2100-HLG-1000nit}
+
+  - !<ColorSpace>
+    name: AgX Base sRGB
+    family: AgX/Display
+    description: |
+      AgX Base Image Encoding for sRGB Display
+    from_display_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: cie_xyz_d65_interchange, dst: Linear FilmLight E-Gamut}
+        - !<AllocationTransform> {allocation: lg2, vars: [-12.47393, 12.5260688117]}
+        - !<FileTransform> {src: AgX_Base_sRGB.cube, interpolation: tetrahedral}
+        - !<ColorSpaceTransform> {src: Rec.1886, dst: sRGB}
+default_view_transform: Un-tone-mapped
+
+view_transforms:
+  - !<ViewTransform>
+    name: Un-tone-mapped
+    family: Un-tone-mapped
+    description: Apply only the display's standard transform without additional mappings
+    from_scene_reference: !<FileTransform> {src: xyz_E_to_D65.spimtx, interpolation: linear}
+
+  - !<ViewTransform>
+    name: AgX Base Rec.2020
+    family: AgX
+    description: |
+      AgX Base Image Encoding for BT.2020 Display
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear FilmLight E-Gamut}
+        - !<AllocationTransform> {allocation: lg2, vars: [-12.47393, 12.5260688117]}
+        - !<FileTransform> {src: AgX_Base_Rec2020.cube, interpolation: tetrahedral}
+        - !<ColorSpaceTransform> {src: Rec.2020, dst: cie_xyz_d65_interchange}
+
+  - !<ViewTransform>
+    name: AgX Base Rec.1886
+    family: AgX
+    description: |
+      AgX Base Image Encoding for sRGB and Rec.1886 Display
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear FilmLight E-Gamut}
+        - !<AllocationTransform> {allocation: lg2, vars: [-12.47393, 12.5260688117]}
+        - !<FileTransform> {src: AgX_Base_sRGB.cube, interpolation: tetrahedral}
+        - !<ColorSpaceTransform> {src: Rec.1886, dst: cie_xyz_d65_interchange}
+
+  - !<ViewTransform>
+    name: AgX Base Display P3
+    family: AgX
+    description: |
+      AgX Base Image Encoding for Display P3 Display
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear FilmLight E-Gamut}
+        - !<AllocationTransform> {allocation: lg2, vars: [-12.47393, 12.5260688117]}
+        - !<FileTransform> {src: AgX_Base_P3.cube, interpolation: tetrahedral}
+        - !<ExponentTransform> {value: 2.4}
+        - !<ColorSpaceTransform> {src: Linear DCI-P3 D65, dst: cie_xyz_d65_interchange}
+
+  - !<ViewTransform>
+    name: AgX Rec.2100-HLG - HDR 1000 nits (P3 D65)
+    family: AgX
+    description: |
+      AgX 1000 nits peak Image Encoding for BT.2100-HLG P3 limited Display. Reference white is 100nits
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear FilmLight E-Gamut}
+        - !<AllocationTransform> {allocation: lg2, vars: [-12.47393, 12.5260688117]}
+        - !<FileTransform> {src: AgX_Rec2100-HLG_p3_lim.cube, interpolation: tetrahedral}
+        - !<ColorSpaceTransform> {src: Rec.2100-HLG, dst: cie_xyz_d65_interchange}
+colorspaces:
+  - !<ColorSpace>
+    name: Linear CIE-XYZ E
+    aliases: ["FilmLight: Linear - XYZ", Linear CIE-XYZ I-E]
+    family: Chromaticity
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      1931 CIE XYZ standard with assumed illuminant E white point
+    isdata: false
+
+  - !<ColorSpace>
+    name: Linear Rec.709
+    aliases: [lin_rec709_scene, Linear, linear, Linear BT.709, Linear BT.709 I-D65, Linear Tristimulus, linrec709, Utility - Linear - sRGB, Utility - Linear - Rec.709, lin_srgb, Linear Rec.709 (sRGB), lin_rec709_srgb, lin_rec709, lin_srgb, "CGI: Linear - Rec.709"]
+    family: Linear
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      Linear BT.709 with illuminant D65 white point
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear CIE-XYZ D65}
+        - !<MatrixTransform> {matrix: [3.2409699, -1.5373832, -0.4986108, 0, -0.9692436, 1.8759675, 0.0415551, 0, 0.0556301, -0.2039770, 1.0569715, 0, 0, 0, 0, 1]}
+
+  - !<ColorSpace>
+    name: Linear DCI-P3 D65
+    aliases: [lin_p3d65_scene, Linear DCI-P3 I-D65, Linear P3-D65, lin_p3d65, Utility - Linear - P3-D65, Apple DCI-P3 D65]
+    family: Linear
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      Linear DCI-P3 with illuminant D65 white point
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear CIE-XYZ D65}
+        - !<MatrixTransform> {matrix: [2.4934969, -0.9313836, -0.4027108, 0, -0.8294890, 1.7626641, 0.0236247, 0, 0.0358458, -0.0761724, 0.9568845, 0, 0, 0, 0, 1]}
+
+  - !<ColorSpace>
+    name: Linear Rec.2020
+    aliases: [lin_rec2020_scene, Linear Rec.2020 I-D65, Linear BT.2020 I-D65, Linear BT.2020, BT.2020 Linear, Rec.2020 Linear, lin_rec2020, lin_bt2020, lin_rec2020_rendering, render_linear, Utility - Linear - Rec.2020]
+    family: Linear
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      Linear BT.2020 with illuminant D65 white point
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear CIE-XYZ D65}
+        - !<MatrixTransform> {matrix: [1.7166512, -0.3556708, -0.2533663, 0, -0.6666844, 1.6164812, 0.0157685, 0, 0.0176399, -0.0427706, 0.9421031, 0, 0, 0, 0, 1]}
+
+  - !<ColorSpace>
+    name: ACES2065-1
+    aliases: [lin_ap0_scene, lin_ap0, Linear ACES, aces2065-1, aces2065_1, aces, ACES, ACES AP0, aces_ap0, ACES - ACES2065-1, "ACES: Linear - AP0"]
+    family: ACES
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      Linear AP0 with ACES white point
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear CIE-XYZ D65}
+        - !<BuiltinTransform> {style: "UTILITY - ACES-AP0_to_CIE-XYZ-D65_BFD", direction: inverse}
+
+  - !<ColorSpace>
+    name: ACEScg
+    aliases: [acescg, aces_cg, aces-cg, lin_acescg, lin_ap1_scene, lin_ap1, Linear ACEScg, ACES AP1, aces_ap1, ACES - ACEScg, "ACEScg: Linear - AP1"]
+    family: ACES
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      Linear AP1 with ACES white point
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear CIE-XYZ D65}
+        - !<BuiltinTransform> {style: "UTILITY - ACES-AP1_to_CIE-XYZ-D65_BFD", direction: inverse}
+
+  - !<ColorSpace>
+    name: Linear FilmLight E-Gamut
+    aliases: [Linear E-Gamut I-D65, "FilmLight: Linear - E-Gamut"]
+    family: Linear
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      Linear E-Gamut with illuminant D65 white point
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ I-E, dst: Linear CIE-XYZ I-D65}
+        - !<MatrixTransform> {matrix: [1.5250528, -0.3159135, -0.1226583, 0, -0.5091526, 1.3333274, 0.1382844, 0, 0.0957153, 0.0508974, 0.7879558, 0, 0, 0, 0, 1]}
+
+  - !<ColorSpace>
+    name: Non-Color
+    aliases: [raw, Generic Data, Non-Colour Data, Raw, Utility - Raw, none]
+    family: Data
+    description: |
+        Generic data that is not color, will not apply any color transform (e.g. normal maps)
+    equalitygroup:
+    bitdepth: 32f
+    isdata: true
+
+  - !<ColorSpace>
+    name: Luminance Compensation Rec.2020
+    aliases: [Luminance Compensation BT.2020]
+    family: Utilities
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      Offset the negative values in BT.2020 and compensate for luminance, ensuring there is no negative values in Rec.2020
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear FilmLight E-Gamut}
+        - !<AllocationTransform> {allocation: lg2, vars: [-12.47393, 12.5260688117]}
+        - !<FileTransform> {src: luminance_compensation_bt2020.cube, interpolation: tetrahedral}
+        - !<AllocationTransform> {allocation: lg2, vars: [-12.47393, 12.5260688117], direction: inverse}
+        - !<ColorSpaceTransform> {src: Linear FilmLight E-Gamut, dst: Linear Rec.2020}
+
+  - !<ColorSpace>
+    name: AgX Log
+    family: AgX/Log
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      Log Encoding with Chroma inset and rotation of primaries, and with 25 Stops of Dynamic Range
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Luminance Compensation Rec.2020}
+        # Rec.2020 generated parameters rotate = [2.13976149, -1.22827335, -3.05174246], inset = [0.32965205, 0.28051336, 0.12475368]
+        - !<MatrixTransform> {matrix: [0.856627153315983, 0.0951212405381588, 0.0482516061458583, 0, 0.137318972929847, 0.761241990602591, 0.101439036467562, 0, 0.11189821299995, 0.0767994186031903, 0.811302368396859, 0, 0, 0, 0, 1]}
+        - !<AllocationTransform> {allocation: lg2, vars: [-12.47393, 12.5260688117]}
+    to_scene_reference: !<GroupTransform>
+      children:
+        - !<AllocationTransform> {allocation: lg2, vars: [-12.47393, 12.5260688117], direction: inverse}
+        - !<MatrixTransform> {matrix: [0.856627153315983, 0.0951212405381588, 0.0482516061458583, 0, 0.137318972929847, 0.761241990602591, 0.101439036467562, 0, 0.11189821299995, 0.0767994186031903, 0.811302368396859, 0, 0, 0, 0, 1], direction: inverse}
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020, direction: inverse}
+
+looks:
+  - !<Look>
+    name: Film Dense
+    process_space: AgX Log
+    description: |
+      Denser film body: thicker low-mids, deep-but-soft blacks, smooth shoulder, lower chroma.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.07}
+          saturation: 0.90
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.010, start: 0.36, width: 0.48}
+          highlights: {rgb: [1, 1, 1], master: 0.972, start: 0.30, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.988, start: 0.36, width: 0.48}
+          s_contrast: 1.02
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.40, 0.360, 1, 1]}
+  - !<Look>
+    name: Photochemical
+    process_space: AgX Log
+    description: |
+      Film-medium shaping with obvious channel crossover, softer shoulder,
+      mild print-floor contamination, and non-neutral density.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.08}
+          saturation: 0.86
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.972, start: 0.34, width: 0.52}
+          highlights: {rgb: [1, 1, 1], master: 0.962, start: 0.27, pivot: 0.87}
+          whites:     {rgb: [1, 1, 1], master: 0.982, start: 0.34, width: 0.52}
+          s_contrast: 1.00
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.20, 0.193, 0.72, 0.748, 1, 0.995]}
+          green: {control_points: [0, 0, 0.20, 0.202, 0.72, 0.718, 1, 0.997]}
+          blue:  {control_points: [0, 0, 0.20, 0.212, 0.72, 0.688, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.010, 1.000, 0.988], offset: [0.0015, 0.0005, 0.0025], power: [0.986, 1.000, 1.020], sat: 0.94}
+  - !<Look>
+    name: Archival Warm-Gray
+    process_space: AgX Log
+    description: |
+      Warm-gray archival: lowest chroma, airy floor, paper/scan feel without sepia.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 0.98}
+          saturation: 0.84
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.920, start: 0.32, width: 0.50}
+          highlights: {rgb: [1, 1, 1], master: 0.968, start: 0.27, pivot: 0.88}
+          whites: {rgb: [1, 1, 1], master: 0.984, start: 0.34, width: 0.50}
+          s_contrast: 0.98
+        - !<GradingRGBCurveTransform>
+          style: log
+          red: {control_points: [0, 0, 0.30, 0.302, 1, 1]}
+          blue: {control_points: [0, 0, 0.30, 0.298, 1, 1]}
+  # Archival Dense — more body but still lifted + muted.
+  - !<Look>
+    name: Carbon Plate
+    process_space: AgX Log
+    description: |
+      Dark editorial print body: velvet blacks, compressed mids, restrained chroma, soft highlight rolloff.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.10}
+          saturation: 0.82
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.010, start: 0.33, width: 0.43}
+          highlights: {rgb: [1, 1, 1], master: 0.988, start: 0.27, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.995, start: 0.33, width: 0.43}
+          s_contrast: 1.02
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.45, 0.395, 1, 1]}
+  - !<Look>
+    name: Carbon Black
+    process_space: AgX Log
+    description: |
+      Near-black object-photo rendering with a preserved low-mid read band and restrained chroma.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.13}
+          saturation: 0.58
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.030, start: 0.32, width: 0.40}
+          highlights: {rgb: [1, 1, 1], master: 0.985, start: 0.27, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.992, start: 0.32, width: 0.40}
+          s_contrast: 1.03
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.10, 0.055, 0.22, 0.185, 1, 1]}
+  - !<Look>
+    name: Cold Steel Neutral
+    process_space: AgX Log
+    description: |
+      Neutral-clean highlights with subtle cool steel bias confined to shadows.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.04}
+          saturation: 0.86
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.44}
+          highlights: {rgb: [1, 1, 1], master: 0.992, start: 0.27, pivot: 0.91}
+          whites: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.44}
+          s_contrast: 1.00
+        - !<GradingRGBCurveTransform>
+          style: log
+          red: {control_points: [0, 0, 0.28, 0.276, 1, 1]}
+          blue: {control_points: [0, 0, 0.28, 0.284, 1, 1]}
+          green: {control_points: [0, 0, 0.28, 0.281, 1, 1]}
+  - !<Look>
+    name: Vitrine
+    process_space: AgX Log
+    description: |
+      Institutional display-case white: hostile clean field, compressed paper whites,
+      heavier subject body, and reduced chroma with forensic clarity.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.74
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 1.020, start: 0.32, width: 0.40}
+          highlights: {rgb: [1, 1, 1], master: 0.962, start: 0.24, pivot: 0.94}
+          whites:     {rgb: [1, 1, 1], master: 1.008, start: 0.32, width: 0.40}
+          s_contrast: 0.98
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.68, 0.668, 0.86, 0.840, 1, 0.984]}
+          red:    {control_points: [0, 0, 0.82, 0.818, 1, 0.995]}
+          blue:   {control_points: [0, 0, 0.82, 0.826, 1, 1]}
+        - !<CDLTransform>
+          {slope: [0.998, 1.000, 1.006], offset: [0.0005, 0.0005, 0.0010], power: [1.014, 1.014, 1.018], sat: 0.92}
+  - !<Look>
+    name: Chemical Drift
+    process_space: AgX Log
+    description: |
+      Broken photochemical drift: dirty yellow-green lows, weak cyan-blue whites,
+      compressed shoulder, and visibly unstable dye behavior.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.78
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.945, start: 0.33, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.952, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.54}
+          s_contrast: 0.98
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.16, 0.182, 0.68, 0.690, 1, 0.986]}
+          green: {control_points: [0, 0, 0.16, 0.176, 0.68, 0.708, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.158, 0.68, 0.732, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
+  - !<Look>
+    name: Phoenix Drift
+    process_space: AgX Log
+    description: |
+      Distinct broken-film print feel: hot yellow-red highs, cyan-blue shadow pollution,
+      weak neutrality, contaminated floor, and obvious medium character.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.03}
+          saturation: 0.88
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.948, start: 0.34, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.958, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.974, start: 0.34, width: 0.54}
+          s_contrast: 0.99
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.16, 0.170, 0.70, 0.724, 1, 1]}
+          green: {control_points: [0, 0, 0.16, 0.168, 0.70, 0.706, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.150, 0.70, 0.742, 1, 0.984]}
+        - !<CDLTransform>
+          {slope: [1.026, 1.006, 0.964], offset: [0.0040, 0.0020, 0.0060], power: [1.018, 0.996, 0.956], sat: 0.96}
+  - !<Look>
+    name: Editorial Split
+    process_space: AgX Log
+    description: |
+      Editorial warm-high / cool-low split with restrained magnitude.
+      Keeps highlight warmth (reds stay hot) while giving shadows a steel undertone.
+      Not teal/orange; designed for premium editorial separation.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.06}
+          saturation: 0.92
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 1.006, start: 0.33, width: 0.44}
+          highlights: {rgb: [1, 1, 1], master: 0.992, start: 0.27, pivot: 0.91}
+          whites:     {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.44}
+          s_contrast: 1.01
+        - !<GradingRGBCurveTransform>
+          style: log
+          red: {control_points: [0, 0, 0.28, 0.275, 1, 1]}
+          blue: {control_points: [0, 0, 0.28, 0.285, 1, 1]}
+          green: {control_points: [0, 0, 0.28, 0.281, 1, 1]}
+        - !<GradingRGBCurveTransform>
+          style: log
+          red: {control_points: [0, 0, 0.78, 0.784, 1, 1]}
+          blue: {control_points: [0, 0, 0.78, 0.776, 1, 1]}
+  - !<Look>
+    name: Editorial Split (CDL Stack)
+    process_space: AgX Log
+    description: |
+      Editorial Split with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Editorial Split"}
+  - !<Look>
+    name: Archival Warm-Gray (CDL Stack)
+    process_space: AgX Log
+    description: |
+      Archival Warm-Gray with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Archival Warm-Gray"}
+  - !<Look>
+    name: Film Dense (CDL Stack)
+    process_space: AgX Log
+    description: |
+      Film Dense with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Film Dense"}
+  - !<Look>
+    name: Photochemical (CDL Stack)
+    process_space: AgX Log
+    description: |
+      Photochemical with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Photochemical"}
+  - !<Look>
+    name: Chemical Drift (CDL Stack)
+    process_space: AgX Log
+    description: |
+      Chemical Drift with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Chemical Drift"}
+  - !<Look>
+    name: Phoenix Drift (CDL Stack)
+    process_space: AgX Log
+    description: |
+      Phoenix Drift with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Phoenix Drift"}
+  - !<Look>
+    name: Graphite Matte (CDL Shift)
+    process_space: AgX Log
+    description: |
+      Graphite Matte with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Graphite Matte"}
+  - !<Look>
+    name: Carbon Plate (CDL Shift)
+    process_space: AgX Log
+    description: |
+      Carbon Plate with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Carbon Plate"}
+  - !<Look>
+    name: Archival Warm-Gray (CDL Shift)
+    process_space: AgX Log
+    description: |
+      Archival Warm-Gray with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Archival Warm-Gray"}
+  - !<Look>
+    name: Film Dense (CDL Shift)
+    process_space: AgX Log
+    description: |
+      Film Dense with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Film Dense"}
+  - !<Look>
+    name: Photochemical (CDL Shift)
+    process_space: AgX Log
+    description: |
+      Photochemical with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Photochemical"}
+  - !<Look>
+    name: Phoenix Drift (CDL Shift)
+    process_space: AgX Log
+    description: |
+      Phoenix Drift with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Phoenix Drift"}
+  - !<Look>
+    name: Graphite Matte (CDL Shift 2)
+    process_space: AgX Log
+    description: |
+      Graphite Matte with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Graphite Matte"}
+  - !<Look>
+    name: Carbon Black (CDL Shift 2)
+    process_space: AgX Log
+    description: |
+      Carbon Black with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Carbon Black"}
+  - !<Look>
+    name: Archival Warm-Gray (CDL Shift 2)
+    process_space: AgX Log
+    description: |
+      Archival Warm-Gray with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Archival Warm-Gray"}
+  - !<Look>
+    name: Photochemical (CDL Shift 2)
+    process_space: AgX Log
+    description: |
+      Photochemical with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Photochemical"}
+  - !<Look>
+    name: Vitrine (CDL Shift 2)
+    process_space: AgX Log
+    description: |
+      Vitrine with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Vitrine"}
+  - !<Look>
+    name: Chemical Drift (CDL Shift 2)
+    process_space: AgX Log
+    description: |
+      Chemical Drift with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Chemical Drift"}
+  - !<Look>
+    name: Phoenix Drift (CDL Shift 2)
+    process_space: AgX Log
+    description: |
+      Phoenix Drift with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: AgX Log, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: AgX Log}
+        - !<LookTransform> {src: AgX Log, dst: AgX Log, looks: "Phoenix Drift"}
+  - !<Look>
+    name: Graphite Matte
+    process_space: AgX Log
+    description: |
+      Dry matte-chalk rendering with preserved crisp specular edges.
+      Powdery, mineral, desaturated, and materially dry.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 0.99}
+          saturation: 0.66
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.920, start: 0.33, width: 0.50}
+          highlights: {rgb: [1, 1, 1], master: 0.972, start: 0.27, pivot: 0.89}
+          whites: {rgb: [1, 1, 1], master: 0.986, start: 0.33, width: 0.50}
+          s_contrast: 0.99
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.40, 0.390, 0.78, 0.784, 1, 1]}
+        - !<CDLTransform> {slope: [1.000, 1.000, 1.000], offset: [0.0025, 0.0025, 0.0025], power: [1.015, 1.015, 1.015], sat: 0.93}
+  - !<Look>
+    name: Archival Extreme Matte (CDL Matte Fade)
+    process_space: AgX Log
+    description: |
+      Extreme matte archival: strong lifted blacks, very low chroma, soft shoulder, scan-heavy feel.
+      CDL preset: Matte Fade.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 0.95}
+          saturation: 0.80
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.900, start: 0.32, width: 0.50}
+          highlights: {rgb: [1, 1, 1], master: 0.960, start: 0.27, pivot: 0.88}
+          whites: {rgb: [1, 1, 1], master: 0.975, start: 0.34, width: 0.50}
+          s_contrast: 0.97
+        - !<CDLTransform> {slope: [1.00, 1.00, 1.00], offset: [0.004, 0.004, 0.004], power: [1.02, 1.02, 1.02], sat: 0.95}

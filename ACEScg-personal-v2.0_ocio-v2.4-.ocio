@@ -1,0 +1,1713 @@
+ocio_profile_version: 2.4
+environment:
+  {}
+search_path: ""
+strictparsing: true
+luma: [0.2126, 0.7152, 0.0722]
+name: cg-config-v3.0.0_aces-v2.0_ocio-v2.4
+description: |
+  Academy Color Encoding System - CG Config [COLORSPACES v3.0.0] [ACES v2.0] [OCIO v2.4]
+  --------------------------------------------------------------------------------------
+  This minimalistic "OpenColorIO" config is geared toward computer graphics artists requiring a lean config that does not include camera colorspaces and the less common displays and looks.
+roles:
+  aces_interchange: ACES2065-1
+  cie_xyz_d65_interchange: CIE XYZ-D65 - Display-referred
+  color_picking: sRGB - Texture
+  color_timing: ACEScct
+  compositing_log: ACEScct
+  data: Raw
+  default: ACEScg
+  matte_paint: ACEScct
+  reference: ACEScg
+  scene_linear: ACEScg
+  texture_paint: sRGB - Texture
+file_rules:
+  - !<Rule> {name: srgb_tx, colorspace: sRGB - Texture, pattern: "*srgb_tx*", extension: "*"}
+  - !<Rule> {name: srgb_texture, colorspace: sRGB - Texture, pattern: "*srgb_texture*", extension: "*"}
+  - !<Rule> {name: acescg, colorspace: ACEScg, pattern: "*ACEScg*", extension: "*"}
+  - !<Rule> {name: lin_rec709, colorspace: Linear Rec.709 (sRGB), pattern: "*lin_rec709*", extension: "*"}
+  - !<Rule> {name: lin_srgb, colorspace: Linear Rec.709 (sRGB), pattern: "*lin_srgb*", extension: "*"}
+  - !<Rule> {name: __usdz_jpg, colorspace: sRGB - Texture, regex: ".[uu][ss][dd][zz]\\[.*[jj][pp][gg]\\]"}
+  - !<Rule> {name: __usdz_jpeg, colorspace: sRGB - Texture, regex: ".[uu][ss][dd][zz]\\[.*[jj][pp][ee][gg]\\]"}
+  - !<Rule> {name: __usdz_png, colorspace: sRGB - Texture, regex: ".[uu][ss][dd][zz]\\[.*[pp][nn][gg]\\]"}
+  - !<Rule> {name: __usdz_tif, colorspace: sRGB - Texture, regex: ".[uu][ss][dd][zz]\\[.*[tt][ii][ff]\\]"}
+  - !<Rule> {name: __usdz_tiff, colorspace: sRGB - Texture, regex: ".[uu][ss][dd][zz]\\[.*[tt][ii][ff][ff]\\]"}
+  - !<Rule> {name: __usdz_exr, colorspace: ACEScg, regex: ".[uu][ss][dd][zz]\\[.*[ee][xx][rr]\\]"}
+  - !<Rule> {name: jpg,  colorspace: sRGB - Texture, pattern: "*", extension: jpg}
+  - !<Rule> {name: jpeg, colorspace: sRGB - Texture, pattern: "*", extension: jpeg}
+  - !<Rule> {name: png,  colorspace: sRGB - Texture, pattern: "*", extension: png}
+  - !<Rule> {name: tif,  colorspace: sRGB - Texture, pattern: "*", extension: tif}
+  - !<Rule> {name: tiff, colorspace: sRGB - Texture, pattern: "*", extension: tiff}
+  - !<Rule> {name: exr,  colorspace: ACEScg, pattern: "*", extension: exr}
+  - !<Rule> {name: Default, colorspace: ACEScg}
+shared_views:
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense, view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Film Dense"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Film Dense (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Film Dense (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical, view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Photochemical"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Photochemical (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Photochemical (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Photochemical (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Vitrine, view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Vitrine"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Vitrine (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Vitrine (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift, view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Chemical Drift"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Chemical Drift (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Chemical Drift (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift, view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Phoenix Drift"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Phoenix Drift (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Phoenix Drift (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Phoenix Drift (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray, view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Archival Warm-Gray"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Archival Warm-Gray (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Archival Warm-Gray (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Archival Warm-Gray (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Plate, view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Carbon Plate"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Plate (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Carbon Plate (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Black, view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Carbon Black"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Black (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Carbon Black (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Cold Steel Neutral, view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Cold Steel Neutral"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Editorial Split, view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Editorial Split"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Editorial Split (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Editorial Split (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte, view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Graphite Matte"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Graphite Matte (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Graphite Matte (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (Rec.709) - Archival Extreme Matte (CDL Matte Fade), view_transform: ACES 2.0 - SDR 100 nits (Rec.709), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Archival Extreme Matte (CDL Matte Fade)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense, view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Film Dense"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Film Dense (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Film Dense (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical, view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Photochemical"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Photochemical (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Photochemical (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Photochemical (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Vitrine, view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Vitrine"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Vitrine (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Vitrine (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift, view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Chemical Drift"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Chemical Drift (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Chemical Drift (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift, view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Phoenix Drift"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Phoenix Drift (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Phoenix Drift (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Phoenix Drift (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray, view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Archival Warm-Gray"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Archival Warm-Gray (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Archival Warm-Gray (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Archival Warm-Gray (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Plate, view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Carbon Plate"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Plate (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Carbon Plate (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Black, view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Carbon Black"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Black (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Carbon Black (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Cold Steel Neutral, view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Cold Steel Neutral"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Editorial Split, view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Editorial Split"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Editorial Split (CDL Stack), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Editorial Split (CDL Stack)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte, view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Graphite Matte"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte (CDL Shift), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Graphite Matte (CDL Shift)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte (CDL Shift 2), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Graphite Matte (CDL Shift 2)"}
+  - !<View> {name: ACES 2.0 - SDR 100 nits (P3 D65) - Archival Extreme Matte (CDL Matte Fade), view_transform: ACES 2.0 - SDR 100 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>, looks: "ACES 1.3 Reference Gamut Compression, Archival Extreme Matte (CDL Matte Fade)"}
+  - !<View> {name: ACES 2.0 - HDR 1000 nits (P3 D65), view_transform: ACES 2.0 - HDR 1000 nits (P3 D65), display_colorspace: <USE_DISPLAY_NAME>}
+  - !<View> {name: ACES 2.0 - HDR 1000 nits (Rec.2020), view_transform: ACES 2.0 - HDR 1000 nits (Rec.2020), display_colorspace: <USE_DISPLAY_NAME>}
+displays:
+  sRGB - Display:
+    - !<View> {name: Raw, colorspace: Raw}
+    - !<Views> [ACES 2.0 - SDR 100 nits (Rec.709), ACES 2.0 - SDR 100 nits (Rec.709) - Editorial Split, ACES 2.0 - SDR 100 nits (Rec.709) - Editorial Split (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte, ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Cold Steel Neutral, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Black, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Black (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Plate, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Plate (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray, ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Extreme Matte (CDL Matte Fade), ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense, ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical, ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Vitrine, ACES 2.0 - SDR 100 nits (Rec.709) - Vitrine (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift, ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift, ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Stack)]
+  Display P3 - Display:
+    - !<View> {name: Raw, colorspace: Raw}
+    - !<Views> [ACES 2.0 - SDR 100 nits (P3 D65), ACES 2.0 - SDR 100 nits (P3 D65) - Editorial Split, ACES 2.0 - SDR 100 nits (P3 D65) - Editorial Split (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte, ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Cold Steel Neutral, ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Black, ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Black (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Plate, ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Plate (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray, ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Extreme Matte (CDL Matte Fade), ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense, ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical, ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Vitrine, ACES 2.0 - SDR 100 nits (P3 D65) - Vitrine (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift, ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift, ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Stack)]
+  Display P3 HDR - Display:
+    - !<View> {name: Raw, colorspace: Raw}
+    - !<Views> [ACES 2.0 - HDR 1000 nits (P3 D65), ACES 2.0 - SDR 100 nits (Rec.709)]
+  P3-D65 - Display:
+    - !<View> {name: Raw, colorspace: Raw}
+    - !<Views> [ACES 2.0 - SDR 100 nits (P3 D65), ACES 2.0 - SDR 100 nits (Rec.709), ACES 2.0 - SDR 100 nits (P3 D65) - Editorial Split, ACES 2.0 - SDR 100 nits (P3 D65) - Editorial Split (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte, ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Cold Steel Neutral, ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Black, ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Black (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Plate, ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Plate (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray, ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Extreme Matte (CDL Matte Fade), ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense, ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical, ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Vitrine, ACES 2.0 - SDR 100 nits (P3 D65) - Vitrine (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift, ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift, ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Editorial Split, ACES 2.0 - SDR 100 nits (Rec.709) - Editorial Split (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte, ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Cold Steel Neutral, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Black, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Black (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Plate, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Plate (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray, ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Extreme Matte (CDL Matte Fade), ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense, ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical, ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Vitrine, ACES 2.0 - SDR 100 nits (Rec.709) - Vitrine (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift, ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift, ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Stack)]
+  Rec.1886 Rec.709 - Display:
+    - !<View> {name: Raw, colorspace: Raw}
+    - !<Views> [ACES 2.0 - SDR 100 nits (Rec.709), ACES 2.0 - SDR 100 nits (Rec.709) - Editorial Split, ACES 2.0 - SDR 100 nits (Rec.709) - Editorial Split (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte, ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Cold Steel Neutral, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Black, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Black (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Plate, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Plate (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray, ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Extreme Matte (CDL Matte Fade), ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense, ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical, ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Vitrine, ACES 2.0 - SDR 100 nits (Rec.709) - Vitrine (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift, ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift, ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Stack)]
+  Rec.2100-PQ - Display:
+    - !<View> {name: Raw, colorspace: Raw}
+    - !<Views> [ACES 2.0 - HDR 1000 nits (P3 D65), ACES 2.0 - HDR 1000 nits (Rec.2020), ACES 2.0 - SDR 100 nits (Rec.709)]
+  ST2084-P3-D65 - Display:
+    - !<View> {name: Raw, colorspace: Raw}
+    - !<Views> [ACES 2.0 - HDR 1000 nits (P3 D65), ACES 2.0 - SDR 100 nits (Rec.709)]
+active_displays: [sRGB - Display, Display P3 - Display, Rec.1886 Rec.709 - Display]
+active_views: [ACES 2.0 - SDR 100 nits (P3 D65), ACES 2.0 - SDR 100 nits (Rec.709), ACES 2.0 - SDR 100 nits (Rec.709) - Editorial Split, ACES 2.0 - SDR 100 nits (Rec.709) - Editorial Split (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte, ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Graphite Matte (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Cold Steel Neutral, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Black, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Black (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Plate, ACES 2.0 - SDR 100 nits (Rec.709) - Carbon Plate (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray, ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Warm-Gray (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Archival Extreme Matte (CDL Matte Fade), ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense, ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Film Dense (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical, ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Photochemical (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Vitrine, ACES 2.0 - SDR 100 nits (Rec.709) - Vitrine (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift, ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Chemical Drift (CDL Stack), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift, ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Shift), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (Rec.709) - Phoenix Drift (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Editorial Split, ACES 2.0 - SDR 100 nits (P3 D65) - Editorial Split (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte, ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Graphite Matte (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Cold Steel Neutral, ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Black, ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Black (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Plate, ACES 2.0 - SDR 100 nits (P3 D65) - Carbon Plate (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray, ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Warm-Gray (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Archival Extreme Matte (CDL Matte Fade), ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense, ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Film Dense (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical, ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Photochemical (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Vitrine, ACES 2.0 - SDR 100 nits (P3 D65) - Vitrine (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift, ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Chemical Drift (CDL Stack), ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift, ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Shift), ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Shift 2), ACES 2.0 - SDR 100 nits (P3 D65) - Phoenix Drift (CDL Stack), Raw]
+inactive_colorspaces: [CIE XYZ-D65 - Display-referred, CIE XYZ-D65 - Scene-referred]
+looks:
+  - !<Look>
+    name: ACES 1.3 Reference Gamut Compression
+    process_space: ACES2065-1
+    description: |
+      LMT (applied in ACES2065-1) to compress scene-referred values from common cameras into the AP1 gamut
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Look.Academy.ReferenceGamutCompress.a2.v1
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvLook.Academy.ReferenceGamutCompress.a2.v1
+    transform: !<BuiltinTransform> {style: ACES-LMT - ACES 1.3 Reference Gamut Compression}
+  # Film Soft — printy, gentle, visibly different from Editorial Neutral.
+  - !<Look>
+    name: Film Soft
+    process_space: ACEScct
+    description: |
+      Gentle print-like base: lifted shadows, very soft shoulder, restrained chroma.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.02}
+          saturation: 0.93
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.965, start: 0.36, width: 0.48}
+          highlights: {rgb: [1, 1, 1], master: 0.972, start: 0.30, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.995, start: 0.36, width: 0.48}
+          s_contrast: 1.00
+  # Film Neutral — your everyday film baseline, not too “matte”.
+  - !<Look>
+    name: Film Neutral
+    process_space: ACEScct
+    description: |
+      Film baseline: clean mids, gentle shoulder, mild sat restraint.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.05}
+          saturation: 0.95
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.995, start: 0.36, width: 0.48}
+          highlights: {rgb: [1, 1, 1], master: 0.980, start: 0.30, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.992, start: 0.36, width: 0.48}
+          s_contrast: 1.01
+  # Film Dense — less “contrast crank”, more body via tone + subtle curve.
+  - !<Look>
+    name: Film Dense
+    process_space: ACEScct
+    description: |
+      Denser film body: thicker low-mids, deep-but-soft blacks, smooth shoulder, lower chroma.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.07}
+          saturation: 0.90
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.010, start: 0.36, width: 0.48}
+          highlights: {rgb: [1, 1, 1], master: 0.972, start: 0.30, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.988, start: 0.36, width: 0.48}
+          s_contrast: 1.02
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.40, 0.360, 1, 1]}
+  - !<Look>
+    name: Photochemical
+    process_space: ACEScct
+    description: |
+      Film-medium shaping with obvious channel crossover, softer shoulder,
+      mild print-floor contamination, and non-neutral density.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.08}
+          saturation: 0.86
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.972, start: 0.34, width: 0.52}
+          highlights: {rgb: [1, 1, 1], master: 0.962, start: 0.27, pivot: 0.87}
+          whites:     {rgb: [1, 1, 1], master: 0.982, start: 0.34, width: 0.52}
+          s_contrast: 1.00
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.20, 0.193, 0.72, 0.748, 1, 0.995]}
+          green: {control_points: [0, 0, 0.20, 0.202, 0.72, 0.718, 1, 0.997]}
+          blue:  {control_points: [0, 0, 0.20, 0.212, 0.72, 0.688, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.010, 1.000, 0.988], offset: [0.0015, 0.0005, 0.0025], power: [0.986, 1.000, 1.020], sat: 0.94}
+  - !<Look>
+    name: Photochemical (CDL Reactivated)
+    process_space: ACEScct
+    description: |
+      Photochemical with an ACEScg-linear CDL pre-pass before the ACEScct shaping stack.
+      Preserves medium crossover while matching your node-order behavior.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform>
+          {slope: [0.62, 0.62, 0.62], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<CDLTransform>
+          {slope: [0.86, 0.92, 0.92], offset: [0.014, -0.0055, 0.008], power: [1.1, 1.0, 1.06], sat: 1.42}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.08}
+          saturation: 0.86
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.972, start: 0.34, width: 0.52}
+          highlights: {rgb: [1, 1, 1], master: 0.962, start: 0.27, pivot: 0.87}
+          whites:     {rgb: [1, 1, 1], master: 0.982, start: 0.34, width: 0.52}
+          s_contrast: 1.00
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.20, 0.193, 0.72, 0.748, 1, 0.995]}
+          green: {control_points: [0, 0, 0.20, 0.202, 0.72, 0.718, 1, 0.997]}
+          blue:  {control_points: [0, 0, 0.20, 0.212, 0.72, 0.688, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.010, 1.000, 0.988], offset: [0.0015, 0.0005, 0.0025], power: [0.986, 1.000, 1.020], sat: 0.94}
+  # Film Cool — reduce channel curve delta; bias lives lower only.
+  - !<Look>
+    name: Film Cool
+    process_space: ACEScct
+    description: |
+      Film baseline with subtle cool bias concentrated in shadows/lower-mids (no teal/orange).
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.06}
+          saturation: 0.93
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.995, start: 0.36, width: 0.48}
+          highlights: {rgb: [1, 1, 1], master: 0.980, start: 0.30, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.992, start: 0.36, width: 0.48}
+          s_contrast: 1.01
+        - !<GradingRGBCurveTransform>
+          style: log
+          red: {control_points: [0, 0, 0.32, 0.318, 1, 1]}
+          blue: {control_points: [0, 0, 0.32, 0.326, 1, 1]}
+  # NEW: Film Flat Base — “do nothing but safe shaping” for grading later.
+  - !<Look>
+    name: Film Flat Base
+    process_space: ACEScct
+    description: |
+      Flat, grade-friendly base: minimal contrast, very gentle shoulder, mild sat restraint.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.96
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.995, start: 0.36, width: 0.48}
+          highlights: {rgb: [1, 1, 1], master: 0.985, start: 0.30, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.997, start: 0.36, width: 0.48}
+          s_contrast: 1.00
+  # Editorial Clean — keep premium; avoid “HDR snap”.
+  - !<Look>
+    name: Editorial Clean
+    process_space: ACEScct
+    description: |
+      Premium editorial: crisp but not crunchy, neutral whites, restrained chroma.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.08}
+          saturation: 0.95
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.005, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.992, start: 0.26, pivot: 0.92}
+          whites: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.42}
+          s_contrast: 1.02
+  # Editorial Neutral — separate from Film Soft: cleaner toe, firmer blacks, less “print lift”.
+  - !<Look>
+    name: Editorial Neutral
+    process_space: ACEScct
+    description: |
+      Clean-neutral editorial base: firmer blacks than film, flatter than Clean, grade-friendly.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.03}
+          saturation: 0.95
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.004, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.995, start: 0.26, pivot: 0.92}
+          whites: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.42}
+          s_contrast: 1.00
+  # Editorial Punch — stop relying on huge contrast; add body curve instead.
+  - !<Look>
+    name: Editorial Punch
+    process_space: ACEScct
+    description: |
+      Strongest editorial density: clean, readable, no crunchy blacks; body comes from tone + curve.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.09}
+          saturation: 0.95
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.012, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.995, start: 0.26, pivot: 0.92}
+          whites: {rgb: [1, 1, 1], master: 1.002, start: 0.33, width: 0.42}
+          s_contrast: 1.03
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.42, 0.378, 1, 1]}
+  # Editorial Matte — reduce excessive lift; keep it premium.
+  - !<Look>
+    name: Editorial Matte
+    process_space: ACEScct
+    description: |
+      Matte editorial: lifted toe, restrained chroma, still premium (not washed).
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.05}
+          saturation: 0.92
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.990, start: 0.26, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.998, start: 0.33, width: 0.42}
+          s_contrast: 1.01
+  # NEW: Editorial HiKey — for the white/clean fashion refs, but still restrained.
+  - !<Look>
+    name: Editorial HiKey
+    process_space: ACEScct
+    description: |
+      Hi-key editorial: brighter mids/whites, clean rolloff, restrained chroma, no harsh snap.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          brightness: {rgb: [0, 0, 0], master: 0.03}
+          contrast: {rgb: [1, 1, 1], master: 1.03}
+          saturation: 0.94
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.995, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.990, start: 0.26, pivot: 0.92}
+          whites: {rgb: [1, 1, 1], master: 1.010, start: 0.33, width: 0.42}
+          s_contrast: 1.00
+  # Archival Soft — airy, muted, scanned.
+  - !<Look>
+    name: Archival Soft
+    process_space: ACEScct
+    description: |
+      Airy archival base: lifted blacks, soft contrast, muted saturation, scan-like.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 0.99}
+          saturation: 0.88
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.925, start: 0.32, width: 0.50}
+          highlights: {rgb: [1, 1, 1], master: 0.965, start: 0.27, pivot: 0.88}
+          whites: {rgb: [1, 1, 1], master: 0.988, start: 0.34, width: 0.50}
+          s_contrast: 0.99
+  # Archival Warm-Gray — avoid sepia: keep bias subtle, let desat do the work.
+  - !<Look>
+    name: Archival Warm-Gray
+    process_space: ACEScct
+    description: |
+      Warm-gray archival: lowest chroma, airy floor, paper/scan feel without sepia.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 0.98}
+          saturation: 0.84
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.920, start: 0.32, width: 0.50}
+          highlights: {rgb: [1, 1, 1], master: 0.968, start: 0.27, pivot: 0.88}
+          whites: {rgb: [1, 1, 1], master: 0.984, start: 0.34, width: 0.50}
+          s_contrast: 0.98
+        - !<GradingRGBCurveTransform>
+          style: log
+          red: {control_points: [0, 0, 0.30, 0.302, 1, 1]}
+          blue: {control_points: [0, 0, 0.30, 0.298, 1, 1]}
+  # Archival Dense — more body but still lifted + muted.
+  - !<Look>
+    name: Archival Dense
+    process_space: ACEScct
+    description: |
+      Denser archival: more body than Soft, still lifted blacks and muted color.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.02}
+          saturation: 0.86
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.950, start: 0.32, width: 0.50}
+          highlights: {rgb: [1, 1, 1], master: 0.972, start: 0.27, pivot: 0.88}
+          whites: {rgb: [1, 1, 1], master: 0.988, start: 0.34, width: 0.50}
+          s_contrast: 1.00
+  # NEW: Archival Extreme Matte — for “hard” matte scan vibe.
+  - !<Look>
+    name: Archival Extreme Matte
+    process_space: ACEScct
+    description: |
+      Extreme matte archival: strong lifted blacks, very low chroma, soft shoulder, scan-heavy feel.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 0.95}
+          saturation: 0.80
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.900, start: 0.32, width: 0.50}
+          highlights: {rgb: [1, 1, 1], master: 0.960, start: 0.27, pivot: 0.88}
+          whites: {rgb: [1, 1, 1], master: 0.975, start: 0.34, width: 0.50}
+          s_contrast: 0.97
+  - !<Look>
+    name: Carbon Plate
+    process_space: ACEScct
+    description: |
+      Dark editorial print body: velvet blacks, compressed mids, restrained chroma, soft highlight rolloff.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.10}
+          saturation: 0.82
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.010, start: 0.33, width: 0.43}
+          highlights: {rgb: [1, 1, 1], master: 0.988, start: 0.27, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.995, start: 0.33, width: 0.43}
+          s_contrast: 1.02
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.45, 0.395, 1, 1]}
+  - !<Look>
+    name: Carbon Black
+    process_space: ACEScct
+    description: |
+      Near-black object-photo rendering with a preserved low-mid read band and restrained chroma.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.13}
+          saturation: 0.58
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.030, start: 0.32, width: 0.40}
+          highlights: {rgb: [1, 1, 1], master: 0.985, start: 0.27, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.992, start: 0.32, width: 0.40}
+          s_contrast: 1.03
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.10, 0.055, 0.22, 0.185, 1, 1]}
+  - !<Look>
+    name: Cold Steel Neutral
+    process_space: ACEScct
+    description: |
+      Neutral-clean highlights with subtle cool steel bias confined to shadows.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.04}
+          saturation: 0.86
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.44}
+          highlights: {rgb: [1, 1, 1], master: 0.992, start: 0.27, pivot: 0.91}
+          whites: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.44}
+          s_contrast: 1.00
+        - !<GradingRGBCurveTransform>
+          style: log
+          red: {control_points: [0, 0, 0.28, 0.276, 1, 1]}
+          blue: {control_points: [0, 0, 0.28, 0.284, 1, 1]}
+          green: {control_points: [0, 0, 0.28, 0.281, 1, 1]}
+  - !<Look>
+    name: Vitrine
+    process_space: ACEScct
+    description: |
+      Institutional display-case white: hostile clean field, compressed paper whites,
+      heavier subject body, and reduced chroma with forensic clarity.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.74
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 1.020, start: 0.32, width: 0.40}
+          highlights: {rgb: [1, 1, 1], master: 0.962, start: 0.24, pivot: 0.94}
+          whites:     {rgb: [1, 1, 1], master: 1.008, start: 0.32, width: 0.40}
+          s_contrast: 0.98
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.68, 0.668, 0.86, 0.840, 1, 0.984]}
+          red:    {control_points: [0, 0, 0.82, 0.818, 1, 0.995]}
+          blue:   {control_points: [0, 0, 0.82, 0.826, 1, 1]}
+        - !<CDLTransform>
+          {slope: [0.998, 1.000, 1.006], offset: [0.0005, 0.0005, 0.0010], power: [1.014, 1.014, 1.018], sat: 0.92}
+  - !<Look>
+    name: Museum Varnish
+    process_space: ACEScct
+    description: |
+      Lacquered editorial object-photo rendering: polished highs, dense low-mids,
+      ambered specular warmth, and compressed glossy separation.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.10}
+          saturation: 0.82
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 1.008, start: 0.33, width: 0.40}
+          highlights: {rgb: [1, 1, 1], master: 0.968, start: 0.29, pivot: 0.94}
+          whites:     {rgb: [1, 1, 1], master: 0.988, start: 0.33, width: 0.40}
+          s_contrast: 1.03
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:    {control_points: [0, 0, 0.76, 0.772, 1, 1]}
+          green:  {control_points: [0, 0, 0.76, 0.762, 1, 0.996]}
+          blue:   {control_points: [0, 0, 0.76, 0.744, 1, 0.986]}
+          master: {control_points: [0, 0, 0.82, 0.792, 1, 0.978]}
+        - !<CDLTransform>
+          {slope: [1.012, 1.000, 0.982], offset: [0.0000, 0.0000, 0.0000], power: [0.986, 0.992, 1.012], sat: 1.03}
+  - !<Look>
+    name: Chemical Drift
+    process_space: ACEScct
+    description: |
+      Broken photochemical drift: dirty yellow-green lows, weak cyan-blue whites,
+      compressed shoulder, and visibly unstable dye behavior.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.78
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.945, start: 0.33, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.952, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.54}
+          s_contrast: 0.98
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.16, 0.182, 0.68, 0.690, 1, 0.986]}
+          green: {control_points: [0, 0, 0.16, 0.176, 0.68, 0.708, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.158, 0.68, 0.732, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
+  - !<Look>
+    name: Chemical Drift (CDL Reactivated)
+    process_space: ACEScct
+    description: |
+      Chemical Drift with an ACEScg-linear CDL pre-pass before the ACEScct shaping stack.
+      Keeps the drift identity while preserving your upstream node behavior.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform>
+          {slope: [1.06, 0.92, 0.92], offset: [0.019, -0.005, 0.005], power: [1.06, 0.98, 1.04], sat: 1.78}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.78
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.945, start: 0.33, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.952, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.54}
+          s_contrast: 0.98
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.16, 0.182, 0.68, 0.690, 1, 0.986]}
+          green: {control_points: [0, 0, 0.16, 0.176, 0.68, 0.708, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.158, 0.68, 0.732, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
+  - !<Look>
+    name: Phoenix Drift
+    process_space: ACEScct
+    description: |
+      Distinct broken-film print feel: hot yellow-red highs, cyan-blue shadow pollution,
+      weak neutrality, contaminated floor, and obvious medium character.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.03}
+          saturation: 0.88
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.948, start: 0.34, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.958, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.974, start: 0.34, width: 0.54}
+          s_contrast: 0.99
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.16, 0.170, 0.70, 0.724, 1, 1]}
+          green: {control_points: [0, 0, 0.16, 0.168, 0.70, 0.706, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.150, 0.70, 0.742, 1, 0.984]}
+        - !<CDLTransform>
+          {slope: [1.026, 1.006, 0.964], offset: [0.0040, 0.0020, 0.0060], power: [1.018, 0.996, 0.956], sat: 0.96}
+  - !<Look>
+    name: Patent Black
+    process_space: ACEScct
+    description: |
+      Wet-black editorial: preserves shadow readability while giving dark speculars a lacquered, slightly compressed highlight rolloff.
+      Designed for leather, coated metal, glossy black product on dark backgrounds.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.06}
+          saturation: 0.85
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.44}
+          highlights: {rgb: [1, 1, 1], master: 0.982, start: 0.30, pivot: 0.92}
+          whites:     {rgb: [1, 1, 1], master: 0.996, start: 0.33, width: 0.44}
+          s_contrast: 1.01
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.80, 0.785, 1, 0.985]}
+  - !<Look>
+    name: Editorial Split
+    process_space: ACEScct
+    description: |
+      Editorial warm-high / cool-low split with restrained magnitude.
+      Keeps highlight warmth (reds stay hot) while giving shadows a steel undertone.
+      Not teal/orange; designed for premium editorial separation.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.06}
+          saturation: 0.92
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 1.006, start: 0.33, width: 0.44}
+          highlights: {rgb: [1, 1, 1], master: 0.992, start: 0.27, pivot: 0.91}
+          whites:     {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.44}
+          s_contrast: 1.01
+        - !<GradingRGBCurveTransform>
+          style: log
+          red: {control_points: [0, 0, 0.28, 0.275, 1, 1]}
+          blue: {control_points: [0, 0, 0.28, 0.285, 1, 1]}
+          green: {control_points: [0, 0, 0.28, 0.281, 1, 1]}
+        - !<GradingRGBCurveTransform>
+          style: log
+          red: {control_points: [0, 0, 0.78, 0.784, 1, 1]}
+          blue: {control_points: [0, 0, 0.78, 0.776, 1, 1]}
+  - !<Look>
+    name: Editorial Split (CDL Stack)
+    process_space: ACEScct
+    description: |
+      Editorial Split with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Editorial Split"}
+  - !<Look>
+    name: Archival Warm-Gray (CDL Stack)
+    process_space: ACEScct
+    description: |
+      Archival Warm-Gray with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Archival Warm-Gray"}
+  - !<Look>
+    name: Film Dense (CDL Stack)
+    process_space: ACEScct
+    description: |
+      Film Dense with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Film Dense"}
+  - !<Look>
+    name: Photochemical (CDL Stack)
+    process_space: ACEScct
+    description: |
+      Photochemical with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Photochemical"}
+  - !<Look>
+    name: Chemical Drift (CDL Stack)
+    process_space: ACEScct
+    description: |
+      Chemical Drift with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Chemical Drift"}
+  - !<Look>
+    name: Phoenix Drift (CDL Stack)
+    process_space: ACEScct
+    description: |
+      Phoenix Drift with the three ACEScg-linear CDL nodes applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [3.3, 3.3, 3.3], offset: [0.0, 0.0, 0.0], power: [1.2, 1.2, 1.2], sat: 1}
+        - !<CDLTransform> {slope: [2.0, 2.0, 2.0], offset: [0.008, 0.008, 0.008], power: [1.6, 1.6, 1.6], sat: 1}
+        - !<CDLTransform> {slope: [1.88, 1.88, 1.88], offset: [0.0, 0.0, 0.0], power: [1.32, 1.32, 1.32], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Phoenix Drift"}
+  - !<Look>
+    name: Graphite Matte (CDL Shift)
+    process_space: ACEScct
+    description: |
+      Graphite Matte with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Graphite Matte"}
+  - !<Look>
+    name: Carbon Plate (CDL Shift)
+    process_space: ACEScct
+    description: |
+      Carbon Plate with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Carbon Plate"}
+  - !<Look>
+    name: Archival Warm-Gray (CDL Shift)
+    process_space: ACEScct
+    description: |
+      Archival Warm-Gray with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Archival Warm-Gray"}
+  - !<Look>
+    name: Film Dense (CDL Shift)
+    process_space: ACEScct
+    description: |
+      Film Dense with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Film Dense"}
+  - !<Look>
+    name: Photochemical (CDL Shift)
+    process_space: ACEScct
+    description: |
+      Photochemical with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Photochemical"}
+  - !<Look>
+    name: Phoenix Drift (CDL Shift)
+    process_space: ACEScct
+    description: |
+      Phoenix Drift with the CDL Shift ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.14, 1.14, 1.14], offset: [0.0, 0.0, 0.0], power: [0.96, 0.96, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.0, 0.0008, 0.0035], power: [1.02, 1.02, 1.02], sat: 1}
+        - !<CDLTransform> {slope: [1.6, 1.6, 1.6], offset: [0.0, 0.0, 0.0], power: [1.14, 1.14, 1.14], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Phoenix Drift"}
+  - !<Look>
+    name: Graphite Matte (CDL Shift 2)
+    process_space: ACEScct
+    description: |
+      Graphite Matte with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Graphite Matte"}
+  - !<Look>
+    name: Carbon Black (CDL Shift 2)
+    process_space: ACEScct
+    description: |
+      Carbon Black with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Carbon Black"}
+  - !<Look>
+    name: Archival Warm-Gray (CDL Shift 2)
+    process_space: ACEScct
+    description: |
+      Archival Warm-Gray with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Archival Warm-Gray"}
+  - !<Look>
+    name: Photochemical (CDL Shift 2)
+    process_space: ACEScct
+    description: |
+      Photochemical with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Photochemical"}
+  - !<Look>
+    name: Vitrine (CDL Shift 2)
+    process_space: ACEScct
+    description: |
+      Vitrine with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Vitrine"}
+  - !<Look>
+    name: Chemical Drift (CDL Shift 2)
+    process_space: ACEScct
+    description: |
+      Chemical Drift with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Chemical Drift"}
+  - !<Look>
+    name: Phoenix Drift (CDL Shift 2)
+    process_space: ACEScct
+    description: |
+      Phoenix Drift with the CDL Shift 2 ACEScg-linear node stack applied first.
+    transform: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: ACEScct, dst: ACEScg}
+        - !<CDLTransform> {slope: [1.96, 1.96, 1.96], offset: [0.0, 0.0, 0.0], power: [1.04, 1.04, 1.04], sat: 1}
+        - !<CDLTransform> {slope: [1.06, 1.06, 1.06], offset: [0.002, 0.0025, 0.009], power: [1.06, 1.06, 1.06], sat: 1}
+        - !<CDLTransform> {slope: [1.04, 1.04, 1.04], offset: [0.0, 0.0, 0.0], power: [1.24, 1.24, 1.24], sat: 1}
+        - !<ColorSpaceTransform> {src: ACEScg, dst: ACEScct}
+        - !<LookTransform> {src: ACEScct, dst: ACEScct, looks: "Phoenix Drift"}
+  - !<Look>
+    name: Graphite Matte
+    process_space: ACEScct
+    description: |
+      Dry matte-chalk rendering with preserved crisp specular edges.
+      Powdery, mineral, desaturated, and materially dry.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 0.99}
+          saturation: 0.66
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.920, start: 0.33, width: 0.50}
+          highlights: {rgb: [1, 1, 1], master: 0.972, start: 0.27, pivot: 0.89}
+          whites: {rgb: [1, 1, 1], master: 0.986, start: 0.33, width: 0.50}
+          s_contrast: 0.99
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.40, 0.390, 0.78, 0.784, 1, 1]}
+        - !<CDLTransform> {slope: [1.000, 1.000, 1.000], offset: [0.0025, 0.0025, 0.0025], power: [1.015, 1.015, 1.015], sat: 0.93}
+  - !<Look>
+    name: Editorial Clean (CDL Clean Punch)
+    process_space: ACEScct
+    description: |
+      Premium editorial: crisp but not crunchy, neutral whites, restrained chroma.
+      CDL preset: Clean Punch.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.08}
+          saturation: 0.95
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.005, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.992, start: 0.26, pivot: 0.92}
+          whites: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.42}
+          s_contrast: 1.02
+        - !<CDLTransform> {slope: [1.015, 1.015, 1.015], offset: [0.000, 0.000, 0.000], power: [0.985, 0.985, 0.985], sat: 1.02}
+  - !<Look>
+    name: Editorial Punch (CDL Clean Punch)
+    process_space: ACEScct
+    description: |
+      Strongest editorial density: clean, readable, no crunchy blacks; body comes from tone + curve.
+      CDL preset: Clean Punch.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.09}
+          saturation: 0.95
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.012, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.995, start: 0.26, pivot: 0.92}
+          whites: {rgb: [1, 1, 1], master: 1.002, start: 0.33, width: 0.42}
+          s_contrast: 1.03
+        - !<GradingRGBCurveTransform>
+          style: log
+          master: {control_points: [0, 0, 0.42, 0.378, 1, 1]}
+        - !<CDLTransform> {slope: [1.015, 1.015, 1.015], offset: [0.000, 0.000, 0.000], power: [0.985, 0.985, 0.985], sat: 1.02}
+  - !<Look>
+    name: Editorial HiKey (CDL Clean Punch)
+    process_space: ACEScct
+    description: |
+      Hi-key editorial: brighter mids/whites, clean rolloff, restrained chroma, no harsh snap.
+      CDL preset: Clean Punch.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          brightness: {rgb: [0, 0, 0], master: 0.03}
+          contrast: {rgb: [1, 1, 1], master: 1.03}
+          saturation: 0.94
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.995, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.990, start: 0.26, pivot: 0.92}
+          whites: {rgb: [1, 1, 1], master: 1.010, start: 0.33, width: 0.42}
+          s_contrast: 1.00
+        - !<CDLTransform> {slope: [1.015, 1.015, 1.015], offset: [0.000, 0.000, 0.000], power: [0.985, 0.985, 0.985], sat: 1.02}
+  - !<Look>
+    name: Archival Soft (CDL Matte Fade)
+    process_space: ACEScct
+    description: |
+      Airy archival base: lifted blacks, soft contrast, muted saturation, scan-like.
+      CDL preset: Matte Fade.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 0.99}
+          saturation: 0.88
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.925, start: 0.32, width: 0.50}
+          highlights: {rgb: [1, 1, 1], master: 0.965, start: 0.27, pivot: 0.88}
+          whites: {rgb: [1, 1, 1], master: 0.988, start: 0.34, width: 0.50}
+          s_contrast: 0.99
+        - !<CDLTransform> {slope: [1.00, 1.00, 1.00], offset: [0.004, 0.004, 0.004], power: [1.02, 1.02, 1.02], sat: 0.95}
+  - !<Look>
+    name: Archival Extreme Matte (CDL Matte Fade)
+    process_space: ACEScct
+    description: |
+      Extreme matte archival: strong lifted blacks, very low chroma, soft shoulder, scan-heavy feel.
+      CDL preset: Matte Fade.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 0.95}
+          saturation: 0.80
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.900, start: 0.32, width: 0.50}
+          highlights: {rgb: [1, 1, 1], master: 0.960, start: 0.27, pivot: 0.88}
+          whites: {rgb: [1, 1, 1], master: 0.975, start: 0.34, width: 0.50}
+          s_contrast: 0.97
+        - !<CDLTransform> {slope: [1.00, 1.00, 1.00], offset: [0.004, 0.004, 0.004], power: [1.02, 1.02, 1.02], sat: 0.95}
+  - !<Look>
+    name: Editorial Neutral (CDL Matte Fade)
+    process_space: ACEScct
+    description: |
+      Clean-neutral editorial base: firmer blacks than film, flatter than Clean, grade-friendly.
+      CDL preset: Matte Fade.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.03}
+          saturation: 0.95
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.004, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.995, start: 0.26, pivot: 0.92}
+          whites: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.42}
+          s_contrast: 1.00
+        - !<CDLTransform> {slope: [1.00, 1.00, 1.00], offset: [0.004, 0.004, 0.004], power: [1.02, 1.02, 1.02], sat: 0.95}
+  - !<Look>
+    name: Editorial Matte (CDL Matte Fade)
+    process_space: ACEScct
+    description: |
+      Matte editorial: lifted toe, restrained chroma, still premium (not washed).
+      CDL preset: Matte Fade.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.05}
+          saturation: 0.92
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.990, start: 0.26, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.998, start: 0.33, width: 0.42}
+          s_contrast: 1.01
+        - !<CDLTransform> {slope: [1.00, 1.00, 1.00], offset: [0.004, 0.004, 0.004], power: [1.02, 1.02, 1.02], sat: 0.95}
+  - !<Look>
+    name: Editorial HiKey (CDL Matte Fade)
+    process_space: ACEScct
+    description: |
+      Hi-key editorial: brighter mids/whites, clean rolloff, restrained chroma, no harsh snap.
+      CDL preset: Matte Fade.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          brightness: {rgb: [0, 0, 0], master: 0.03}
+          contrast: {rgb: [1, 1, 1], master: 1.03}
+          saturation: 0.94
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.995, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.990, start: 0.26, pivot: 0.92}
+          whites: {rgb: [1, 1, 1], master: 1.010, start: 0.33, width: 0.42}
+          s_contrast: 1.00
+        - !<CDLTransform> {slope: [1.00, 1.00, 1.00], offset: [0.004, 0.004, 0.004], power: [1.02, 1.02, 1.02], sat: 0.95}
+  - !<Look>
+    name: Editorial Matte (CDL Green Shadows)
+    process_space: ACEScct
+    description: |
+      Matte editorial: lifted toe, restrained chroma, still premium (not washed).
+      CDL preset: Green Shadows.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.05}
+          saturation: 0.92
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.990, start: 0.26, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.998, start: 0.33, width: 0.42}
+          s_contrast: 1.01
+        - !<CDLTransform> {slope: [1.00, 1.005, 1.00], offset: [0.000, 0.000, 0.000], power: [1.00, 0.995, 1.00], sat: 0.96}
+  - !<Look>
+    name: Archival Dense (CDL Clean Punch)
+    process_space: ACEScct
+    description: |
+      Denser archival: more body than Soft, still lifted blacks and muted color.
+      CDL preset: Clean Punch.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.02}
+          saturation: 0.86
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 0.950, start: 0.32, width: 0.50}
+          highlights: {rgb: [1, 1, 1], master: 0.972, start: 0.27, pivot: 0.88}
+          whites: {rgb: [1, 1, 1], master: 0.988, start: 0.34, width: 0.50}
+          s_contrast: 1.00
+        - !<CDLTransform> {slope: [1.010, 1.010, 1.010], offset: [0.000, 0.000, 0.000], power: [0.990, 0.990, 0.990], sat: 1.01}
+default_view_transform: Un-tone-mapped
+view_transforms:
+  - !<ViewTransform>
+    name: Un-tone-mapped
+    from_scene_reference: !<BuiltinTransform> {style: UTILITY - ACES-AP0_to_CIE-XYZ-D65_BFD}
+  - !<ViewTransform>
+    name: ACES 2.0 - SDR 100 nits (Rec.709)
+    description: |
+      Component of ACES 2 Output Transforms for 100 nit SDR Rec709
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D65_100nit_in_Rec709-D65_BT1886.a2.v1
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D65_100nit_in_Rec709-D65_BT1886.a2.v1
+    from_scene_reference: !<BuiltinTransform> {style: ACES-OUTPUT - ACES2065-1_to_CIE-XYZ-D65 - SDR-100nit-REC709_2.0}
+  - !<ViewTransform>
+    name: ACES 2.0 - SDR 100 nits (P3 D65)
+    description: |
+      Component of ACES 2 Output Transforms for 100 nit SDR P3-D65
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_48nit_in_P3-D65_Gamma2pt6.a2.v1
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_48nit_in_P3-D65_Gamma2pt6.a2.v1
+    from_scene_reference: !<BuiltinTransform> {style: ACES-OUTPUT - ACES2065-1_to_CIE-XYZ-D65 - SDR-100nit-P3-D65_2.0}
+  - !<ViewTransform>
+    name: ACES 2.0 - HDR 1000 nits (P3 D65)
+    description: |
+      Component of ACES 2 Output Transforms for 1000 nit HDR P3-D65
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_1000nit_in_P3-D65_ST2084.a2.v1
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_1000nit_in_P3-D65_ST2084.a2.v1
+    from_scene_reference: !<BuiltinTransform> {style: ACES-OUTPUT - ACES2065-1_to_CIE-XYZ-D65 - HDR-1000nit-P3-D65_2.0}
+  - !<ViewTransform>
+    name: ACES 2.0 - HDR 1000 nits (Rec.2020)
+    description: |
+      Component of ACES 2 Output Transforms for 1000 nit HDR Rec2020
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec2100-D65_1000nit_in_Rec2100-D65_ST2084.a2.v1
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec2100-D65_1000nit_in_Rec2100-D65_ST2084.a2.v1
+    from_scene_reference: !<BuiltinTransform> {style: ACES-OUTPUT - ACES2065-1_to_CIE-XYZ-D65 - HDR-1000nit-REC2020_2.0}
+display_colorspaces:
+  - !<ColorSpace>
+    name: CIE XYZ-D65 - Display-referred
+    aliases: [cie_xyz_d65_display, lin_ciexyzd65_display]
+    family: ""
+    equalitygroup: ""
+    bitdepth: 32f
+    description: The "CIE XYZ (D65)" display connection colorspace.
+    isdata: false
+    encoding: display-linear
+    allocation: uniform
+  - !<ColorSpace>
+    name: sRGB - Display
+    aliases: [srgb_display]
+    family: Display
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert CIE XYZ (D65 white) to sRGB (piecewise EOTF)
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D65_100nit_in_Rec709-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D65_100nit_in_Rec709-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D60_100nit_in_Rec709-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D60_100nit_in_Rec709-D65_sRGB-Piecewise.a2.v1
+    isdata: false
+    categories: [file-io]
+    encoding: sdr-video
+    allocation: uniform
+    from_display_reference: !<BuiltinTransform> {style: DISPLAY - CIE-XYZ-D65_to_sRGB}
+  - !<ColorSpace>
+    name: Display P3 - Display
+    aliases: [displayp3_display]
+    family: Display
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert CIE XYZ (D65 white) to Apple Display P3
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_100nit_in_P3-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_100nit_in_P3-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_100nit_in_P3-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_100nit_in_P3-D65_sRGB-Piecewise.a2.v1
+    isdata: false
+    categories: [file-io]
+    encoding: sdr-video
+    allocation: uniform
+    from_display_reference: !<BuiltinTransform> {style: DISPLAY - CIE-XYZ-D65_to_DisplayP3}
+  - !<ColorSpace>
+    name: Display P3 HDR - Display
+    aliases: [displayp3_hdr_display]
+    family: Display
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert CIE XYZ (D65 white) to Apple Display P3 (HDR)
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_1000nit_in_P3-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_1000nit_in_P3-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_1000nit_in_P3-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_1000nit_in_P3-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D65_100nit_in_P3-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D65_100nit_in_P3-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D60_100nit_in_P3-D65_sRGB-Piecewise.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D60_100nit_in_P3-D65_sRGB-Piecewise.a2.v1
+    isdata: false
+    categories: [file-io]
+    encoding: hdr-video
+    allocation: uniform
+    from_display_reference: !<BuiltinTransform> {style: DISPLAY - CIE-XYZ-D65_to_DisplayP3-HDR}
+  - !<ColorSpace>
+    name: P3-D65 - Display
+    aliases: [p3d65_display]
+    family: Display
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert CIE XYZ (D65 white) to Gamma 2.6, P3-D65
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_48nit_in_P3-D65_Gamma2pt6.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_48nit_in_P3-D65_Gamma2pt6.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_48nit_in_P3-D65_Gamma2pt6.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_48nit_in_P3-D65_Gamma2pt6.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D65_48nit_in_P3-D65_Gamma2pt6.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D65_48nit_in_P3-D65_Gamma2pt6.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D60_48nit_in_P3-D65_Gamma2pt6.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D60_48nit_in_P3-D65_Gamma2pt6.a2.v1
+    isdata: false
+    categories: [file-io]
+    encoding: sdr-video
+    allocation: uniform
+    from_display_reference: !<BuiltinTransform> {style: DISPLAY - CIE-XYZ-D65_to_G2.6-P3-D65}
+  - !<ColorSpace>
+    name: Rec.1886 Rec.709 - Display
+    aliases: [rec1886_rec709_display]
+    family: Display
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert CIE XYZ (D65 white) to Rec.1886/Rec.709 (HD video)
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D65_100nit_in_Rec709-D65_BT1886.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D65_100nit_in_Rec709-D65_BT1886.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D60_100nit_in_Rec709-D65_BT1886.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D60_100nit_in_Rec709-D65_BT1886.a2.v1
+    isdata: false
+    categories: [file-io]
+    encoding: sdr-video
+    allocation: uniform
+    from_display_reference: !<BuiltinTransform> {style: DISPLAY - CIE-XYZ-D65_to_REC.1886-REC.709}
+  - !<ColorSpace>
+    name: Rec.2100-PQ - Display
+    aliases: [rec2100_pq_display]
+    family: Display
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert CIE XYZ (D65 white) to Rec.2100-PQ
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_500nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_500nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_1000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_1000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_2000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_2000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_4000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_4000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_500nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_500nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_1000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_1000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_2000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_2000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_4000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_4000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec2100-D65_500nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec2100-D65_500nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec2100-D65_1000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec2100-D65_1000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec2100-D65_2000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec2100-D65_2000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec2100-D65_4000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec2100-D65_4000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec2100-D60_500nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec2100-D60_500nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec2100-D60_1000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec2100-D60_1000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec2100-D60_2000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec2100-D60_2000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec2100-D60_4000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec2100-D60_4000nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D60_100nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D60_100nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D65_100nit_in_Rec2100-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D65_100nit_in_Rec2100-D65_ST2084.a2.v1
+    isdata: false
+    categories: [file-io]
+    encoding: hdr-video
+    allocation: uniform
+    from_display_reference: !<BuiltinTransform> {style: DISPLAY - CIE-XYZ-D65_to_REC.2100-PQ}
+  - !<ColorSpace>
+    name: ST2084-P3-D65 - Display
+    aliases: [st2084_p3d65_display]
+    family: Display
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert CIE XYZ (D65 white) to ST-2084 (PQ), P3-D65 primaries
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_108nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_108nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_500nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_500nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_1000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_1000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_2000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_2000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D65_4000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D65_4000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_108nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_108nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_500nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_500nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_1000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_1000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_2000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_2000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.P3-D60_4000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.P3-D60_4000nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D65_100nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D65_100nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:Output.Academy.Rec709-D60_100nit_in_P3-D65_ST2084.a2.v1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:InvOutput.Academy.Rec709-D60_100nit_in_P3-D65_ST2084.a2.v1
+    isdata: false
+    categories: [file-io]
+    encoding: hdr-video
+    allocation: uniform
+    from_display_reference: !<BuiltinTransform> {style: DISPLAY - CIE-XYZ-D65_to_ST2084-P3-D65}
+colorspaces:
+  - !<ColorSpace>
+    name: ACES2065-1
+    aliases: [aces2065_1, aces, ACES - ACES2065-1, lin_ap0, lin_ap0_scene]
+    family: ACES
+    equalitygroup: ""
+    bitdepth: 32f
+    description: The "Academy Color Encoding System" reference colorspace.
+    isdata: false
+    categories: [file-io, texture]
+    encoding: scene-linear
+    allocation: uniform
+  - !<ColorSpace>
+    name: ACEScc
+    aliases: [ACES - ACEScc, acescc_ap1]
+    family: ACES
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACEScc to ACES2065-1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:CSC.Academy.ACEScc_to_ACES.a2.v1
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:CSC.Academy.ACES_to_ACEScc.a2.v1
+    isdata: false
+    categories: [file-io]
+    encoding: log
+    allocation: uniform
+    to_scene_reference: !<BuiltinTransform> {style: ACEScc_to_ACES2065-1}
+  - !<ColorSpace>
+    name: ACEScct
+    aliases: [ACES - ACEScct, acescct_ap1]
+    family: ACES
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACEScct to ACES2065-1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:CSC.Academy.ACEScct_to_ACES.a2.v1
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:CSC.Academy.ACES_to_ACEScct.a2.v1
+    isdata: false
+    categories: [file-io, working-space]
+    encoding: log
+    allocation: uniform
+    to_scene_reference: !<BuiltinTransform> {style: ACEScct_to_ACES2065-1}
+  - !<ColorSpace>
+    name: ACEScg
+    aliases: [ACES - ACEScg, lin_ap1, lin_ap1_scene]
+    family: ACES
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACEScg to ACES2065-1
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:CSC.Academy.ACEScg_to_ACES.a2.v1
+      AMF Components
+      --------------
+      ACEStransformID: urn:ampas:aces:transformId:v2.0:CSC.Academy.ACES_to_ACEScg.a2.v1
+    isdata: false
+    categories: [file-io, working-space, texture]
+    encoding: scene-linear
+    allocation: uniform
+    to_scene_reference: !<BuiltinTransform> {style: ACEScg_to_ACES2065-1}
+  - !<ColorSpace>
+    name: sRGB - Texture
+    aliases: [sRGB Encoded Rec.709 (sRGB), srgb_encoded_rec709_srgb, srgb_texture, srgb_rec709_scene, Utility - sRGB - Texture, Input - Generic - sRGB - Texture, srgb_tx]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACES2065-1 to sRGB
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:AP0_to_sRGB-Encoded-Rec709:1.0
+    isdata: false
+    categories: [file-io, texture]
+    encoding: sdr-video
+    allocation: uniform
+    from_scene_reference: !<GroupTransform>
+      name: AP0 to sRGB - Texture
+      children:
+        - !<MatrixTransform> {matrix: [2.52168618674388, -1.13413098823972, -0.387555198504164, 0, -0.276479914229922, 1.37271908766826, -0.096239173438334, 0, -0.0153780649660342, -0.152975335867399, 1.16835340083343, 0, 0, 0, 0, 1]}
+        - !<ExponentWithLinearTransform> {gamma: 2.4, offset: 0.055, direction: inverse}
+  - !<ColorSpace>
+    name: Gamma 1.8 Encoded Rec.709
+    aliases: [g18_encoded_rec709, g18_rec709, Utility - Gamma 1.8 - Rec.709 - Texture, Gamma 1.8 Rec.709 - Texture, g18_rec709_tx, g18_rec709_scene]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACES2065-1 to 1.8 gamma-corrected Rec.709 primaries, D65 white point
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:AP0_to_Gamma1.8_Encoded_Rec709:1.0
+    isdata: false
+    categories: [file-io, texture]
+    encoding: sdr-video
+    allocation: uniform
+    from_scene_reference: !<GroupTransform>
+      name: AP0 to Gamma 1.8 Encoded Rec.709
+      children:
+        - !<MatrixTransform> {matrix: [2.52168618674388, -1.13413098823972, -0.387555198504164, 0, -0.276479914229922, 1.37271908766826, -0.096239173438334, 0, -0.0153780649660342, -0.152975335867399, 1.16835340083343, 0, 0, 0, 0, 1]}
+        - !<ExponentTransform> {value: 1.8, style: pass_thru, direction: inverse}
+  - !<ColorSpace>
+    name: Gamma 2.2 Encoded Rec.709
+    aliases: [g22_encoded_rec709, g22_rec709, Utility - Gamma 2.2 - Rec.709 - Texture, Gamma 2.2 Rec.709 - Texture, g22_rec709_tx, g22_rec709_scene]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACES2065-1 to 2.2 gamma-corrected Rec.709 primaries, D65 white point
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:AP0_to_Gamma2.2_Encoded_Rec709:1.0
+    isdata: false
+    categories: [file-io, texture]
+    encoding: sdr-video
+    allocation: uniform
+    from_scene_reference: !<GroupTransform>
+      name: AP0 to Gamma 2.2 Encoded Rec.709
+      children:
+        - !<MatrixTransform> {matrix: [2.52168618674388, -1.13413098823972, -0.387555198504164, 0, -0.276479914229922, 1.37271908766826, -0.096239173438334, 0, -0.0153780649660342, -0.152975335867399, 1.16835340083343, 0, 0, 0, 0, 1]}
+        - !<ExponentTransform> {value: 2.2, style: pass_thru, direction: inverse}
+  - !<ColorSpace>
+    name: Gamma 2.4 Encoded Rec.709
+    aliases: [g24_encoded_rec709, g24_rec709, rec709_display, Utility - Rec.709 - Display, Gamma 2.4 Rec.709 - Texture, g24_rec709_tx]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACES2065-1 to 2.4 gamma-corrected Rec.709 primaries, D65 white point
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:AP0_to_Gamma2.4_Encoded_Rec709:1.0
+    isdata: false
+    categories: [file-io, texture]
+    encoding: sdr-video
+    allocation: uniform
+    from_scene_reference: !<GroupTransform>
+      name: AP0 to Gamma 2.4 Encoded Rec.709
+      children:
+        - !<MatrixTransform> {matrix: [2.52168618674388, -1.13413098823972, -0.387555198504164, 0, -0.276479914229922, 1.37271908766826, -0.096239173438334, 0, -0.0153780649660342, -0.152975335867399, 1.16835340083343, 0, 0, 0, 0, 1]}
+        - !<ExponentTransform> {value: 2.4, style: pass_thru, direction: inverse}
+  - !<ColorSpace>
+    name: sRGB Encoded P3-D65
+    aliases: [srgb_encoded_p3d65, srgb_p3d65, srgb_displayp3, srgb_p3d65_scene, sRGB Encoded P3-D65 - Texture, srgb_encoded_p3d65_tx]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACES2065-1 to sRGB Encoded P3-D65 primaries, D65 white point
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:AP0_to_sRGB_Encoded_P3-D65:1.0
+    isdata: false
+    categories: [file-io, texture]
+    encoding: sdr-video
+    allocation: uniform
+    from_scene_reference: !<GroupTransform>
+      name: AP0 to sRGB Encoded P3-D65
+      children:
+        - !<MatrixTransform> {matrix: [2.02490528596679, -0.689069761034766, -0.335835524932019, 0, -0.183597032256178, 1.28950620775902, -0.105909175502841, 0, 0.00905856112234766, -0.0592796840575522, 1.0502211229352, 0, 0, 0, 0, 1]}
+        - !<ExponentWithLinearTransform> {gamma: 2.4, offset: 0.055, direction: inverse}
+  - !<ColorSpace>
+    name: sRGB Encoded AP1
+    aliases: [srgb_encoded_ap1, srgb_ap1, srgb_ap1_scene, sRGB Encoded AP1 - Texture, srgb_encoded_ap1_tx]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACES2065-1 to sRGB Encoded AP1 primaries, ACES ~=D60 white point
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:AP0_to_sRGB_Encoded_AP1:1.0
+    isdata: false
+    categories: [file-io, texture]
+    encoding: sdr-video
+    allocation: uniform
+    from_scene_reference: !<GroupTransform>
+      name: AP0 to sRGB Encoded AP1
+      children:
+        - !<MatrixTransform> {matrix: [1.45143931614567, -0.23651074689374, -0.214928569251925, 0, -0.0765537733960206, 1.17622969983357, -0.0996759264375522, 0, 0.00831614842569772, -0.00603244979102102, 0.997716301365323, 0, 0, 0, 0, 1]}
+        - !<ExponentWithLinearTransform> {gamma: 2.4, offset: 0.055, direction: inverse}
+  - !<ColorSpace>
+    name: Gamma 2.2 Encoded AP1
+    aliases: [g22_encoded_ap1, g22_ap1, Gamma 2.2 AP1 - Texture, g22_ap1_tx, g22_ap1_scene]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACES2065-1 to 2.2 gamma-corrected AP1 primaries, ACES ~=D60 white point
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:AP0_to_Gamma2.2_Encoded_AP1:1.0
+    isdata: false
+    categories: [file-io, texture]
+    encoding: sdr-video
+    allocation: uniform
+    from_scene_reference: !<GroupTransform>
+      name: AP0 to Gamma 2.2 Encoded AP1
+      children:
+        - !<MatrixTransform> {matrix: [1.45143931614567, -0.23651074689374, -0.214928569251925, 0, -0.0765537733960206, 1.17622969983357, -0.0996759264375522, 0, 0.00831614842569772, -0.00603244979102102, 0.997716301365323, 0, 0, 0, 0, 1]}
+        - !<ExponentTransform> {value: 2.2, style: pass_thru, direction: inverse}
+  - !<ColorSpace>
+    name: CIE XYZ-D65 - Scene-referred
+    aliases: [cie_xyz_d65_scene, lin_ciexyzd65_scene]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACES2065-1 to CIE XYZ, D65 white point
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:AP0_to_CIE_XYZ-D65-Scene-referred:1.0
+    isdata: false
+    categories: [file-io]
+    encoding: scene-linear
+    allocation: uniform
+    from_scene_reference: !<GroupTransform>
+      name: AP0 to CIE XYZ-D65
+      children:
+        - !<MatrixTransform> {matrix: [0.938279849239345, -0.00445144581227847, 0.0166275235564231, 0, 0.337368890823117, 0.729521566676754, -0.066890457499083, 0, 0.00117395084939056, -0.00371070640198378, 1.09159450636463, 0, 0, 0, 0, 1]}
+  - !<ColorSpace>
+    name: Linear P3-D65
+    aliases: [lin_p3d65, lin_displayp3, lin_p3d65_scene, Utility - Linear - P3-D65, Linear Display P3]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACES2065-1 to linear P3 primaries, D65 white point
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:AP0_to_Linear_P3-D65:1.0
+    isdata: false
+    categories: [file-io, working-space, texture]
+    encoding: scene-linear
+    allocation: uniform
+    from_scene_reference: !<GroupTransform>
+      name: AP0 to Linear P3-D65
+      children:
+        - !<MatrixTransform> {matrix: [2.02490528596679, -0.689069761034766, -0.335835524932019, 0, -0.183597032256178, 1.28950620775902, -0.105909175502841, 0, 0.00905856112234766, -0.0592796840575522, 1.0502211229352, 0, 0, 0, 0, 1]}
+  - !<ColorSpace>
+    name: Linear Rec.2020
+    aliases: [lin_rec2020, lin_rec2020_scene, Utility - Linear - Rec.2020]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACES2065-1 to linear Rec.2020 primaries, D65 white point
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:AP0_to_Linear_Rec2020:1.0
+    isdata: false
+    categories: [file-io, texture]
+    encoding: scene-linear
+    allocation: uniform
+    from_scene_reference: !<GroupTransform>
+      name: AP0 to Linear Rec.2020
+      children:
+        - !<MatrixTransform> {matrix: [1.49040952054172, -0.26617091926613, -0.224238601275593, 0, -0.0801674998722558, 1.18216712109757, -0.10199962122531, 0, 0.00322763119162216, -0.0347764757450576, 1.03154884455344, 0, 0, 0, 0, 1]}
+  - !<ColorSpace>
+    name: Linear Rec.709 (sRGB)
+    aliases: [lin_rec709_srgb, lin_rec709, lin_rec709_scene, lin_srgb, Utility - Linear - sRGB, Utility - Linear - Rec.709]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Convert ACES2065-1 to linear Rec.709 primaries, D65 white point
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:AP0_to_Linear_Rec709:1.0
+    isdata: false
+    categories: [file-io, working-space, texture]
+    encoding: scene-linear
+    allocation: uniform
+    from_scene_reference: !<GroupTransform>
+      name: AP0 to Linear Rec.709 (sRGB)
+      children:
+        - !<MatrixTransform> {matrix: [2.52168618674388, -1.13413098823972, -0.387555198504164, 0, -0.276479914229922, 1.37271908766826, -0.096239173438334, 0, -0.0153780649660342, -0.152975335867399, 1.16835340083343, 0, 0, 0, 0, 1]}
+  - !<ColorSpace>
+    name: Raw
+    aliases: [Utility - Raw, none]
+    family: Utility
+    equalitygroup: ""
+    bitdepth: 32f
+    description: The utility "Raw" colorspace.
+    isdata: true
+    categories: [file-io, texture]
+    encoding: data
+    allocation: uniform
+named_transforms:
+  - !<NamedTransform>
+    name: sRGB - Curve
+    aliases: [srgb_crv, crv_srgb, Utility - Curve - sRGB]
+    description: |
+      Convert sRGB encoded RGB to generic linear RGB
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:Linear_to_sRGB-Curve:1.0
+    family: Utility
+    categories: [file-io]
+    encoding: sdr-video
+    inverse_transform: !<GroupTransform>
+      name: Linear to sRGB
+      children:
+        - !<ExponentWithLinearTransform> {gamma: 2.4, offset: 0.055, direction: inverse}
+  - !<NamedTransform>
+    name: Rec.1886 - Curve
+    aliases: [rec1886_crv, crv_rec1886, Utility - Curve - Rec.1886]
+    description: |
+      Convert Rec.1886 encoded RGB to generic linear RGB
+      CLFtransformID: urn:aswf:ocio:transformId:1.0:OCIO:Utility:Linear_to_Rec1886-Curve:1.0
+    family: Utility
+    categories: [file-io]
+    encoding: sdr-video
+    inverse_transform: !<GroupTransform>
+      name: Linear to Rec.1886
+      children:
+        - !<ExponentTransform> {value: 2.4, style: pass_thru, direction: inverse}
