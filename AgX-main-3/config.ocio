@@ -85,31 +85,19 @@ displays:
     - !<View> {name: AgX - Editorial Soft, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Editorial Soft}
     - !<View> {name: AgX - Editorial Split, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Editorial Split}
     - !<View> {name: AgX - Hard Contrast, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Hard Contrast}
-    - !<View> {name: AgX - Monochrome Warm, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Monochrome Warm}
-    - !<View> {name: AgX - Ash Relic, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Ash Relic}
     - !<View> {name: AgX - Funeral Bronze, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Funeral Bronze}
-    - !<View> {name: AgX - Bone Black, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Bone Black}
-    - !<View> {name: AgX - Oxide, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Oxide}
-    - !<View> {name: AgX - Lead Silver, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Lead Silver}
-    - !<View> {name: AgX - Sepulchre, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Sepulchre}
-    - !<View> {name: AgX - Charcoal Warm, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Charcoal Warm}
-    - !<View> {name: AgX - Dead Umber, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Dead Umber}
     - !<View> {name: AgX - Verdigris Shadow, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Verdigris Shadow}
-    - !<View> {name: AgX - Tarnished Print, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Tarnished Print}
     - !<View> {name: AgX - Negative Dust, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Negative Dust}
-    - !<View> {name: AgX - Chapel, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Chapel}
-    - !<View> {name: AgX - Mercury, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Mercury}
-    - !<View> {name: AgX - Old Varnish, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Old Varnish}
+    - !<View> {name: AgX - Tarnished Print, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Tarnished Print}
     - !<View> {name: AgX - Soot, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Soot}
     - !<View> {name: AgX - Film Dense, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Film Dense}
     - !<View> {name: AgX - Photochemical, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Photochemical}
     - !<View> {name: AgX - Vitrine, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Vitrine}
-    - !<View> {name: AgX - Chemical Drift, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Chemical Drift}
     - !<View> {name: AgX - Phoenix Drift, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Phoenix Drift}
     - !<View> {name: AgX - Archival Warm-Gray, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Archival Warm-Gray}
     - !<View> {name: AgX - Carbon Plate, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Carbon Plate}
     - !<View> {name: AgX - Carbon Black, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Carbon Black}
-    - !<View> {name: AgX - Cold Steel Neutral, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Cold Steel Neutral}
+    - !<View> {name: AgX - Blue Carbon Print, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Blue Carbon Print}
     - !<View> {name: AgX - Graphite Matte, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Graphite Matte}
     - !<View> {name: AgX - Archival Extreme Matte, view_transform: AgX Base Rec.1886, display_colorspace: sRGB - Display, looks: Archival Extreme Matte}
     - !<View> {name: Standard, view_transform: Standard, display_colorspace: sRGB - Display}
@@ -120,31 +108,19 @@ displays:
     - !<View> {name: AgX - Editorial Soft, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Editorial Soft}
     - !<View> {name: AgX - Editorial Split, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Editorial Split}
     - !<View> {name: AgX - Hard Contrast, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Hard Contrast}
-    - !<View> {name: AgX - Monochrome Warm, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Monochrome Warm}
-    - !<View> {name: AgX - Ash Relic, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Ash Relic}
     - !<View> {name: AgX - Funeral Bronze, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Funeral Bronze}
-    - !<View> {name: AgX - Bone Black, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Bone Black}
-    - !<View> {name: AgX - Oxide, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Oxide}
-    - !<View> {name: AgX - Lead Silver, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Lead Silver}
-    - !<View> {name: AgX - Sepulchre, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Sepulchre}
-    - !<View> {name: AgX - Charcoal Warm, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Charcoal Warm}
-    - !<View> {name: AgX - Dead Umber, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Dead Umber}
     - !<View> {name: AgX - Verdigris Shadow, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Verdigris Shadow}
-    - !<View> {name: AgX - Tarnished Print, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Tarnished Print}
     - !<View> {name: AgX - Negative Dust, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Negative Dust}
-    - !<View> {name: AgX - Chapel, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Chapel}
-    - !<View> {name: AgX - Mercury, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Mercury}
-    - !<View> {name: AgX - Old Varnish, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Old Varnish}
+    - !<View> {name: AgX - Tarnished Print, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Tarnished Print}
     - !<View> {name: AgX - Soot, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Soot}
     - !<View> {name: AgX - Film Dense, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Film Dense}
     - !<View> {name: AgX - Photochemical, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Photochemical}
     - !<View> {name: AgX - Vitrine, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Vitrine}
-    - !<View> {name: AgX - Chemical Drift, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Chemical Drift}
     - !<View> {name: AgX - Phoenix Drift, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Phoenix Drift}
     - !<View> {name: AgX - Archival Warm-Gray, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Archival Warm-Gray}
     - !<View> {name: AgX - Carbon Plate, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Carbon Plate}
     - !<View> {name: AgX - Carbon Black, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Carbon Black}
-    - !<View> {name: AgX - Cold Steel Neutral, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Cold Steel Neutral}
+    - !<View> {name: AgX - Blue Carbon Print, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Blue Carbon Print}
     - !<View> {name: AgX - Graphite Matte, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Graphite Matte}
     - !<View> {name: AgX - Archival Extreme Matte, view_transform: AgX Base Display P3, display_colorspace: Display P3 - Display, looks: Archival Extreme Matte}
     - !<View> {name: Standard, view_transform: Standard, display_colorspace: Display P3 - Display}
@@ -155,31 +131,19 @@ displays:
     - !<View> {name: AgX - Editorial Soft, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Editorial Soft}
     - !<View> {name: AgX - Editorial Split, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Editorial Split}
     - !<View> {name: AgX - Hard Contrast, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Hard Contrast}
-    - !<View> {name: AgX - Monochrome Warm, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Monochrome Warm}
-    - !<View> {name: AgX - Ash Relic, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Ash Relic}
     - !<View> {name: AgX - Funeral Bronze, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Funeral Bronze}
-    - !<View> {name: AgX - Bone Black, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Bone Black}
-    - !<View> {name: AgX - Oxide, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Oxide}
-    - !<View> {name: AgX - Lead Silver, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Lead Silver}
-    - !<View> {name: AgX - Sepulchre, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Sepulchre}
-    - !<View> {name: AgX - Charcoal Warm, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Charcoal Warm}
-    - !<View> {name: AgX - Dead Umber, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Dead Umber}
     - !<View> {name: AgX - Verdigris Shadow, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Verdigris Shadow}
-    - !<View> {name: AgX - Tarnished Print, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Tarnished Print}
     - !<View> {name: AgX - Negative Dust, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Negative Dust}
-    - !<View> {name: AgX - Chapel, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Chapel}
-    - !<View> {name: AgX - Mercury, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Mercury}
-    - !<View> {name: AgX - Old Varnish, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Old Varnish}
+    - !<View> {name: AgX - Tarnished Print, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Tarnished Print}
     - !<View> {name: AgX - Soot, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Soot}
     - !<View> {name: AgX - Film Dense, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Film Dense}
     - !<View> {name: AgX - Photochemical, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Photochemical}
     - !<View> {name: AgX - Vitrine, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Vitrine}
-    - !<View> {name: AgX - Chemical Drift, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Chemical Drift}
     - !<View> {name: AgX - Phoenix Drift, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Phoenix Drift}
     - !<View> {name: AgX - Archival Warm-Gray, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Archival Warm-Gray}
     - !<View> {name: AgX - Carbon Plate, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Carbon Plate}
     - !<View> {name: AgX - Carbon Black, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Carbon Black}
-    - !<View> {name: AgX - Cold Steel Neutral, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Cold Steel Neutral}
+    - !<View> {name: AgX - Blue Carbon Print, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Blue Carbon Print}
     - !<View> {name: AgX - Graphite Matte, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Graphite Matte}
     - !<View> {name: AgX - Archival Extreme Matte, view_transform: AgX Base Rec.1886, display_colorspace: Rec.1886 - Display, looks: Archival Extreme Matte}
     - !<View> {name: Standard, view_transform: Standard, display_colorspace: Rec.1886 - Display}
@@ -195,7 +159,29 @@ displays:
     - !<View> {name: Standard, view_transform: Standard, display_colorspace: Rec.2100-HLG - Display}
     - !<View> {name: Raw, colorspace: Raw}
 active_displays: [sRGB - Display, Display P3 - Display, Rec.1886 - Display]
-active_views: [AgX, AgX - Base, AgX - Editorial Soft, AgX - Editorial Split, AgX - Hard Contrast, AgX - Monochrome Warm, AgX - Ash Relic, AgX - Funeral Bronze, AgX - Bone Black, AgX - Oxide, AgX - Lead Silver, AgX - Sepulchre, AgX - Charcoal Warm, AgX - Dead Umber, AgX - Verdigris Shadow, AgX - Tarnished Print, AgX - Negative Dust, AgX - Chapel, AgX - Mercury, AgX - Old Varnish, AgX - Soot, AgX - Film Dense, AgX - Photochemical, AgX - Vitrine, AgX - Chemical Drift, AgX - Phoenix Drift, AgX - Archival Warm-Gray, AgX - Carbon Plate, AgX - Carbon Black, AgX - Cold Steel Neutral, AgX - Graphite Matte, AgX - Archival Extreme Matte, Standard, Raw]
+active_views:
+  - AgX
+  - AgX - Base
+  - AgX - Editorial Soft
+  - AgX - Editorial Split
+  - AgX - Hard Contrast
+  - AgX - Funeral Bronze
+  - AgX - Verdigris Shadow
+  - AgX - Negative Dust
+  - AgX - Tarnished Print
+  - AgX - Soot
+  - AgX - Film Dense
+  - AgX - Photochemical
+  - AgX - Vitrine
+  - AgX - Phoenix Drift
+  - AgX - Archival Warm-Gray
+  - AgX - Carbon Plate
+  - AgX - Carbon Black
+  - AgX - Blue Carbon Print
+  - AgX - Graphite Matte
+  - AgX - Archival Extreme Matte
+  - Standard
+  - Raw
 inactive_colorspaces: [Filmic sRGB, AgX Base sRGB, ACES 1.3 sRGB, ACES 2.0 sRGB, Khronos PBR Neutral sRGB, Filmic Log, Luminance Compensation Rec.2020]
 
 display_colorspaces:
@@ -1164,364 +1150,119 @@ looks:
           master: {control_points: [0, 0, 0.12, 0.075, 0.42, 0.375, 0.82, 0.835, 1, 1]}
 
   - !<Look>
-    name: Monochrome Warm
-    process_space: AgX Log
-    description: |
-      Near-monochrome warm-grey sculptural look with very low chroma
-      while preserving form and material detail.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 1.02}
-          saturation: 0.18
-        - !<AllocationTransform> {allocation: lg2, vars: [-12.47393, 12.5260688117], direction: inverse}
-        - !<MatrixTransform> {matrix: [0.269280, 0.634918, 0.135801, 0, 0.258924, 0.610499, 0.130578, 0, 0.243388, 0.573869, 0.122743, 0, 0, 0, 0, 1]}
-        - !<AllocationTransform> {allocation: lg2, vars: [-12.47393, 12.5260688117]}
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.44}
-          highlights: {rgb: [1, 1, 1], master: 0.982, start: 0.27, pivot: 0.90}
-          whites: {rgb: [1, 1, 1], master: 0.990, start: 0.34, width: 0.46}
-          s_contrast: 0.99
-        - !<CDLTransform> {slope: [1.006, 1.000, 0.988], offset: [0.0010, 0.0010, 0.0010], power: [1.000, 1.002, 1.006], sat: 0.65}
-
-  - !<Look>
-    name: Ash Relic
-    process_space: AgX Log
-    description: Dusty grey-brown mineral shaping with heavily restrained orange/chroma response.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 0.98}
-          saturation: 0.34
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.50}
-          highlights: {rgb: [1, 1, 1], master: 0.976, start: 0.27, pivot: 0.88}
-          whites: {rgb: [1, 1, 1], master: 0.984, start: 0.35, width: 0.50}
-          s_contrast: 0.97
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.25, 0.244, 0.62, 0.600, 1, 0.992]}
-          green: {control_points: [0, 0, 0.25, 0.252, 0.62, 0.618, 1, 0.997]}
-          blue: {control_points: [0, 0, 0.25, 0.248, 0.62, 0.610, 1, 1]}
-        - !<CDLTransform> {slope: [1.000, 0.996, 0.988], offset: [0.0015, 0.0012, 0.0008], power: [1.010, 1.014, 1.020], sat: 0.72}
-
-  - !<Look>
     name: Funeral Bronze
     process_space: AgX Log
-    description: Heavy low-key density with restrained bronze high-mid warmth and neutral-cold shadows.
+    description: Dense ceremonial low-key bronze with cold-neutral shadows and suppressed orange texture response.
     transform: !<GroupTransform>
       children:
         - !<GradingPrimaryTransform>
           style: log
-          contrast: {rgb: [1, 1, 1], master: 1.12}
-          saturation: 0.56
+          contrast: {rgb: [0.99, 1.00, 1.015], master: 1.10}
+          saturation: 0.46
         - !<GradingToneTransform>
           style: log
-          blacks: {rgb: [1, 1, 1], master: 1.026, start: 0.32, width: 0.42}
-          highlights: {rgb: [1, 1, 1], master: 0.988, start: 0.27, pivot: 0.90}
-          whites: {rgb: [1, 1, 1], master: 0.996, start: 0.34, width: 0.44}
-          s_contrast: 1.03
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.25, 0.246, 0.72, 0.734, 1, 1]}
-          green: {control_points: [0, 0, 0.25, 0.250, 0.72, 0.724, 1, 0.996]}
-          blue: {control_points: [0, 0, 0.25, 0.254, 0.72, 0.704, 1, 0.988]}
-        - !<CDLTransform> {slope: [1.010, 1.000, 0.982], offset: [0.0002, 0.0004, 0.0010], power: [1.006, 1.008, 1.018], sat: 0.86}
-
-  - !<Look>
-    name: Bone Black
-    process_space: AgX Log
-    description: Cold blacks against lifted warm-bone highlights with tight low chroma.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 1.08}
-          saturation: 0.28
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 1.014, start: 0.33, width: 0.43}
-          highlights: {rgb: [1, 1, 1], master: 1.010, start: 0.28, pivot: 0.89}
-          whites: {rgb: [1, 1, 1], master: 1.014, start: 0.35, width: 0.46}
+          blacks: {rgb: [1, 1, 1], master: 1.018, start: 0.32, width: 0.44}
+          highlights: {rgb: [1, 1, 1], master: 0.986, start: 0.27, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.996, start: 0.34, width: 0.46}
           s_contrast: 1.01
         - !<GradingRGBCurveTransform>
           style: log
-          red: {control_points: [0, 0, 0.22, 0.216, 0.78, 0.790, 1, 1]}
-          green: {control_points: [0, 0, 0.22, 0.221, 0.78, 0.784, 1, 0.998]}
-          blue: {control_points: [0, 0, 0.22, 0.228, 0.78, 0.766, 1, 0.990]}
-
-  - !<Look>
-    name: Oxide
-    process_space: AgX Log
-    description: Muted oxidized brown-green separation, dry and mineral without warm clay excess.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 1.01}
-          saturation: 0.48
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 0.996, start: 0.33, width: 0.47}
-          highlights: {rgb: [1, 1, 1], master: 0.974, start: 0.27, pivot: 0.88}
-          whites: {rgb: [1, 1, 1], master: 0.986, start: 0.34, width: 0.48}
-          s_contrast: 0.99
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.20, 0.198, 0.58, 0.568, 1, 0.992]}
-          green: {control_points: [0, 0, 0.20, 0.206, 0.58, 0.594, 1, 0.998]}
-          blue: {control_points: [0, 0, 0.20, 0.202, 0.58, 0.574, 1, 0.990]}
-        - !<CDLTransform> {slope: [1.004, 1.010, 0.982], offset: [0.0005, 0.0012, 0.0008], power: [1.018, 1.006, 1.020], sat: 0.84}
-
-  - !<Look>
-    name: Lead Silver
-    process_space: AgX Log
-    description: Cold silver-grey bias with stronger highlight structure and sculptural metallic clarity.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 1.10}
-          saturation: 0.30
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 1.006, start: 0.32, width: 0.43}
-          highlights: {rgb: [1, 1, 1], master: 1.018, start: 0.30, pivot: 0.88}
-          whites: {rgb: [1, 1, 1], master: 1.006, start: 0.35, width: 0.42}
-          s_contrast: 1.04
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.30, 0.296, 0.78, 0.770, 1, 0.990]}
-          green: {control_points: [0, 0, 0.30, 0.302, 0.78, 0.782, 1, 0.998]}
-          blue: {control_points: [0, 0, 0.30, 0.306, 0.78, 0.794, 1, 1]}
-
-  - !<Look>
-    name: Sepulchre
-    process_space: AgX Log
-    description: Dense tomb-like low-key palette with cold shadows and faint dead warmth in highlights.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 1.09}
-          saturation: 0.42
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 1.008, start: 0.31, width: 0.45}
-          highlights: {rgb: [1, 1, 1], master: 0.992, start: 0.27, pivot: 0.90}
-          whites: {rgb: [1, 1, 1], master: 0.998, start: 0.34, width: 0.46}
-          s_contrast: 1.02
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.24, 0.236, 0.75, 0.760, 1, 0.998]}
-          green: {control_points: [0, 0, 0.24, 0.240, 0.75, 0.752, 1, 0.996]}
-          blue: {control_points: [0, 0, 0.24, 0.248, 0.75, 0.738, 1, 0.990]}
-
-  - !<Look>
-    name: Charcoal Warm
-    process_space: AgX Log
-    description: Charcoal-black foundation with warm grey mids and low chroma for dark figures on black.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 1.04}
-          saturation: 0.24
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 1.020, start: 0.32, width: 0.42}
-          highlights: {rgb: [1, 1, 1], master: 0.990, start: 0.28, pivot: 0.90}
-          whites: {rgb: [1, 1, 1], master: 0.998, start: 0.35, width: 0.46}
-          s_contrast: 1.00
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.20, 0.198, 0.55, 0.562, 1, 0.998]}
-          green: {control_points: [0, 0, 0.20, 0.200, 0.55, 0.554, 1, 0.996]}
-          blue: {control_points: [0, 0, 0.20, 0.204, 0.55, 0.540, 1, 0.990]}
-
-  - !<Look>
-    name: Dead Umber
-    process_space: AgX Log
-    description: Dry old umber warmth with orange suppressed and shadows desaturated.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 1.00}
-          saturation: 0.44
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 0.992, start: 0.33, width: 0.48}
-          highlights: {rgb: [1, 1, 1], master: 0.982, start: 0.27, pivot: 0.88}
-          whites: {rgb: [1, 1, 1], master: 0.990, start: 0.35, width: 0.48}
-          s_contrast: 0.98
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.24, 0.238, 0.62, 0.622, 1, 0.996]}
-          green: {control_points: [0, 0, 0.24, 0.242, 0.62, 0.610, 1, 0.992]}
-          blue: {control_points: [0, 0, 0.24, 0.246, 0.62, 0.590, 1, 0.984]}
-        - !<CDLTransform> {slope: [1.006, 0.994, 0.978], offset: [0.0010, 0.0008, 0.0004], power: [1.018, 1.018, 1.026], sat: 0.82}
+          red: {control_points: [0, 0, 0.18, 0.174, 0.48, 0.480, 0.74, 0.746, 1, 0.998]}
+          green: {control_points: [0, 0, 0.18, 0.180, 0.48, 0.484, 0.74, 0.742, 1, 0.996]}
+          blue: {control_points: [0, 0, 0.18, 0.184, 0.48, 0.476, 0.74, 0.734, 1, 0.992]}
+        - !<CDLTransform> {slope: [1.003, 0.999, 0.991], offset: [0.0000, 0.0002, 0.0006], power: [1.012, 1.006, 1.016], sat: 0.86}
 
   - !<Look>
     name: Verdigris Shadow
     process_space: AgX Log
-    description: Subtle green-cyan shadow contamination with controlled warm highlights.
+    description: Usable oxidized shadow contamination with restrained warm highlights, avoiding teal-orange cliche.
     transform: !<GroupTransform>
       children:
         - !<GradingPrimaryTransform>
           style: log
-          contrast: {rgb: [1, 1, 1], master: 1.02}
+          contrast: {rgb: [0.999, 1.002, 1.002], master: 1.00}
           saturation: 0.50
         - !<GradingToneTransform>
           style: log
-          blacks: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.46}
-          highlights: {rgb: [1, 1, 1], master: 0.984, start: 0.27, pivot: 0.90}
-          whites: {rgb: [1, 1, 1], master: 0.994, start: 0.34, width: 0.46}
-          s_contrast: 1.00
+          blacks: {rgb: [1, 1, 1], master: 0.996, start: 0.33, width: 0.47}
+          highlights: {rgb: [1, 1, 1], master: 0.988, start: 0.28, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.996, start: 0.35, width: 0.46}
+          s_contrast: 0.99
         - !<GradingRGBCurveTransform>
           style: log
-          red: {control_points: [0, 0, 0.18, 0.170, 0.76, 0.766, 1, 0.998]}
-          green: {control_points: [0, 0, 0.18, 0.188, 0.76, 0.758, 1, 0.994]}
-          blue: {control_points: [0, 0, 0.18, 0.190, 0.76, 0.748, 1, 0.990]}
+          red: {control_points: [0, 0, 0.16, 0.158, 0.44, 0.441, 0.78, 0.779, 1, 0.998]}
+          green: {control_points: [0, 0, 0.16, 0.164, 0.44, 0.444, 0.78, 0.777, 1, 0.997]}
+          blue: {control_points: [0, 0, 0.16, 0.164, 0.44, 0.443, 0.78, 0.773, 1, 0.996]}
+        - !<CDLTransform> {slope: [0.999, 1.0015, 1.000], offset: [0.0000, 0.00025, 0.0003], power: [1.006, 1.003, 1.004], sat: 0.92}
 
   - !<Look>
     name: Tarnished Print
     process_space: AgX Log
-    description: Print-like density, compressed highlights, richer blacks, and mild hue separation.
+    description: Print-density inspired compression with richer blacks, restrained saturation, and mild channel separation.
     transform: !<GroupTransform>
       children:
         - !<GradingPrimaryTransform>
           style: log
-          contrast: {rgb: [1, 1, 1], master: 1.11}
-          saturation: 0.62
+          contrast: {rgb: [1.02, 1.00, 0.98], master: 1.18}
+          saturation: 0.48
         - !<GradingToneTransform>
           style: log
-          blacks: {rgb: [1, 1, 1], master: 1.025, start: 0.32, width: 0.42}
-          highlights: {rgb: [1, 1, 1], master: 0.958, start: 0.25, pivot: 0.87}
-          whites: {rgb: [1, 1, 1], master: 0.980, start: 0.33, width: 0.46}
-          s_contrast: 1.02
+          blacks: {rgb: [1, 1, 1], master: 1.044, start: 0.31, width: 0.41}
+          highlights: {rgb: [1, 1, 1], master: 0.932, start: 0.24, pivot: 0.86}
+          whites: {rgb: [1, 1, 1], master: 0.966, start: 0.32, width: 0.46}
+          s_contrast: 1.03
         - !<GradingRGBCurveTransform>
           style: log
-          red: {control_points: [0, 0, 0.20, 0.192, 0.66, 0.678, 1, 0.996]}
-          green: {control_points: [0, 0, 0.20, 0.198, 0.66, 0.660, 1, 0.994]}
-          blue: {control_points: [0, 0, 0.20, 0.206, 0.66, 0.642, 1, 0.988]}
-        - !<CDLTransform> {slope: [1.010, 1.000, 0.982], offset: [0.0010, 0.0006, 0.0012], power: [1.010, 1.012, 1.020], sat: 0.92}
+          red: {control_points: [0, 0, 0.16, 0.150, 0.42, 0.404, 0.68, 0.692, 1, 0.990]}
+          green: {control_points: [0, 0, 0.16, 0.158, 0.42, 0.418, 0.68, 0.674, 1, 0.992]}
+          blue: {control_points: [0, 0, 0.16, 0.168, 0.42, 0.410, 0.68, 0.648, 1, 0.984]}
+        - !<CDLTransform> {slope: [1.004, 0.998, 0.982], offset: [0.0010, 0.0006, 0.0014], power: [1.020, 1.018, 1.030], sat: 0.82}
 
   - !<Look>
     name: Negative Dust
     process_space: AgX Log
-    description: Negative-inspired softness with contaminated lifted shadows and muted dirty highlights.
+    description: Soft negative-like contamination with lifted shadows, dirty highlights, and elegant hue response.
     transform: !<GroupTransform>
       children:
         - !<GradingPrimaryTransform>
           style: log
-          contrast: {rgb: [1, 1, 1], master: 0.90}
-          saturation: 0.46
+          contrast: {rgb: [0.995, 1.00, 1.005], master: 0.95}
+          saturation: 0.48
         - !<GradingToneTransform>
           style: log
-          blacks: {rgb: [1, 1, 1], master: 0.900, start: 0.32, width: 0.54}
-          highlights: {rgb: [1, 1, 1], master: 0.946, start: 0.25, pivot: 0.86}
-          whites: {rgb: [1, 1, 1], master: 0.970, start: 0.34, width: 0.52}
-          s_contrast: 0.94
+          blacks: {rgb: [1, 1, 1], master: 0.945, start: 0.32, width: 0.52}
+          highlights: {rgb: [1, 1, 1], master: 0.968, start: 0.27, pivot: 0.89}
+          whites: {rgb: [1, 1, 1], master: 0.985, start: 0.34, width: 0.50}
+          s_contrast: 0.98
         - !<GradingRGBCurveTransform>
           style: log
-          red: {control_points: [0, 0, 0.18, 0.190, 0.68, 0.668, 1, 0.988]}
-          green: {control_points: [0, 0, 0.18, 0.184, 0.68, 0.682, 1, 0.994]}
-          blue: {control_points: [0, 0, 0.18, 0.194, 0.68, 0.660, 1, 0.990]}
-        - !<CDLTransform> {slope: [0.996, 1.002, 0.990], offset: [0.0030, 0.0024, 0.0034], power: [1.020, 1.012, 1.026], sat: 0.86}
+          red: {control_points: [0, 0, 0.15, 0.154, 0.46, 0.456, 0.74, 0.738, 1, 0.994]}
+          green: {control_points: [0, 0, 0.15, 0.153, 0.46, 0.461, 0.74, 0.742, 1, 0.998]}
+          blue: {control_points: [0, 0, 0.15, 0.158, 0.46, 0.456, 0.74, 0.736, 1, 0.996]}
+        - !<CDLTransform> {slope: [0.998, 1.0005, 0.997], offset: [0.0010, 0.0008, 0.0011], power: [1.010, 1.006, 1.012], sat: 0.92}
 
   - !<Look>
-    name: Chapel
+    name: Soot
     process_space: AgX Log
-    description: Dark interior ceremonial warmth in high mids with deep readable shadows.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 1.08}
-          saturation: 0.52
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 1.012, start: 0.32, width: 0.44}
-          highlights: {rgb: [1, 1, 1], master: 0.994, start: 0.28, pivot: 0.90}
-          whites: {rgb: [1, 1, 1], master: 1.000, start: 0.35, width: 0.46}
-          s_contrast: 1.01
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.22, 0.218, 0.68, 0.692, 1, 0.998]}
-          green: {control_points: [0, 0, 0.22, 0.220, 0.68, 0.682, 1, 0.996]}
-          blue: {control_points: [0, 0, 0.22, 0.226, 0.68, 0.660, 1, 0.990]}
-
-  - !<Look>
-    name: Mercury
-    process_space: AgX Log
-    description: Cold liquid-metal bias with compressed saturation and crisp highlight edges.
+    description: Near-monochrome charcoal/ash response with readable deep blacks and tiny warm accents.
     transform: !<GroupTransform>
       children:
         - !<GradingPrimaryTransform>
           style: log
           contrast: {rgb: [1, 1, 1], master: 1.13}
-          saturation: 0.32
+          saturation: 0.10
         - !<GradingToneTransform>
           style: log
-          blacks: {rgb: [1, 1, 1], master: 1.010, start: 0.32, width: 0.40}
-          highlights: {rgb: [1, 1, 1], master: 1.026, start: 0.31, pivot: 0.89}
-          whites: {rgb: [1, 1, 1], master: 1.012, start: 0.35, width: 0.40}
-          s_contrast: 1.05
+          blacks: {rgb: [1, 1, 1], master: 1.034, start: 0.31, width: 0.42}
+          highlights: {rgb: [1, 1, 1], master: 0.978, start: 0.28, pivot: 0.90}
+          whites: {rgb: [1, 1, 1], master: 0.992, start: 0.34, width: 0.44}
+          s_contrast: 1.01
         - !<GradingRGBCurveTransform>
           style: log
-          red: {control_points: [0, 0, 0.26, 0.254, 0.82, 0.806, 1, 0.988]}
-          green: {control_points: [0, 0, 0.26, 0.262, 0.82, 0.824, 1, 0.998]}
-          blue: {control_points: [0, 0, 0.26, 0.268, 0.82, 0.838, 1, 1]}
-
-  - !<Look>
-    name: Old Varnish
-    process_space: AgX Log
-    description: Yellowed aged varnish influence, warm and desaturated with preserved shadow separation.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 0.99}
-          saturation: 0.46
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 0.998, start: 0.33, width: 0.47}
-          highlights: {rgb: [1, 1, 1], master: 0.970, start: 0.26, pivot: 0.88}
-          whites: {rgb: [1, 1, 1], master: 0.988, start: 0.35, width: 0.48}
-          s_contrast: 0.98
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.24, 0.240, 0.70, 0.712, 1, 0.998]}
-          green: {control_points: [0, 0, 0.24, 0.242, 0.70, 0.700, 1, 0.994]}
-          blue: {control_points: [0, 0, 0.24, 0.246, 0.70, 0.674, 1, 0.984]}
-        - !<CDLTransform> {slope: [1.006, 1.000, 0.978], offset: [0.0012, 0.0010, 0.0006], power: [1.010, 1.014, 1.030], sat: 0.82}
-
-  - !<Look>
-    name: Soot
-    process_space: AgX Log
-    description: Near-monochrome soot and ash with deep blacks and only small warm accents retained.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 1.14}
-          saturation: 0.16
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 1.040, start: 0.31, width: 0.40}
-          highlights: {rgb: [1, 1, 1], master: 0.984, start: 0.28, pivot: 0.90}
-          whites: {rgb: [1, 1, 1], master: 0.994, start: 0.34, width: 0.44}
-          s_contrast: 1.02
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.18, 0.176, 0.70, 0.704, 1, 0.998]}
-          green: {control_points: [0, 0, 0.18, 0.180, 0.70, 0.696, 1, 0.996]}
-          blue: {control_points: [0, 0, 0.18, 0.184, 0.70, 0.686, 1, 0.990]}
+          red: {control_points: [0, 0, 0.18, 0.174, 0.52, 0.520, 0.80, 0.808, 1, 0.998]}
+          green: {control_points: [0, 0, 0.18, 0.180, 0.52, 0.516, 0.80, 0.798, 1, 0.996]}
+          blue: {control_points: [0, 0, 0.18, 0.184, 0.52, 0.508, 0.80, 0.784, 1, 0.990]}
+        - !<CDLTransform> {slope: [1.002, 1.000, 0.992], offset: [0.0002, 0.0002, 0.0004], power: [1.012, 1.014, 1.020], sat: 0.70}
 
   # Archival Dense — more body but still lifted + muted.
   - !<Look>
@@ -1586,6 +1327,30 @@ looks:
           red: {control_points: [0, 0, 0.28, 0.276, 1, 1]}
           blue: {control_points: [0, 0, 0.28, 0.284, 1, 1]}
           green: {control_points: [0, 0, 0.28, 0.281, 1, 1]}
+
+  - !<Look>
+    name: Blue Carbon Print
+    process_space: AgX Log
+    description: |
+      Cool blue-black print-density bias with deeper lower mids, neutral highlights, and restrained chroma.
+    transform: !<GroupTransform>
+      children:
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [0.99, 1.00, 1.01], master: 1.08}
+          saturation: 0.54
+        - !<GradingToneTransform>
+          style: log
+          blacks: {rgb: [1, 1, 1], master: 1.028, start: 0.31, width: 0.43}
+          highlights: {rgb: [1, 1, 1], master: 0.970, start: 0.26, pivot: 0.88}
+          whites: {rgb: [1, 1, 1], master: 0.988, start: 0.34, width: 0.45}
+          s_contrast: 1.02
+        - !<GradingRGBCurveTransform>
+          style: log
+          red: {control_points: [0, 0, 0.16, 0.150, 0.42, 0.408, 0.74, 0.738, 1, 0.998]}
+          green: {control_points: [0, 0, 0.16, 0.158, 0.42, 0.416, 0.74, 0.740, 1, 0.999]}
+          blue: {control_points: [0, 0, 0.16, 0.172, 0.42, 0.430, 0.74, 0.742, 1, 0.999]}
+
   - !<Look>
     name: Editorial Split
     process_space: AgX Log
