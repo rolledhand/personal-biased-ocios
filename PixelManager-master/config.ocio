@@ -49,13 +49,13 @@ roles:
   default_byte: sRGB
 
   # Default color space for float images
-  default_float: Linear Rec.709
+  default_float: Linear Rec.2020
 
   # Default color space sequencer is working in
   default_sequencer: sRGB
 
   # Distribution of colors in color picker
-  color_picking: sRGB
+  color_picking: Linear Rec.2020
 
   # Non-color data
   data: Raw
@@ -65,25 +65,39 @@ roles:
   cie_xyz_d65_interchange: Linear CIE-XYZ D65
 
   # Specified by OCIO, not used in Blender
-  color_timing: AgX Log
-  compositing_log: AgX Log
-  default: Linear Rec.709
+  color_timing: 2499DRT Log (2499)
+  compositing_log: 2499DRT Log (2499)
+  default: Linear Rec.2020
   matte_paint: Linear Rec.709
-  texture_paint: Linear Rec.709
+  texture_paint: Linear Rec.2020
+  mari_monitor: sRGB
+  mari_scalar_monitor: sRGB
+  mari_color_picker: sRGB
+  mari_working: Linear Rec.2020
+  mari_int8: sRGB
+  mari_int16: sRGB
+  mari_int_scalar: Raw
+  mari_scalar8: Raw
+  mari_float: Linear Rec.2020
+  srgb_linear: Linear Rec.709
   substance_3d_painter_standard_srgb: sRGB
   substance_3d_painter_bitmap_import_8bit: sRGB
+  substance_3d_painter_bitmap_import_16bit: sRGB
+  substance_3d_painter_bitmap_import_floating: Linear Rec.2020
   substance_3d_painter_bitmap_export_8bit: sRGB
-  substance_3d_painter_substance_material: Raw
+  substance_3d_painter_bitmap_export_16bit: sRGB
+  substance_3d_painter_bitmap_export_floating: Linear Rec.2020
+  substance_3d_painter_substance_material: sRGB
   
 # When using Spectral Renderer, Change XYZ role to I-E
 #  XYZ: Linear CIE-XYZ D65
 
 file_rules:
   - !<Rule> {name: PBRMaps, regex: ".*(_(Normal|normal|Roughness|roughness|Metallic|metallic|Metal|metal|Height|height|Displacement|displacement|AmbientOcclusion|ambientOcclusion|AO|ao|Specular|specular|Glossiness|glossiness|Gloss|gloss|Cavity|cavity|Subsurface|subsurface|SubsurfaceScattering|subsurfaceScattering|SSS|sss|Alpha|alpha|Opacity|opacity|_nm|_rm|_mm|_hm|_dm|_ao|_sm|_gm|_cm|_ss|_sssm|_sss|_am|_om|_arm|_orm)).*", colorspace: Raw}
-  - !<Rule> {name: OpenEXR, extension: "exr", pattern: "*", colorspace: Linear Rec.709}
-  - !<Rule> {name: hdr, extension: "hdr", pattern: "*", colorspace: Linear Rec.709}
+  - !<Rule> {name: OpenEXR, extension: "exr", pattern: "*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: hdr, extension: "hdr", pattern: "*", colorspace: Linear Rec.2020}
   - !<Rule> {name: ColorSpaceNamePathSearch}
-  - !<Rule> {name: Default, colorspace: Linear Rec.709}
+  - !<Rule> {name: Default, colorspace: Linear Rec.2020}
  
 displays: 
   sRGB:
