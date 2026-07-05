@@ -19,16 +19,16 @@ roles:
   rendering: Linear Rec.2020
 
   # Default color space for byte images
-  default_byte: sRGB
+  default_byte: sRGB - Texture
 
   # Default color space for float images
   default_float: Linear Rec.2020
 
   # Sequencer/UI-ish default
-  default_sequencer: sRGB
+  default_sequencer: sRGB - Texture
 
   # Color picker should stay display/simple, not scene wide gamut.
-  color_picking: sRGB
+  color_picking: sRGB - Texture
 
   # Non-color data
   data: Raw
@@ -40,118 +40,134 @@ roles:
   # General app roles
   color_timing: 2499DRT Log (2499)
   compositing_log: 2499DRT Log (2499)
+  compositing_linear: Linear Rec.2020
   default: Linear Rec.2020
-  matte_paint: sRGB
-  texture_paint: Linear Rec.2020
+  matte_paint: sRGB - Texture
+  texture_paint: sRGB - Texture
   srgb_linear: Linear Rec.709
 
   # Substance Painter roles
   # 8/16-bit bitmap color textures are almost always authored/display-referred sRGB.
   # Floating exports are treated as scene-linear Rec.2020 only if explicitly authored that way.
-  substance_3d_painter_standard_srgb: sRGB
-  substance_3d_painter_bitmap_import_8bit: sRGB
-  substance_3d_painter_bitmap_import_16bit: sRGB
+  substance_3d_painter_standard_srgb: sRGB - Texture
+  substance_3d_painter_bitmap_import_8bit: sRGB - Texture
+  substance_3d_painter_bitmap_import_16bit: sRGB - Texture
   substance_3d_painter_bitmap_import_floating: Linear Rec.2020
-  substance_3d_painter_bitmap_export_8bit: sRGB
-  substance_3d_painter_bitmap_export_16bit: sRGB
+  substance_3d_painter_bitmap_export_8bit: sRGB - Texture
+  substance_3d_painter_bitmap_export_16bit: sRGB - Texture
   substance_3d_painter_bitmap_export_floating: Linear Rec.2020
-  substance_3d_painter_substance_material: sRGB
+  substance_3d_painter_substance_material: sRGB - Texture
 
 # When using a spectral renderer, only change this if the renderer/config explicitly expects it.
 # XYZ: Linear CIE-XYZ D65
 
 file_rules:
   # --------------------------------------------------------------------------
-  # 01. Explicit path/name overrides
-  # These are regex rules instead of pattern-only Basic Rules because this
-  # OCIO build rejects extension: "*" with "file extension pattern is empty".
+  # 01. Path/name overrides
+  # These are regex rules instead of pattern-only Basic Rules because some
+  # OCIO builds reject extension: "*" with "file extension pattern is empty".
+  # Keep these first so intentional naming beats generic file-extension rules.
   # --------------------------------------------------------------------------
 
-  - !<Rule> {name: explicit_srgb_tx, regex: ".*srgb_tx.*", colorspace: sRGB}
-  - !<Rule> {name: explicit_srgb_texture, regex: ".*srgb_texture.*", colorspace: sRGB}
-  - !<Rule> {name: explicit_srgb_upper, regex: ".*sRGB.*", colorspace: sRGB}
-  - !<Rule> {name: explicit_srgb_lower, regex: ".*srgb.*", colorspace: sRGB}
+  - !<Rule> {name: g22_rec709, regex: ".*[/_.-]g22_rec709[/_.-].*|.*[/_.-]g22_rec709\\..*|.*_g22_rec709_.*|.*_g22_rec709\\..*", colorspace: sRGB}
+  - !<Rule> {name: g22_encoded_rec709, regex: ".*[/_.-]g22_encoded_rec709[/_.-].*|.*[/_.-]g22_encoded_rec709\\..*|.*_g22_encoded_rec709_.*|.*_g22_encoded_rec709\\..*", colorspace: sRGB}
+  - !<Rule> {name: srgb_tx, regex: ".*[/_.-]srgb_tx[/_.-].*|.*[/_.-]srgb_tx\\..*|.*_srgb_tx_.*|.*_srgb_tx\\..*", colorspace: sRGB - Texture}
+  - !<Rule> {name: srgb_texture, regex: ".*[/_.-]srgb_texture[/_.-].*|.*[/_.-]srgb_texture\\..*|.*_srgb_texture_.*|.*_srgb_texture\\..*", colorspace: sRGB - Texture}
+  - !<Rule> {name: srgb_encoded_p3d65, regex: ".*[/_.-]srgb_encoded_p3d65[/_.-].*|.*[/_.-]srgb_encoded_p3d65\\..*|.*_srgb_encoded_p3d65_.*|.*_srgb_encoded_p3d65\\..*", colorspace: sRGB Encoded P3-D65}
+  - !<Rule> {name: srgb_p3d65, regex: ".*[/_.-]srgb_p3d65[/_.-].*|.*[/_.-]srgb_p3d65\\..*|.*_srgb_p3d65_.*|.*_srgb_p3d65\\..*", colorspace: sRGB Encoded P3-D65}
+  - !<Rule> {name: srgb_displayp3, regex: ".*[/_.-]srgb_displayp3[/_.-].*|.*[/_.-]srgb_displayp3\\..*|.*_srgb_displayp3_.*|.*_srgb_displayp3\\..*", colorspace: sRGB Encoded P3-D65}
+  - !<Rule> {name: srgb_upper, regex: ".*[/_.-]sRGB[/_.-].*|.*[/_.-]sRGB\\..*|.*_sRGB_.*|.*_sRGB\\..*", colorspace: sRGB - Texture}
+  - !<Rule> {name: srgb_lower, regex: ".*[/_.-]srgb[/_.-].*|.*[/_.-]srgb\\..*|.*_srgb_.*|.*_srgb\\..*", colorspace: sRGB - Texture}
 
-  - !<Rule> {name: explicit_raw_any, regex: ".*[rR][aA][wW].*", colorspace: Raw}
-  - !<Rule> {name: explicit_data, regex: ".*data.*", colorspace: Raw}
-  - !<Rule> {name: explicit_noncolor, regex: ".*noncolor.*", colorspace: Raw}
-  - !<Rule> {name: explicit_non_color, regex: ".*non_color.*", colorspace: Raw}
-  - !<Rule> {name: explicit_utility_raw, regex: ".*utility_raw.*", colorspace: Raw}
+  - !<Rule> {name: raw_any, regex: ".*[/_.-][rR][aA][wW][/_.-].*|.*[/_.-][rR][aA][wW]\\..*|.*_[rR][aA][wW]_.*|.*_[rR][aA][wW]\\..*", colorspace: Raw}
+  - !<Rule> {name: data, regex: ".*[/_.-]data[/_.-].*|.*[/_.-]data\\..*|.*_data_.*|.*_data\\..*", colorspace: Raw}
+  - !<Rule> {name: noncolor, regex: ".*[/_.-]noncolor[/_.-].*|.*[/_.-]noncolor\\..*|.*_noncolor_.*|.*_noncolor\\..*", colorspace: Raw}
+  - !<Rule> {name: non_color, regex: ".*[/_.-]non_color[/_.-].*|.*[/_.-]non_color\\..*|.*_non_color_.*|.*_non_color\\..*", colorspace: Raw}
+  - !<Rule> {name: utility_raw, regex: ".*[/_.-]utility_raw[/_.-].*|.*[/_.-]utility_raw\\..*|.*_utility_raw_.*|.*_utility_raw\\..*", colorspace: Raw}
 
-  - !<Rule> {name: explicit_rec2020, regex: ".*Linear Rec\\.2020.*", colorspace: Linear Rec.2020}
-  - !<Rule> {name: explicit_lin_rec2020, regex: ".*lin_rec2020.*", colorspace: Linear Rec.2020}
-  - !<Rule> {name: explicit_linrec2020, regex: ".*linrec2020.*", colorspace: Linear Rec.2020}
-  - !<Rule> {name: explicit_linear_rec2020, regex: ".*linear_rec2020.*", colorspace: Linear Rec.2020}
-  - !<Rule> {name: explicit_bt2020, regex: ".*lin_bt2020.*", colorspace: Linear Rec.2020}
-  - !<Rule> {name: explicit_linear_bt2020, regex: ".*linear_bt2020.*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: rec2020, regex: ".*Linear Rec\\.2020.*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: lin_rec2020, regex: ".*lin_rec2020.*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: linrec2020, regex: ".*linrec2020.*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: linear_rec2020, regex: ".*linear_rec2020.*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: bt2020, regex: ".*lin_bt2020.*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: linear_bt2020, regex: ".*linear_bt2020.*", colorspace: Linear Rec.2020}
 
-  - !<Rule> {name: explicit_acescg, regex: ".*ACEScg.*", colorspace: ACEScg}
-  - !<Rule> {name: explicit_acescg_lower, regex: ".*acescg.*", colorspace: ACEScg}
+  - !<Rule> {name: acescg, regex: ".*ACEScg.*", colorspace: ACEScg}
+  - !<Rule> {name: acescg_lower, regex: ".*acescg.*", colorspace: ACEScg}
 
-  - !<Rule> {name: explicit_rec709, regex: ".*Linear Rec\\.709.*", colorspace: Linear Rec.709}
-  - !<Rule> {name: explicit_lin_rec709, regex: ".*lin_rec709.*", colorspace: Linear Rec.709}
-  - !<Rule> {name: explicit_linrec709, regex: ".*linrec709.*", colorspace: Linear Rec.709}
-  - !<Rule> {name: explicit_linear_rec709, regex: ".*linear_rec709.*", colorspace: Linear Rec.709}
-  - !<Rule> {name: explicit_lin_srgb, regex: ".*lin_srgb.*", colorspace: Linear Rec.709}
-  - !<Rule> {name: explicit_linear_srgb, regex: ".*linear_srgb.*", colorspace: Linear Rec.709}
+  - !<Rule> {name: rec709, regex: ".*Linear Rec\\.709.*", colorspace: Linear Rec.709}
+  - !<Rule> {name: lin_rec709, regex: ".*lin_rec709.*", colorspace: Linear Rec.709}
+  - !<Rule> {name: linrec709, regex: ".*linrec709.*", colorspace: Linear Rec.709}
+  - !<Rule> {name: linear_rec709, regex: ".*linear_rec709.*", colorspace: Linear Rec.709}
+  - !<Rule> {name: lin_srgb, regex: ".*lin_srgb.*", colorspace: Linear Rec.709}
+  - !<Rule> {name: linear_srgb, regex: ".*linear_srgb.*", colorspace: Linear Rec.709}
 
   # --------------------------------------------------------------------------
   # 02. Houdini / MoonRay .tx rule
   # Keep .tx Raw because utility .tx maps are data, and basecolor .tx should
-  # already be converted to Linear Rec.2020 by maketx.
+  # already be converted to Linear Rec.2020 by maketx/oiiotool before rendering.
+  # This avoids OCIO applying a second transform to .tx files.
   # --------------------------------------------------------------------------
 
   - !<Rule> {name: tx, pattern: "*", extension: "tx", colorspace: Raw}
 
   # --------------------------------------------------------------------------
-  # 03. PBR / utility maps
-  # Keep this before generic byte-image rules. This is based on the original
-  # working PixelManager rule, with a few safe extra common suffixes.
+  # 03. PBR / utility maps that are always data
+  # Keep these before generic byte-image rules.
+  # Color-bearing material maps are handled separately below.
   # --------------------------------------------------------------------------
 
-  - !<Rule> {name: PBRMaps, regex: ".*(_(Normal|normal|NRM|nrm|Norm|norm|NormalGL|normalGL|NormalDX|normalDX|Roughness|roughness|Rough|rough|Metallic|metallic|Metalness|metalness|Metal|metal|Height|height|Displacement|displacement|Disp|disp|Bump|bump|AmbientOcclusion|ambientOcclusion|Occlusion|occlusion|AO|ao|Specular|specular|Spec|spec|Glossiness|glossiness|Gloss|gloss|Cavity|cavity|Curvature|curvature|Thickness|thickness|Subsurface|subsurface|SubsurfaceScattering|subsurfaceScattering|SSS|sss|Transmission|transmission|Translucency|translucency|Alpha|alpha|Opacity|opacity|Mask|mask|ID|id|MatID|matid|_nm|_nrm|_normal|_rough|_roughness|_rm|_metal|_metallic|_metalness|_mm|_height|_hm|_disp|_dm|_bump|_ao|_occ|_spec|_sm|_gloss|_gm|_cavity|_cm|_curv|_thick|_sss|_sssm|_alpha|_opacity|_mask|_id|_arm|_orm|_om)).*", colorspace: Raw}
+  - !<Rule> {name: PBR_Data_Maps, regex: ".*(_(Normal|normal|NRM|nrm|Norm|norm|NormalGL|normalGL|NormalDX|normalDX|Roughness|roughness|Rough|rough|Metallic|metallic|Metalness|metalness|Metal|metal|Height|height|Displacement|displacement|Disp|disp|Bump|bump|AmbientOcclusion|ambientOcclusion|Occlusion|occlusion|AO|ao|Glossiness|glossiness|Gloss|gloss|Cavity|cavity|Curvature|curvature|Thickness|thickness|Anisotropy|anisotropy|Aniso|aniso|AnisotropyLevel|anisotropyLevel|Anisotropy_Level|anisotropy_level|AnisoLevel|anisoLevel|Aniso_Level|aniso_level|AnisotropyAngle|anisotropyAngle|Anisotropy_Angle|anisotropy_angle|AnisoAngle|anisoAngle|Aniso_Angle|aniso_angle|Mask|mask|ID|id|MatID|matid|Opacity|opacity|Alpha|alpha|_nm|_nrm|_normal|_rough|_roughness|_rm|_metal|_metallic|_metalness|_mm|_height|_hm|_disp|_dm|_bump|_ao|_occ|_gloss|_gm|_cavity|_cm|_curv|_thick|_aniso|_anisotropy|_anisolevel|_aniso_level|_anisotropy_level|_anisoangle|_aniso_angle|_anisotropy_angle|_mask|_id|_opacity|_alpha|_arm|_orm|_om)).*", colorspace: Raw}
+
+  - !<Rule> {name: PBR_Mask_Maps, regex: ".*(_(SubsurfaceMask|subsurfaceMask|Subsurface_Mask|subsurface_mask|SSSMask|sssMask|SSS_Mask|sss_mask|TransmissionMask|transmissionMask|Transmission_Mask|transmission_mask|TranslucencyMask|translucencyMask|Translucency_Mask|translucency_mask|SpecularLevel|specularLevel|Specular_Level|specular_level|SpecularAmount|specularAmount|Specular_Amount|specular_amount|CoatMask|coatMask|Coat_Mask|coat_mask|SheenMask|sheenMask|Sheen_Mask|sheen_mask)).*", colorspace: Raw}
 
   # --------------------------------------------------------------------------
-  # 04. Base color / color texture maps
-  # Byte image basecolor/albedo/diffuse/color maps are sRGB.
+  # 04. Color-bearing texture maps
+  # Byte-image basecolor/albedo/diffuse/color maps are sRGB.
+  # Ambiguous SSS/transmission/specular maps are treated as color only when
+  # their names explicitly say color/colour.
   # --------------------------------------------------------------------------
 
-  - !<Rule> {name: BaseColor_Byte_Images, regex: ".*(_(BaseColor|baseColor|basecolor|Base_Color|base_color|Albedo|albedo|Diffuse|diffuse|Diff|diff|Color|color|Colour|colour|Col|col|Base|base)).*\\.(png|jpg|jpeg|tga|tif|tiff|bmp|webp)$", colorspace: sRGB}
+  - !<Rule> {name: BaseColor_Byte_Images, regex: ".*(_(BaseColor|baseColor|basecolor|Base_Color|base_color|Albedo|albedo|Diffuse|diffuse|Diff|diff|Color|color|Colour|colour|Col|col|Base|base)).*\\.(png|jpg|jpeg|tga|tif|tiff|bmp|webp)$", colorspace: sRGB - Texture}
+
+  - !<Rule> {name: Material_Color_Byte_Images, regex: ".*(_(SubsurfaceColor|subsurfaceColor|Subsurface_Color|subsurface_color|SSSColor|sssColor|SSS_Color|sss_color|TransmissionColor|transmissionColor|Transmission_Color|transmission_color|TranslucencyColor|translucencyColor|Translucency_Color|translucency_color|SpecularColor|specularColor|Specular_Color|specular_color|CoatColor|coatColor|Coat_Color|coat_color|SheenColor|sheenColor|Sheen_Color|sheen_color)).*\\.(png|jpg|jpeg|tga|tif|tiff|bmp|webp)$", colorspace: sRGB - Texture}
 
   # --------------------------------------------------------------------------
-  # 05. Standard byte image formats
+  # 05. USDZ embedded texture rules
+  # Kept before generic byte-image rules so packed textures keep their intent.
+  # --------------------------------------------------------------------------
+
+  - !<Rule> {name: __usdz_jpg, colorspace: sRGB - Texture, regex: ".*[uu][ss][dd][zz]\\[.*[jj][pp][gg]\\]"}
+  - !<Rule> {name: __usdz_jpeg, colorspace: sRGB - Texture, regex: ".*[uu][ss][dd][zz]\\[.*[jj][pp][ee][gg]\\]"}
+  - !<Rule> {name: __usdz_tga, colorspace: sRGB - Texture, regex: ".*[uu][ss][dd][zz]\\[.*[tt][gg][aa]\\]"}
+  - !<Rule> {name: __usdz_png, colorspace: sRGB - Texture, regex: ".*[uu][ss][dd][zz]\\[.*[pp][nn][gg]\\]"}
+  - !<Rule> {name: __usdz_tif, colorspace: sRGB - Texture, regex: ".*[uu][ss][dd][zz]\\[.*[tt][ii][ff]\\]"}
+  - !<Rule> {name: __usdz_tiff, colorspace: sRGB - Texture, regex: ".*[uu][ss][dd][zz]\\[.*[tt][ii][ff][ff]\\]"}
+  - !<Rule> {name: __usdz_exr, colorspace: Linear Rec.2020, regex: ".*[uu][ss][dd][zz]\\[.*[ee][xx][rr]\\]"}
+
+  # --------------------------------------------------------------------------
+  # 06. Standard byte image formats
   # Generic fallback. Utility maps should already be caught above.
   # --------------------------------------------------------------------------
 
-  - !<Rule> {name: jpg, pattern: "*", extension: "jpg", colorspace: sRGB}
-  - !<Rule> {name: jpeg, pattern: "*", extension: "jpeg", colorspace: sRGB}
-  - !<Rule> {name: tga, pattern: "*", extension: "tga", colorspace: sRGB}
-  - !<Rule> {name: png, pattern: "*", extension: "png", colorspace: sRGB}
-  - !<Rule> {name: tif, pattern: "*", extension: "tif", colorspace: sRGB}
-  - !<Rule> {name: tiff, pattern: "*", extension: "tiff", colorspace: sRGB}
-  - !<Rule> {name: bmp, pattern: "*", extension: "bmp", colorspace: sRGB}
-  - !<Rule> {name: webp, pattern: "*", extension: "webp", colorspace: sRGB}
+  - !<Rule> {name: jpg, pattern: "*", extension: "jpg", colorspace: sRGB - Texture}
+  - !<Rule> {name: jpeg, pattern: "*", extension: "jpeg", colorspace: sRGB - Texture}
+  - !<Rule> {name: tga, pattern: "*", extension: "tga", colorspace: sRGB - Texture}
+  - !<Rule> {name: png, pattern: "*", extension: "png", colorspace: sRGB - Texture}
+  - !<Rule> {name: tif, pattern: "*", extension: "tif", colorspace: sRGB - Texture}
+  - !<Rule> {name: tiff, pattern: "*", extension: "tiff", colorspace: sRGB - Texture}
+  - !<Rule> {name: bmp, pattern: "*", extension: "bmp", colorspace: sRGB - Texture}
+  - !<Rule> {name: webp, pattern: "*", extension: "webp", colorspace: sRGB - Texture}
 
   # --------------------------------------------------------------------------
-  # 06. Floating / HDR formats
-  # EXR is treated as Linear Rec.2020 in this config. HDRIs stay Linear Rec.709
-  # unless explicitly overridden above.
+  # 07. Floating / HDR formats
+  # EXR defaults to Linear Rec.2020 in this config unless the filename/path
+  # explicitly says ACEScg, Linear Rec.2020, Linear Rec.709, Raw, etc. above.
+  # HDRIs stay Linear Rec.709 unless explicitly overridden above.
   # --------------------------------------------------------------------------
 
   - !<Rule> {name: OpenEXR, pattern: "*", extension: "exr", colorspace: Linear Rec.2020}
   - !<Rule> {name: hdr, pattern: "*", extension: "hdr", colorspace: Linear Rec.709}
-
-  # --------------------------------------------------------------------------
-  # 07. USDZ embedded texture rules
-  # --------------------------------------------------------------------------
-
-  - !<Rule> {name: __usdz_jpg, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[jj][pp][gg]\\]"}
-  - !<Rule> {name: __usdz_jpeg, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[jj][pp][ee][gg]\\]"}
-  - !<Rule> {name: __usdz_tga, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[tt][gg][aa]\\]"}
-  - !<Rule> {name: __usdz_png, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[pp][nn][gg]\\]"}
-  - !<Rule> {name: __usdz_tif, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[tt][ii][ff]\\]"}
-  - !<Rule> {name: __usdz_tiff, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[tt][ii][ff][ff]\\]"}
-  - !<Rule> {name: __usdz_exr, colorspace: Linear Rec.2020, regex: ".*[uu][ss][dd][zz]\\[.*[ee][xx][rr]\\]"}
 
   # --------------------------------------------------------------------------
   # 08. OCIO color-space-name path search and final fallback
@@ -159,7 +175,7 @@ file_rules:
 
   - !<Rule> {name: ColorSpaceNamePathSearch}
   - !<Rule> {name: Default, colorspace: Linear Rec.2020}
- 
+
 displays: 
   sRGB:
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base sRGB}
@@ -3482,9 +3498,9 @@ colorspaces:
 
 
 #Power Function Stuff
-  - !<ColorSpace> #sRGB Legacy
-    name: sRGB Legacy
-    aliases: [Legacy sRGB]
+  - !<ColorSpace> #sRGB - Texture
+    name: sRGB - Texture
+    aliases: [sRGB Encoded Rec.709 (sRGB), srgb_encoded_rec709_srgb, srgb_texture, srgb_rec709_scene, Utility - sRGB - Texture, Input - Generic - sRGB - Texture, srgb_tx]
     family: Display
     equalitygroup:
     bitdepth: 32f
@@ -3498,7 +3514,7 @@ colorspaces:
         
   - !<ColorSpace> #sRGB
     name: sRGB
-    aliases: [EOTF 2.2, Rec709 EOTF 2.2, Pure 2.2 Gamma, "sRGB Display: 2.2 Gamma - Rec.709", sRGB I-D65, srgb_display, sRGB - Display, g22_rec709 - Texture, Utility - sRGB - Texture, sRGB - Texture, srgb_tx, srgb_texture, srgb_rec709_scene, Input - Generic - sRGB - Texture]
+    aliases: [EOTF 2.2, Rec709 EOTF 2.2, Pure 2.2 Gamma, "sRGB Display: 2.2 Gamma - Rec.709", sRGB I-D65, srgb_display, sRGB - Display, Gamma 2.2 Encoded Rec.709, g22_encoded_rec709, g22_rec709, Utility - Gamma 2.2 - Rec.709 - Texture, Gamma 2.2 Rec.709 - Texture, g22_rec709_tx, g22_rec709_scene, g22_rec709 - Texture, sRGB Legacy, Legacy sRGB]
     family: Utility
     equalitygroup:
     bitdepth: 32f
@@ -3566,9 +3582,23 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear DCI-P3 D65}
         - !<ExponentWithLinearTransform> {gamma: 2.4, offset: 0.055, direction: inverse}
 
+  - !<ColorSpace> #sRGB Encoded P3-D65
+    name: sRGB Encoded P3-D65
+    aliases: [srgb_encoded_p3d65, srgb_p3d65, srgb_displayp3, srgb_p3d65_scene, sRGB Encoded P3-D65 - Texture, srgb_encoded_p3d65_tx]
+    family: Utility
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      Apple's Display P3 primaries with sRGB compound (piece-wise) encoding transfer function
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear DCI-P3 D65}
+        - !<ExponentWithLinearTransform> {gamma: 2.4, offset: 0.055, direction: inverse}
+
   - !<ColorSpace> #Display P3 EOTF 2.2
     name: Display P3 EOTF 2.2
-    aliases: [Display P3, Display P3 2.2, Display P3 I-D65, P3-D65 - Display, p3_d65_display, p3d65_display, srgb_p3d65_scene, AppleP3 sRGB OETF]
+    aliases: [Display P3, Display P3 2.2, Display P3 I-D65, P3-D65 - Display, p3_d65_display, p3d65_display, AppleP3 sRGB OETF]
     family: Utility
     equalitygroup:
     bitdepth: 32f
