@@ -39,75 +39,167 @@ luma: [0.2126, 0.7152, 0.0722]
 description: RRT version ut33
 
 roles:
+  # Keep this as the config reference if your colorspaces are authored around XYZ E.
   reference: Linear CIE-XYZ E
 
-  # Internal scene linear space
-  scene_linear: Linear Rec.2020
-  rendering: Linear Rec.2020
+  # Internal scene/render linear space.
+  # This config is the conservative Linear Rec.709/sRGB-primary variant.
+  scene_linear: Linear Rec.709
+  rendering: Linear Rec.709
 
-  # Default color space for byte image
+  # Default color space for byte images.
   default_byte: sRGB
 
-  # Default color space for float images
-  default_float: Linear Rec.2020
+  # Default color space for float images.
+  default_float: Linear Rec.709
 
-  # Default color space sequencer is working in
+  # Sequencer/UI-ish default.
   default_sequencer: sRGB
 
-  # Distribution of colors in color picker
-  color_picking: Linear Rec.2020
+  # Color picker should stay display/simple, not scene wide gamut.
+  color_picking: sRGB
 
-  # Non-color data
+  # Non-color data.
   data: Raw
 
-  # For interop between configs, and to determine XYZ for rendering
+  # OCIO/ACES interop roles.
   aces_interchange: ACES2065-1
   cie_xyz_d65_interchange: Linear CIE-XYZ D65
 
-  # Specified by OCIO, not used in Blender
+  # General app roles.
   color_timing: 2499DRT Log (2499)
   compositing_log: 2499DRT Log (2499)
-  default: Linear Rec.2020
-  matte_paint: Linear Rec.709
-  texture_paint: Linear Rec.2020
-  mari_monitor: sRGB
-  mari_scalar_monitor: sRGB
-  mari_color_picker: sRGB
-  mari_working: Linear Rec.2020
-  mari_int8: sRGB
-  mari_int16: sRGB
-  mari_int_scalar: Raw
-  mari_scalar8: Raw
-  mari_float: Linear Rec.2020
+  default: Linear Rec.709
+  matte_paint: sRGB
+  texture_paint: Linear Rec.709
   srgb_linear: Linear Rec.709
+
+  # Substance Painter roles.
+  # 8/16-bit bitmap color textures are almost always authored/display-referred sRGB.
+  # Floating exports are treated as scene-linear Rec.709 only if explicitly authored that way.
   substance_3d_painter_standard_srgb: sRGB
   substance_3d_painter_bitmap_import_8bit: sRGB
   substance_3d_painter_bitmap_import_16bit: sRGB
-  substance_3d_painter_bitmap_import_floating: Linear Rec.2020
+  substance_3d_painter_bitmap_import_floating: Linear Rec.709
   substance_3d_painter_bitmap_export_8bit: sRGB
   substance_3d_painter_bitmap_export_16bit: sRGB
-  substance_3d_painter_bitmap_export_floating: Linear Rec.2020
+  substance_3d_painter_bitmap_export_floating: Linear Rec.709
   substance_3d_painter_substance_material: sRGB
   
 # When using Spectral Renderer, Change XYZ role to I-E
 #  XYZ: Linear CIE-XYZ D65
 
 file_rules:
-  - !<Rule> {name: PBRMaps, regex: ".*(_(Normal|normal|Roughness|roughness|Metallic|metallic|Metal|metal|Height|height|Displacement|displacement|AmbientOcclusion|ambientOcclusion|AO|ao|Specular|specular|Glossiness|glossiness|Gloss|gloss|Cavity|cavity|Subsurface|subsurface|SubsurfaceScattering|subsurfaceScattering|SSS|sss|Alpha|alpha|Opacity|opacity|_nm|_rm|_mm|_hm|_dm|_ao|_sm|_gm|_cm|_ss|_sssm|_sss|_am|_om|_arm|_orm)).*", colorspace: Raw}
-  - !<Rule> {name: OpenEXR, extension: "exr", pattern: "*", colorspace: Linear Rec.2020}
-  - !<Rule> {name: hdr, extension: "hdr", pattern: "*", colorspace: Linear Rec.2020}
+  # --------------------------------------------------------------------------
+  # 01. Explicit path/name overrides
+  # These are regex rules instead of pattern-only Basic Rules because some
+  # OCIO builds reject extension: "*" with "file extension pattern is empty".
+  # Keep these first so intentional naming beats generic file-extension rules.
+  # --------------------------------------------------------------------------
+
+  - !<Rule> {name: explicit_srgb_tx, regex: ".*[/_.-]srgb_tx[/_.-].*|.*[/_.-]srgb_tx\\..*|.*_srgb_tx_.*|.*_srgb_tx\\..*", colorspace: sRGB}
+  - !<Rule> {name: explicit_srgb_texture, regex: ".*[/_.-]srgb_texture[/_.-].*|.*[/_.-]srgb_texture\\..*|.*_srgb_texture_.*|.*_srgb_texture\\..*", colorspace: sRGB}
+  - !<Rule> {name: explicit_srgb_upper, regex: ".*[/_.-]sRGB[/_.-].*|.*[/_.-]sRGB\\..*|.*_sRGB_.*|.*_sRGB\\..*", colorspace: sRGB}
+  - !<Rule> {name: explicit_srgb_lower, regex: ".*[/_.-]srgb[/_.-].*|.*[/_.-]srgb\\..*|.*_srgb_.*|.*_srgb\\..*", colorspace: sRGB}
+
+  - !<Rule> {name: explicit_raw_any, regex: ".*[/_.-][rR][aA][wW][/_.-].*|.*[/_.-][rR][aA][wW]\\..*|.*_[rR][aA][wW]_.*|.*_[rR][aA][wW]\\..*", colorspace: Raw}
+  - !<Rule> {name: explicit_data, regex: ".*[/_.-]data[/_.-].*|.*[/_.-]data\\..*|.*_data_.*|.*_data\\..*", colorspace: Raw}
+  - !<Rule> {name: explicit_noncolor, regex: ".*[/_.-]noncolor[/_.-].*|.*[/_.-]noncolor\\..*|.*_noncolor_.*|.*_noncolor\\..*", colorspace: Raw}
+  - !<Rule> {name: explicit_non_color, regex: ".*[/_.-]non_color[/_.-].*|.*[/_.-]non_color\\..*|.*_non_color_.*|.*_non_color\\..*", colorspace: Raw}
+  - !<Rule> {name: explicit_utility_raw, regex: ".*[/_.-]utility_raw[/_.-].*|.*[/_.-]utility_raw\\..*|.*_utility_raw_.*|.*_utility_raw\\..*", colorspace: Raw}
+
+  - !<Rule> {name: explicit_rec2020, regex: ".*Linear Rec\\.2020.*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: explicit_lin_rec2020, regex: ".*lin_rec2020.*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: explicit_linrec2020, regex: ".*linrec2020.*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: explicit_linear_rec2020, regex: ".*linear_rec2020.*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: explicit_bt2020, regex: ".*lin_bt2020.*", colorspace: Linear Rec.2020}
+  - !<Rule> {name: explicit_linear_bt2020, regex: ".*linear_bt2020.*", colorspace: Linear Rec.2020}
+
+  - !<Rule> {name: explicit_acescg, regex: ".*ACEScg.*", colorspace: ACEScg}
+  - !<Rule> {name: explicit_acescg_lower, regex: ".*acescg.*", colorspace: ACEScg}
+
+  - !<Rule> {name: explicit_rec709, regex: ".*Linear Rec\\.709.*", colorspace: Linear Rec.709}
+  - !<Rule> {name: explicit_lin_rec709, regex: ".*lin_rec709.*", colorspace: Linear Rec.709}
+  - !<Rule> {name: explicit_linrec709, regex: ".*linrec709.*", colorspace: Linear Rec.709}
+  - !<Rule> {name: explicit_linear_rec709, regex: ".*linear_rec709.*", colorspace: Linear Rec.709}
+  - !<Rule> {name: explicit_lin_srgb, regex: ".*lin_srgb.*", colorspace: Linear Rec.709}
+  - !<Rule> {name: explicit_linear_srgb, regex: ".*linear_srgb.*", colorspace: Linear Rec.709}
+
+  # --------------------------------------------------------------------------
+  # 02. Houdini / MoonRay .tx rule
+  # Keep .tx Raw because utility .tx maps are data, and basecolor .tx should
+  # already be converted to Linear Rec.709 by maketx/oiiotool before rendering.
+  # This avoids OCIO applying a second transform to .tx files.
+  # --------------------------------------------------------------------------
+
+  - !<Rule> {name: tx, pattern: "*", extension: "tx", colorspace: Raw}
+
+  # --------------------------------------------------------------------------
+  # 03. PBR / utility maps that are always data
+  # Keep these before generic byte-image rules.
+  # Color-bearing material maps are handled separately below.
+  # --------------------------------------------------------------------------
+
+  - !<Rule> {name: PBR_Data_Maps, regex: ".*(_(Normal|normal|NRM|nrm|Norm|norm|NormalGL|normalGL|NormalDX|normalDX|Roughness|roughness|Rough|rough|Metallic|metallic|Metalness|metalness|Metal|metal|Height|height|Displacement|displacement|Disp|disp|Bump|bump|AmbientOcclusion|ambientOcclusion|Occlusion|occlusion|AO|ao|Glossiness|glossiness|Gloss|gloss|Cavity|cavity|Curvature|curvature|Thickness|thickness|Mask|mask|ID|id|MatID|matid|Opacity|opacity|Alpha|alpha|_nm|_nrm|_normal|_rough|_roughness|_rm|_metal|_metallic|_metalness|_mm|_height|_hm|_disp|_dm|_bump|_ao|_occ|_gloss|_gm|_cavity|_cm|_curv|_thick|_mask|_id|_opacity|_alpha|_arm|_orm|_om)).*", colorspace: Raw}
+
+  - !<Rule> {name: PBR_Mask_Maps, regex: ".*(_(SubsurfaceMask|subsurfaceMask|Subsurface_Mask|subsurface_mask|SSSMask|sssMask|SSS_Mask|sss_mask|TransmissionMask|transmissionMask|Transmission_Mask|transmission_mask|TranslucencyMask|translucencyMask|Translucency_Mask|translucency_mask|SpecularLevel|specularLevel|Specular_Level|specular_level|SpecularAmount|specularAmount|Specular_Amount|specular_amount|CoatMask|coatMask|Coat_Mask|coat_mask|SheenMask|sheenMask|Sheen_Mask|sheen_mask)).*", colorspace: Raw}
+
+  # --------------------------------------------------------------------------
+  # 04. Color-bearing texture maps
+  # Byte-image basecolor/albedo/diffuse/color maps are sRGB.
+  # Ambiguous SSS/transmission/specular color maps are treated as color only
+  # when their names explicitly say color/colour.
+  # --------------------------------------------------------------------------
+
+  - !<Rule> {name: BaseColor_Byte_Images, regex: ".*(_(BaseColor|baseColor|basecolor|Base_Color|base_color|Albedo|albedo|Diffuse|diffuse|Diff|diff|Color|color|Colour|colour|Col|col|Base|base)).*\\.(png|jpg|jpeg|tga|tif|tiff|bmp|webp)$", colorspace: sRGB}
+
+  - !<Rule> {name: Material_Color_Byte_Images, regex: ".*(_(SubsurfaceColor|subsurfaceColor|Subsurface_Color|subsurface_color|SSSColor|sssColor|SSS_Color|sss_color|TransmissionColor|transmissionColor|Transmission_Color|transmission_color|TranslucencyColor|translucencyColor|Translucency_Color|translucency_color|SpecularColor|specularColor|Specular_Color|specular_color|CoatColor|coatColor|Coat_Color|coat_color|SheenColor|sheenColor|Sheen_Color|sheen_color)).*\\.(png|jpg|jpeg|tga|tif|tiff|bmp|webp)$", colorspace: sRGB}
+
+  # --------------------------------------------------------------------------
+  # 05. Standard byte image formats
+  # Generic fallback. Utility maps should already be caught above.
+  # --------------------------------------------------------------------------
+
+  - !<Rule> {name: jpg, pattern: "*", extension: "jpg", colorspace: sRGB}
+  - !<Rule> {name: jpeg, pattern: "*", extension: "jpeg", colorspace: sRGB}
+  - !<Rule> {name: tga, pattern: "*", extension: "tga", colorspace: sRGB}
+  - !<Rule> {name: png, pattern: "*", extension: "png", colorspace: sRGB}
+  - !<Rule> {name: tif, pattern: "*", extension: "tif", colorspace: sRGB}
+  - !<Rule> {name: tiff, pattern: "*", extension: "tiff", colorspace: sRGB}
+  - !<Rule> {name: bmp, pattern: "*", extension: "bmp", colorspace: sRGB}
+  - !<Rule> {name: webp, pattern: "*", extension: "webp", colorspace: sRGB}
+
+  # --------------------------------------------------------------------------
+  # 06. Floating / HDR formats
+  # EXR is treated as Linear Rec.709 in this config unless the filename/path
+  # explicitly says ACEScg, Linear Rec.2020, Raw, etc. above.
+  # HDRIs stay Linear Rec.709 unless explicitly overridden above.
+  # --------------------------------------------------------------------------
+
+  - !<Rule> {name: OpenEXR, pattern: "*", extension: "exr", colorspace: Linear Rec.709}
+  - !<Rule> {name: hdr, pattern: "*", extension: "hdr", colorspace: Linear Rec.709}
+
+  # --------------------------------------------------------------------------
+  # 07. USDZ embedded texture rules
+  # --------------------------------------------------------------------------
+
+  - !<Rule> {name: __usdz_jpg, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[jj][pp][gg]\\]"}
+  - !<Rule> {name: __usdz_jpeg, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[jj][pp][ee][gg]\\]"}
+  - !<Rule> {name: __usdz_tga, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[tt][gg][aa]\\]"}
+  - !<Rule> {name: __usdz_png, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[pp][nn][gg]\\]"}
+  - !<Rule> {name: __usdz_tif, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[tt][ii][ff]\\]"}
+  - !<Rule> {name: __usdz_tiff, colorspace: sRGB, regex: ".*[uu][ss][dd][zz]\\[.*[tt][ii][ff][ff]\\]"}
+  - !<Rule> {name: __usdz_exr, colorspace: Linear Rec.709, regex: ".*[uu][ss][dd][zz]\\[.*[ee][xx][rr]\\]"}
+
+  # --------------------------------------------------------------------------
+  # 08. OCIO color-space-name path search and final fallback
+  # --------------------------------------------------------------------------
+
   - !<Rule> {name: ColorSpaceNamePathSearch}
-  - !<Rule> {name: Default, colorspace: Linear Rec.2020}
+  - !<Rule> {name: Default, colorspace: Linear Rec.709}
  
 displays: 
   sRGB:
-    - !<View> {name: AgX, colorspace: AgX Base sRGB}
-    - !<View> {name: AgX Kraken, colorspace: AgX Base Kraken sRGB}
-    - !<View> {name: AgX Kraken 800T, colorspace: AgX Base Kraken 800T sRGB}
-    - !<View> {name: AgX NR2383, colorspace: AgX NR2383 sRGB}
-    - !<View> {name: AgX SB2383, colorspace: AgX SB2383 Base sRGB}
-    - !<View> {name: flim (default), colorspace: flim (default) sRGB}
-    - !<View> {name: flim (silver), colorspace: flim (silver) sRGB}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base sRGB}
     - !<View> {name: JP2499DRT - Editorial Soft, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Editorial Soft"}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Editorial Split"}
@@ -141,6 +233,13 @@ displays:
     - !<View> {name: JP2499DRT - PrintV1, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - PrintV1}
     - !<View> {name: JP2499DRT - PrintV2, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - PrintV2}
     - !<View> {name: JP2499DRT - PrintV3, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - PrintV3}
+    - !<View> {name: AgX, colorspace: AgX Base sRGB}
+    - !<View> {name: AgX Kraken, colorspace: AgX Base Kraken sRGB}
+    - !<View> {name: AgX Kraken 800T, colorspace: AgX Base Kraken 800T sRGB}
+    - !<View> {name: AgX NR2383, colorspace: AgX NR2383 sRGB}
+    - !<View> {name: AgX SB2383, colorspace: AgX SB2383 Base sRGB}
+    - !<View> {name: flim (default), colorspace: flim (default) sRGB}
+    - !<View> {name: flim (silver), colorspace: flim (silver) sRGB}
     - !<View> {name: OpenDRT Default, colorspace: OpenDRT Default sRGB}
     - !<View> {name: OpenDRT Colorful, colorspace: OpenDRT Colorful sRGB}
     - !<View> {name: OpenDRT Umbra, colorspace: OpenDRT Umbra sRGB}
@@ -152,10 +251,6 @@ displays:
     - !<View> {name: Sony S-Cinetone, colorspace: Sony S-Cinetone sRGB}
     - !<View> {name: None, colorspace: Raw}
   Display P3:
-    - !<View> {name: AgX, colorspace: AgX Base Display P3}
-    - !<View> {name: AgX Kraken, colorspace: AgX Base Kraken Display P3}
-    - !<View> {name: AgX Kraken 800T, colorspace: AgX Base Kraken 800T Display P3}
-    - !<View> {name: AgX NR2383, colorspace: AgX NR2383 Display P3}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base Display P3}
     - !<View> {name: JP2499DRT - Editorial Soft, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Editorial Soft"}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Editorial Split"}
@@ -189,6 +284,10 @@ displays:
     - !<View> {name: JP2499DRT - PrintV1, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - PrintV1}
     - !<View> {name: JP2499DRT - PrintV2, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - PrintV2}
     - !<View> {name: JP2499DRT - PrintV3, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - PrintV3}
+    - !<View> {name: AgX, colorspace: AgX Base Display P3}
+    - !<View> {name: AgX Kraken, colorspace: AgX Base Kraken Display P3}
+    - !<View> {name: AgX Kraken 800T, colorspace: AgX Base Kraken 800T Display P3}
+    - !<View> {name: AgX NR2383, colorspace: AgX NR2383 Display P3}
     - !<View> {name: OpenDRT Default, colorspace: OpenDRT Default Display P3}
     - !<View> {name: OpenDRT Colorful, colorspace: OpenDRT Colorful Display P3}
     - !<View> {name: OpenDRT Umbra, colorspace: OpenDRT Umbra Display P3}
@@ -200,10 +299,6 @@ displays:
     - !<View> {name: Sony S-Cinetone, colorspace: Sony S-Cinetone Display P3}
     - !<View> {name: None, colorspace: Raw}
   Rec.1886:
-    - !<View> {name: AgX, colorspace: AgX Base Rec.1886}
-    - !<View> {name: AgX Kraken, colorspace: AgX Base Kraken Rec.1886}
-    - !<View> {name: AgX Kraken 800T, colorspace: AgX Base Kraken 800T Rec.1886}
-    - !<View> {name: AgX NR2383, colorspace: AgX NR2383 Rec.1886}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base Rec.1886}
     - !<View> {name: JP2499DRT - Editorial Soft, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Editorial Soft"}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Editorial Split"}
@@ -237,6 +332,10 @@ displays:
     - !<View> {name: JP2499DRT - PrintV1, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - PrintV1}
     - !<View> {name: JP2499DRT - PrintV2, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - PrintV2}
     - !<View> {name: JP2499DRT - PrintV3, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - PrintV3}
+    - !<View> {name: AgX, colorspace: AgX Base Rec.1886}
+    - !<View> {name: AgX Kraken, colorspace: AgX Base Kraken Rec.1886}
+    - !<View> {name: AgX Kraken 800T, colorspace: AgX Base Kraken 800T Rec.1886}
+    - !<View> {name: AgX NR2383, colorspace: AgX NR2383 Rec.1886}
     - !<View> {name: OpenDRT Default, colorspace: OpenDRT Default Rec.1886}
     - !<View> {name: OpenDRT Colorful, colorspace: OpenDRT Colorful Rec.1886}
     - !<View> {name: OpenDRT Umbra, colorspace: OpenDRT Umbra Rec.1886}
@@ -261,7 +360,7 @@ displays:
     
 active_displays: [sRGB, Display P3, Rec.1886, Log]
 
-active_views: [AgX, AgX Kraken, AgX Kraken 800T, AgX NR2383, AgX SB2383, flim (default), flim (silver), JP2499DRT, JP2499DRT - Editorial Soft, JP2499DRT - Editorial Split, JP2499DRT - Hard Contrast, JP2499DRT - Film Dense, JP2499DRT - Photochemical, JP2499DRT - Chemical Drift, JP2499DRT - Tarnished Print, JP2499DRT - Negative Dust, JP2499DRT - Archival Warm-Gray, JP2499DRT - Archival Extreme Matte, JP2499DRT - Graphite Matte, JP2499DRT - Soot, JP2499DRT - Carbon Plate, JP2499DRT - Carbon Black, JP2499DRT - Cold Steel Neutral, JP2499DRT - Blue Carbon Print, JP2499DRT - Funeral Bronze, JP2499DRT - Verdigris Shadow, JP2499DRT - Phoenix Drift, JP2499DRT - Power Purity Boost 1, JP2499DRT - Power Purity Boost 2, JP2499DRT - Power Purity Boost 3, JP2499DRT - Power Purity Boost 4, JP2499DRT - BnWX, JP2499DRT - ClassicNegative, JP2499DRT - ClassicCinemaNegative, JP2499DRT - ClassicReversal, JP2499DRT - CrazyNegative, JP2499DRT - InstantFilm, JP2499DRT - PrintV1, JP2499DRT - PrintV2, JP2499DRT - PrintV3, OpenDRT Default, OpenDRT Colorful, OpenDRT Umbra, TCAMv3, ACES 2, ARRI K1S1, ARRI ALF2, ARRI Reveal, Sony S-Cinetone, JP2499 Log, AgX Log, AgX Kraken Log, AgX (SB2383) Log, Filmlight T-Log - E-Gamut, Filmlight T-Log - E-Gamut 2, Filmlight T-LogE - E-Gamut 2, ACEScc, ACEScct, None]  
+active_views: [JP2499DRT, JP2499DRT - Editorial Soft, JP2499DRT - Editorial Split, JP2499DRT - Hard Contrast, JP2499DRT - Film Dense, JP2499DRT - Photochemical, JP2499DRT - Chemical Drift, JP2499DRT - Tarnished Print, JP2499DRT - Negative Dust, JP2499DRT - Archival Warm-Gray, JP2499DRT - Archival Extreme Matte, JP2499DRT - Graphite Matte, JP2499DRT - Soot, JP2499DRT - Carbon Plate, JP2499DRT - Carbon Black, JP2499DRT - Cold Steel Neutral, JP2499DRT - Blue Carbon Print, JP2499DRT - Funeral Bronze, JP2499DRT - Verdigris Shadow, JP2499DRT - Phoenix Drift, JP2499DRT - Power Purity Boost 1, JP2499DRT - Power Purity Boost 2, JP2499DRT - Power Purity Boost 3, JP2499DRT - Power Purity Boost 4, JP2499DRT - BnWX, JP2499DRT - ClassicNegative, JP2499DRT - ClassicCinemaNegative, JP2499DRT - ClassicReversal, JP2499DRT - CrazyNegative, JP2499DRT - InstantFilm, JP2499DRT - PrintV1, JP2499DRT - PrintV2, JP2499DRT - PrintV3, AgX, AgX Kraken, AgX Kraken 800T, AgX NR2383, AgX SB2383, flim (default), flim (silver), OpenDRT Default, OpenDRT Colorful, OpenDRT Umbra, TCAMv3, ACES 2, ARRI K1S1, ARRI ALF2, ARRI Reveal, Sony S-Cinetone, JP2499 Log, AgX Log, AgX Kraken Log, AgX (SB2383) Log, Filmlight T-Log - E-Gamut, Filmlight T-Log - E-Gamut 2, Filmlight T-LogE - E-Gamut 2, ACEScc, ACEScct, None]  
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
