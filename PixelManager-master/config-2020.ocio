@@ -3501,12 +3501,14 @@ colorspaces:
   - !<ColorSpace> #sRGB - Texture
     name: sRGB - Texture
     aliases: [sRGB Encoded Rec.709 (sRGB), srgb_encoded_rec709_srgb, srgb_texture, srgb_rec709_scene, Utility - sRGB - Texture, Input - Generic - sRGB - Texture, srgb_tx]
-    family: Display
+    family: Utility
     equalitygroup:
     bitdepth: 32f
     description: |
       sRGB IEC 61966-2-1 compound (piece-wise) encoding
     isdata: false
+    categories: [file-io, texture]
+    encoding: sdr-video
     from_scene_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.709}
@@ -3521,6 +3523,8 @@ colorspaces:
     description: |
       Pure 2.2 power function Rec 709 / sRGB 
     isdata: false
+    categories: [file-io, texture]
+    encoding: sdr-video
     from_scene_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.709}
@@ -3591,6 +3595,8 @@ colorspaces:
     description: |
       Apple's Display P3 primaries with sRGB compound (piece-wise) encoding transfer function
     isdata: false
+    categories: [file-io, texture]
+    encoding: sdr-video
     from_scene_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear DCI-P3 D65}
