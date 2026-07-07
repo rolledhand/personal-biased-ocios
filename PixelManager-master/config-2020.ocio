@@ -178,13 +178,19 @@ file_rules:
 
 displays: 
   sRGB:
-    - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard sRGB Display}
     - !<View> {name: OpenDRT Bleached, colorspace: OpenDRT Bleached sRGB Display}
-    - !<View> {name: OpenDRT Bleached Negative Lift, colorspace: OpenDRT Bleached Negative Lift sRGB Display}
+    - !<View> {name: OpenDRT Bleached - Negative Print, colorspace: OpenDRT Bleached - Negative Print sRGB Display}
     - !<View> {name: OpenDRT Gentle Touch, colorspace: OpenDRT Gentle Touch sRGB Display}
-    - !<View> {name: OpenDRT Gentle Touch Negative Lift, colorspace: OpenDRT Gentle Touch Negative Lift sRGB Display}
+    - !<View> {name: OpenDRT Gentle Touch - Negative Print, colorspace: OpenDRT Gentle Touch - Negative Print sRGB Display}
     - !<View> {name: OpenDRT Flawed Emulsion, colorspace: OpenDRT Flawed Emulsion sRGB Display}
+    - !<View> {name: OpenDRT Flawed Emulsion - Editorial Depth, colorspace: OpenDRT Flawed Emulsion - Editorial Depth sRGB Display}
+    - !<View> {name: OpenDRT Flawed Emulsion - Deep Contaminate, colorspace: OpenDRT Flawed Emulsion - Deep Contaminate sRGB Display}
+    - !<View> {name: OpenDRT Flawed Emulsion - Photochemical, colorspace: OpenDRT Flawed Emulsion - Photochemical sRGB Display}
+    - !<View> {name: OpenDRT Flawed Emulsion - Chemical Drift, colorspace: OpenDRT Flawed Emulsion - Chemical Drift sRGB Display}
+    - !<View> {name: OpenDRT Flawed Emulsion - Phoenix Drift, colorspace: OpenDRT Flawed Emulsion - Phoenix Drift sRGB Display}
     - !<View> {name: OpenDRT Shifted Crisp, colorspace: OpenDRT Shifted Crisp sRGB Display}
+    - !<View> {name: OpenDRT Shifted Crisp - Clean Bite, colorspace: OpenDRT Shifted Crisp - Clean Bite sRGB Display}
+    - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard sRGB Display}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base sRGB}
     - !<View> {name: JP2499DRT - Editorial Soft, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Editorial Soft"}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Editorial Split"}
@@ -205,26 +211,21 @@ displays:
     - !<View> {name: JP2499DRT - Funeral Bronze, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Funeral Bronze"}
     - !<View> {name: JP2499DRT - Verdigris Shadow, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Verdigris Shadow"}
     - !<View> {name: JP2499DRT - Phoenix Drift, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Phoenix Drift"}
-    - !<View> {name: JP2499DRT - Power Purity Boost 1, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - Power Purity Boost 1}
-    - !<View> {name: JP2499DRT - Power Purity Boost 2, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - Power Purity Boost 2}
-    - !<View> {name: JP2499DRT - Power Purity Boost 3, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - Power Purity Boost 3}
-    - !<View> {name: JP2499DRT - Power Purity Boost 4, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - Power Purity Boost 4}
-    - !<View> {name: JP2499DRT - BnWX, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - BnWX}
-    - !<View> {name: JP2499DRT - ClassicNegative, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - ClassicNegative}
-    - !<View> {name: JP2499DRT - ClassicCinemaNegative, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - ClassicCinemaNegative}
-    - !<View> {name: JP2499DRT - ClassicReversal, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - ClassicReversal}
-    - !<View> {name: JP2499DRT - CrazyNegative, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - CrazyNegative}
-    - !<View> {name: JP2499DRT - InstantFilm, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - InstantFilm}
-    - !<View> {name: JP2499DRT - PrintV1, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - PrintV1}
-    - !<View> {name: JP2499DRT - PrintV2, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - PrintV2}
-    - !<View> {name: JP2499DRT - PrintV3, colorspace: 2499DRT Base sRGB, looks: JP2499DRT - PrintV3}
     - !<View> {name: None, colorspace: Raw}
   Display P3:
-    - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard Display P3}
     - !<View> {name: OpenDRT Bleached, colorspace: OpenDRT Bleached Display P3}
+    - !<View> {name: OpenDRT Bleached - Negative Print, colorspace: OpenDRT Bleached - Negative Print Display P3}
     - !<View> {name: OpenDRT Gentle Touch, colorspace: OpenDRT Gentle Touch Display P3}
+    - !<View> {name: OpenDRT Gentle Touch - Negative Print, colorspace: OpenDRT Gentle Touch - Negative Print Display P3}
     - !<View> {name: OpenDRT Flawed Emulsion, colorspace: OpenDRT Flawed Emulsion Display P3}
+    - !<View> {name: OpenDRT Flawed Emulsion - Editorial Depth, colorspace: OpenDRT Flawed Emulsion - Editorial Depth Display P3}
+    - !<View> {name: OpenDRT Flawed Emulsion - Deep Contaminate, colorspace: OpenDRT Flawed Emulsion - Deep Contaminate Display P3}
+    - !<View> {name: OpenDRT Flawed Emulsion - Photochemical, colorspace: OpenDRT Flawed Emulsion - Photochemical Display P3}
+    - !<View> {name: OpenDRT Flawed Emulsion - Chemical Drift, colorspace: OpenDRT Flawed Emulsion - Chemical Drift Display P3}
+    - !<View> {name: OpenDRT Flawed Emulsion - Phoenix Drift, colorspace: OpenDRT Flawed Emulsion - Phoenix Drift Display P3}
     - !<View> {name: OpenDRT Shifted Crisp, colorspace: OpenDRT Shifted Crisp Display P3}
+    - !<View> {name: OpenDRT Shifted Crisp - Clean Bite, colorspace: OpenDRT Shifted Crisp - Clean Bite Display P3}
+    - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard Display P3}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base Display P3}
     - !<View> {name: JP2499DRT - Editorial Soft, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Editorial Soft"}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Editorial Split"}
@@ -245,26 +246,21 @@ displays:
     - !<View> {name: JP2499DRT - Funeral Bronze, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Funeral Bronze"}
     - !<View> {name: JP2499DRT - Verdigris Shadow, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Verdigris Shadow"}
     - !<View> {name: JP2499DRT - Phoenix Drift, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Phoenix Drift"}
-    - !<View> {name: JP2499DRT - Power Purity Boost 1, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - Power Purity Boost 1}
-    - !<View> {name: JP2499DRT - Power Purity Boost 2, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - Power Purity Boost 2}
-    - !<View> {name: JP2499DRT - Power Purity Boost 3, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - Power Purity Boost 3}
-    - !<View> {name: JP2499DRT - Power Purity Boost 4, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - Power Purity Boost 4}
-    - !<View> {name: JP2499DRT - BnWX, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - BnWX}
-    - !<View> {name: JP2499DRT - ClassicNegative, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - ClassicNegative}
-    - !<View> {name: JP2499DRT - ClassicCinemaNegative, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - ClassicCinemaNegative}
-    - !<View> {name: JP2499DRT - ClassicReversal, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - ClassicReversal}
-    - !<View> {name: JP2499DRT - CrazyNegative, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - CrazyNegative}
-    - !<View> {name: JP2499DRT - InstantFilm, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - InstantFilm}
-    - !<View> {name: JP2499DRT - PrintV1, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - PrintV1}
-    - !<View> {name: JP2499DRT - PrintV2, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - PrintV2}
-    - !<View> {name: JP2499DRT - PrintV3, colorspace: 2499DRT Base Display P3, looks: JP2499DRT - PrintV3}
     - !<View> {name: None, colorspace: Raw}
   Rec.1886:
-    - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard Rec.1886}
     - !<View> {name: OpenDRT Bleached, colorspace: OpenDRT Bleached Rec.1886}
+    - !<View> {name: OpenDRT Bleached - Negative Print, colorspace: OpenDRT Bleached - Negative Print Rec.1886}
     - !<View> {name: OpenDRT Gentle Touch, colorspace: OpenDRT Gentle Touch Rec.1886}
+    - !<View> {name: OpenDRT Gentle Touch - Negative Print, colorspace: OpenDRT Gentle Touch - Negative Print Rec.1886}
     - !<View> {name: OpenDRT Flawed Emulsion, colorspace: OpenDRT Flawed Emulsion Rec.1886}
+    - !<View> {name: OpenDRT Flawed Emulsion - Editorial Depth, colorspace: OpenDRT Flawed Emulsion - Editorial Depth Rec.1886}
+    - !<View> {name: OpenDRT Flawed Emulsion - Deep Contaminate, colorspace: OpenDRT Flawed Emulsion - Deep Contaminate Rec.1886}
+    - !<View> {name: OpenDRT Flawed Emulsion - Photochemical, colorspace: OpenDRT Flawed Emulsion - Photochemical Rec.1886}
+    - !<View> {name: OpenDRT Flawed Emulsion - Chemical Drift, colorspace: OpenDRT Flawed Emulsion - Chemical Drift Rec.1886}
+    - !<View> {name: OpenDRT Flawed Emulsion - Phoenix Drift, colorspace: OpenDRT Flawed Emulsion - Phoenix Drift Rec.1886}
     - !<View> {name: OpenDRT Shifted Crisp, colorspace: OpenDRT Shifted Crisp Rec.1886}
+    - !<View> {name: OpenDRT Shifted Crisp - Clean Bite, colorspace: OpenDRT Shifted Crisp - Clean Bite Rec.1886}
+    - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard Rec.1886}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base Rec.1886}
     - !<View> {name: JP2499DRT - Editorial Soft, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Editorial Soft"}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Editorial Split"}
@@ -285,19 +281,6 @@ displays:
     - !<View> {name: JP2499DRT - Funeral Bronze, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Funeral Bronze"}
     - !<View> {name: JP2499DRT - Verdigris Shadow, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Verdigris Shadow"}
     - !<View> {name: JP2499DRT - Phoenix Drift, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Phoenix Drift"}
-    - !<View> {name: JP2499DRT - Power Purity Boost 1, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - Power Purity Boost 1}
-    - !<View> {name: JP2499DRT - Power Purity Boost 2, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - Power Purity Boost 2}
-    - !<View> {name: JP2499DRT - Power Purity Boost 3, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - Power Purity Boost 3}
-    - !<View> {name: JP2499DRT - Power Purity Boost 4, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - Power Purity Boost 4}
-    - !<View> {name: JP2499DRT - BnWX, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - BnWX}
-    - !<View> {name: JP2499DRT - ClassicNegative, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - ClassicNegative}
-    - !<View> {name: JP2499DRT - ClassicCinemaNegative, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - ClassicCinemaNegative}
-    - !<View> {name: JP2499DRT - ClassicReversal, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - ClassicReversal}
-    - !<View> {name: JP2499DRT - CrazyNegative, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - CrazyNegative}
-    - !<View> {name: JP2499DRT - InstantFilm, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - InstantFilm}
-    - !<View> {name: JP2499DRT - PrintV1, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - PrintV1}
-    - !<View> {name: JP2499DRT - PrintV2, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - PrintV2}
-    - !<View> {name: JP2499DRT - PrintV3, colorspace: 2499DRT Base Rec.1886, looks: JP2499DRT - PrintV3}
     - !<View> {name: None, colorspace: Raw}
   Log:
     - !<View> {name: JP2499 Log, colorspace: 2499DRT Log (2499)}
@@ -308,8 +291,7 @@ displays:
 
 active_displays: [sRGB, Display P3, Rec.1886, Log]
 
-active_views: [OpenDRT Standard, OpenDRT Bleached, OpenDRT Bleached Negative Lift, OpenDRT Gentle Touch, OpenDRT Gentle Touch Negative Lift, OpenDRT Flawed Emulsion, OpenDRT Shifted Crisp, JP2499DRT, JP2499DRT - Editorial Soft, JP2499DRT - Editorial Split, JP2499DRT - Hard Contrast, JP2499DRT - Film Dense, JP2499DRT - Photochemical, JP2499DRT - Chemical Drift, JP2499DRT - Tarnished Print, JP2499DRT - Negative Dust, JP2499DRT - Archival Warm-Gray, JP2499DRT - Archival Extreme Matte, JP2499DRT - Graphite Matte, JP2499DRT - Soot, JP2499DRT - Carbon Plate, JP2499DRT - Carbon Black, JP2499DRT - Cold Steel Neutral, JP2499DRT - Blue Carbon Print, JP2499DRT - Funeral Bronze, JP2499DRT - Verdigris Shadow, JP2499DRT - Phoenix Drift, JP2499DRT - Power Purity Boost 1, JP2499DRT - Power Purity Boost 2, JP2499DRT - Power Purity Boost 3, JP2499DRT - Power Purity Boost 4, JP2499DRT - BnWX, JP2499DRT - ClassicNegative, JP2499DRT - ClassicCinemaNegative, JP2499DRT - ClassicReversal, JP2499DRT - CrazyNegative, JP2499DRT - InstantFilm, JP2499DRT - PrintV1, JP2499DRT - PrintV2, JP2499DRT - PrintV3, JP2499 Log, Filmlight T-LogE - E-Gamut 2, ACEScc, ACEScct, None]
-
+active_views: [OpenDRT Bleached, OpenDRT Bleached - Negative Print, OpenDRT Gentle Touch, OpenDRT Gentle Touch - Negative Print, OpenDRT Flawed Emulsion, OpenDRT Flawed Emulsion - Editorial Depth, OpenDRT Flawed Emulsion - Deep Contaminate, OpenDRT Flawed Emulsion - Photochemical, OpenDRT Flawed Emulsion - Chemical Drift, OpenDRT Flawed Emulsion - Phoenix Drift, OpenDRT Shifted Crisp, OpenDRT Shifted Crisp - Clean Bite, OpenDRT Standard, JP2499DRT, JP2499DRT - Editorial Soft, JP2499DRT - Editorial Split, JP2499DRT - Hard Contrast, JP2499DRT - Film Dense, JP2499DRT - Photochemical, JP2499DRT - Chemical Drift, JP2499DRT - Tarnished Print, JP2499DRT - Negative Dust, JP2499DRT - Archival Warm-Gray, JP2499DRT - Archival Extreme Matte, JP2499DRT - Graphite Matte, JP2499DRT - Soot, JP2499DRT - Carbon Plate, JP2499DRT - Carbon Black, JP2499DRT - Cold Steel Neutral, JP2499DRT - Blue Carbon Print, JP2499DRT - Funeral Bronze, JP2499DRT - Verdigris Shadow, JP2499DRT - Phoenix Drift, JP2499 Log, Filmlight T-LogE - E-Gamut 2, ACEScc, ACEScct, None]
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Legacy DRT/display-output colorspaces were intentionally pruned from this slim OpenDRT/JP2499DRT config.
 # Camera/input, ACES interchange, texture/file-rule, OpenDRT, and JP2499DRT spaces remain available.
@@ -849,6 +831,475 @@ colorspaces:
         - !<BuiltinTransform> {style: ACEScct_to_ACES2065-1}
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ I-E, dst: ACES2065-1, direction: inverse}
 
+  - !<ColorSpace> #OpenDRT Bleached - Negative Print Display P3
+    name: OpenDRT Bleached - Negative Print Display P3
+    aliases: []
+    family: Imagery Display P3
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Bleached with Negative Print CDL to Display P3.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.28, 1.28, 1.28], offset: [0, 0, 0], power: [1.18, 1.18, 1.18], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0.003676, 0, 0.0055], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.14, 1.08, 1.16], sat: 1}
+        - !<CDLTransform> {slope: [0.92, 0.92, 0.92], offset: [0, 0, 0], power: [0.94, 0.94, 0.94], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Bleached - Negative Print Rec.1886
+    name: OpenDRT Bleached - Negative Print Rec.1886
+    aliases: []
+    family: Imagery Rec.1886
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Bleached with Negative Print CDL to Rec.1886.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.28, 1.28, 1.28], offset: [0, 0, 0], power: [1.18, 1.18, 1.18], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0.003676, 0, 0.0055], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.14, 1.08, 1.16], sat: 1}
+        - !<CDLTransform> {slope: [0.92, 0.92, 0.92], offset: [0, 0, 0], power: [0.94, 0.94, 0.94], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Gentle Touch - Negative Print Display P3
+    name: OpenDRT Gentle Touch - Negative Print Display P3
+    aliases: []
+    family: Imagery Display P3
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Gentle Touch with Negative Print CDL to Display P3.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.28, 1.28, 1.28], offset: [0, 0, 0], power: [1.18, 1.18, 1.18], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0.003676, 0, 0.0055], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.14, 1.08, 1.16], sat: 1}
+        - !<CDLTransform> {slope: [0.92, 0.92, 0.92], offset: [0, 0, 0], power: [0.94, 0.94, 0.94], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_GentleTouch__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Gentle Touch - Negative Print Rec.1886
+    name: OpenDRT Gentle Touch - Negative Print Rec.1886
+    aliases: []
+    family: Imagery Rec.1886
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Gentle Touch with Negative Print CDL to Rec.1886.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.28, 1.28, 1.28], offset: [0, 0, 0], power: [1.18, 1.18, 1.18], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0.003676, 0, 0.0055], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.14, 1.08, 1.16], sat: 1}
+        - !<CDLTransform> {slope: [0.92, 0.92, 0.92], offset: [0, 0, 0], power: [0.94, 0.94, 0.94], sat: 1}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_GentleTouch__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Photochemical sRGB Display
+    name: OpenDRT Flawed Emulsion - Photochemical sRGB Display
+    aliases: []
+    family: Imagery sRGB
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Photochemical look to sRGB Display.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.08}
+          saturation: 0.86
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.972, start: 0.34, width: 0.52}
+          highlights: {rgb: [1, 1, 1], master: 0.962, start: 0.27, pivot: 0.87}
+          whites:     {rgb: [1, 1, 1], master: 0.982, start: 0.34, width: 0.52}
+          s_contrast: 1.00
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.20, 0.193, 0.72, 0.748, 1, 0.995]}
+          green: {control_points: [0, 0, 0.20, 0.202, 0.72, 0.718, 1, 0.997]}
+          blue:  {control_points: [0, 0, 0.20, 0.212, 0.72, 0.688, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.010, 1.000, 0.988], offset: [0.0015, 0.0005, 0.0025], power: [0.986, 1.000, 1.020], sat: 0.94}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Photochemical Display P3
+    name: OpenDRT Flawed Emulsion - Photochemical Display P3
+    aliases: []
+    family: Imagery Display P3
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Photochemical look to Display P3.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.08}
+          saturation: 0.86
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.972, start: 0.34, width: 0.52}
+          highlights: {rgb: [1, 1, 1], master: 0.962, start: 0.27, pivot: 0.87}
+          whites:     {rgb: [1, 1, 1], master: 0.982, start: 0.34, width: 0.52}
+          s_contrast: 1.00
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.20, 0.193, 0.72, 0.748, 1, 0.995]}
+          green: {control_points: [0, 0, 0.20, 0.202, 0.72, 0.718, 1, 0.997]}
+          blue:  {control_points: [0, 0, 0.20, 0.212, 0.72, 0.688, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.010, 1.000, 0.988], offset: [0.0015, 0.0005, 0.0025], power: [0.986, 1.000, 1.020], sat: 0.94}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Photochemical Rec.1886
+    name: OpenDRT Flawed Emulsion - Photochemical Rec.1886
+    aliases: []
+    family: Imagery Rec.1886
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Photochemical look to Rec.1886.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.08}
+          saturation: 0.86
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.972, start: 0.34, width: 0.52}
+          highlights: {rgb: [1, 1, 1], master: 0.962, start: 0.27, pivot: 0.87}
+          whites:     {rgb: [1, 1, 1], master: 0.982, start: 0.34, width: 0.52}
+          s_contrast: 1.00
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.20, 0.193, 0.72, 0.748, 1, 0.995]}
+          green: {control_points: [0, 0, 0.20, 0.202, 0.72, 0.718, 1, 0.997]}
+          blue:  {control_points: [0, 0, 0.20, 0.212, 0.72, 0.688, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.010, 1.000, 0.988], offset: [0.0015, 0.0005, 0.0025], power: [0.986, 1.000, 1.020], sat: 0.94}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Chemical Drift sRGB Display
+    name: OpenDRT Flawed Emulsion - Chemical Drift sRGB Display
+    aliases: []
+    family: Imagery sRGB
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Chemical Drift look to sRGB Display.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.78
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.945, start: 0.33, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.952, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.54}
+          s_contrast: 0.98
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.16, 0.182, 0.68, 0.690, 1, 0.986]}
+          green: {control_points: [0, 0, 0.16, 0.176, 0.68, 0.708, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.158, 0.68, 0.732, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Chemical Drift Display P3
+    name: OpenDRT Flawed Emulsion - Chemical Drift Display P3
+    aliases: []
+    family: Imagery Display P3
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Chemical Drift look to Display P3.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.78
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.945, start: 0.33, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.952, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.54}
+          s_contrast: 0.98
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.16, 0.182, 0.68, 0.690, 1, 0.986]}
+          green: {control_points: [0, 0, 0.16, 0.176, 0.68, 0.708, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.158, 0.68, 0.732, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Chemical Drift Rec.1886
+    name: OpenDRT Flawed Emulsion - Chemical Drift Rec.1886
+    aliases: []
+    family: Imagery Rec.1886
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Chemical Drift look to Rec.1886.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.78
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.945, start: 0.33, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.952, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.54}
+          s_contrast: 0.98
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.16, 0.182, 0.68, 0.690, 1, 0.986]}
+          green: {control_points: [0, 0, 0.16, 0.176, 0.68, 0.708, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.158, 0.68, 0.732, 1, 1]}
+        - !<CDLTransform>
+          {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Editorial Depth sRGB Display
+    name: OpenDRT Flawed Emulsion - Editorial Depth sRGB Display
+    aliases: []
+    family: Imagery sRGB
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Editorial Depth CDL stack to sRGB Display.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [0.94, 0.94, 0.94], offset: [0, 0, 0], power: [1.08, 1.08, 1.08], sat: 1.08}
+        - !<CDLTransform> {slope: [1.035, 1.0, 0.965], offset: [0.0012, 0, 0.0018], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.04, 1.0, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [0.985, 0.985, 0.985], offset: [0, 0, 0], power: [0.98, 0.98, 0.98], sat: 1.04}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Editorial Depth Display P3
+    name: OpenDRT Flawed Emulsion - Editorial Depth Display P3
+    aliases: []
+    family: Imagery Display P3
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Editorial Depth CDL stack to Display P3.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [0.94, 0.94, 0.94], offset: [0, 0, 0], power: [1.08, 1.08, 1.08], sat: 1.08}
+        - !<CDLTransform> {slope: [1.035, 1.0, 0.965], offset: [0.0012, 0, 0.0018], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.04, 1.0, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [0.985, 0.985, 0.985], offset: [0, 0, 0], power: [0.98, 0.98, 0.98], sat: 1.04}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Editorial Depth Rec.1886
+    name: OpenDRT Flawed Emulsion - Editorial Depth Rec.1886
+    aliases: []
+    family: Imagery Rec.1886
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Editorial Depth CDL stack to Rec.1886.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [0.94, 0.94, 0.94], offset: [0, 0, 0], power: [1.08, 1.08, 1.08], sat: 1.08}
+        - !<CDLTransform> {slope: [1.035, 1.0, 0.965], offset: [0.0012, 0, 0.0018], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.04, 1.0, 0.96], sat: 1}
+        - !<CDLTransform> {slope: [0.985, 0.985, 0.985], offset: [0, 0, 0], power: [0.98, 0.98, 0.98], sat: 1.04}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Deep Contaminate sRGB Display
+    name: OpenDRT Flawed Emulsion - Deep Contaminate sRGB Display
+    aliases: []
+    family: Imagery sRGB
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Deep Contaminate CDL stack to sRGB Display.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [0.9, 0.94, 1.02], offset: [0, 0, 0], power: [1.16, 1.08, 0.94], sat: 1.16}
+        - !<CDLTransform> {slope: [1.08, 0.98, 0.92], offset: [0.002, 0, 0.0035], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.1, 1.02, 0.9], sat: 1}
+        - !<CDLTransform> {slope: [0.88, 0.88, 0.88], offset: [0, 0, 0], power: [0.92, 0.92, 0.92], sat: 1.08}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Deep Contaminate Display P3
+    name: OpenDRT Flawed Emulsion - Deep Contaminate Display P3
+    aliases: []
+    family: Imagery Display P3
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Deep Contaminate CDL stack to Display P3.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [0.9, 0.94, 1.02], offset: [0, 0, 0], power: [1.16, 1.08, 0.94], sat: 1.16}
+        - !<CDLTransform> {slope: [1.08, 0.98, 0.92], offset: [0.002, 0, 0.0035], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.1, 1.02, 0.9], sat: 1}
+        - !<CDLTransform> {slope: [0.88, 0.88, 0.88], offset: [0, 0, 0], power: [0.92, 0.92, 0.92], sat: 1.08}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Deep Contaminate Rec.1886
+    name: OpenDRT Flawed Emulsion - Deep Contaminate Rec.1886
+    aliases: []
+    family: Imagery Rec.1886
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Deep Contaminate CDL stack to Rec.1886.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [0.9, 0.94, 1.02], offset: [0, 0, 0], power: [1.16, 1.08, 0.94], sat: 1.16}
+        - !<CDLTransform> {slope: [1.08, 0.98, 0.92], offset: [0.002, 0, 0.0035], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.1, 1.02, 0.9], sat: 1}
+        - !<CDLTransform> {slope: [0.88, 0.88, 0.88], offset: [0, 0, 0], power: [0.92, 0.92, 0.92], sat: 1.08}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Phoenix Drift sRGB Display
+    name: OpenDRT Flawed Emulsion - Phoenix Drift sRGB Display
+    aliases: []
+    family: Imagery sRGB
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Phoenix Drift look to sRGB Display.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.03}
+          saturation: 0.88
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.948, start: 0.34, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.958, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.974, start: 0.34, width: 0.54}
+          s_contrast: 0.99
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.16, 0.170, 0.70, 0.724, 1, 1]}
+          green: {control_points: [0, 0, 0.16, 0.168, 0.70, 0.706, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.150, 0.70, 0.742, 1, 0.984]}
+        - !<CDLTransform>
+          {slope: [1.026, 1.006, 0.964], offset: [0.0040, 0.0020, 0.0060], power: [1.018, 0.996, 0.956], sat: 0.96}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Phoenix Drift Display P3
+    name: OpenDRT Flawed Emulsion - Phoenix Drift Display P3
+    aliases: []
+    family: Imagery Display P3
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Phoenix Drift look to Display P3.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.03}
+          saturation: 0.88
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.948, start: 0.34, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.958, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.974, start: 0.34, width: 0.54}
+          s_contrast: 0.99
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.16, 0.170, 0.70, 0.724, 1, 1]}
+          green: {control_points: [0, 0, 0.16, 0.168, 0.70, 0.706, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.150, 0.70, 0.742, 1, 0.984]}
+        - !<CDLTransform>
+          {slope: [1.026, 1.006, 0.964], offset: [0.0040, 0.0020, 0.0060], power: [1.018, 0.996, 0.956], sat: 0.96}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Flawed Emulsion - Phoenix Drift Rec.1886
+    name: OpenDRT Flawed Emulsion - Phoenix Drift Rec.1886
+    aliases: []
+    family: Imagery Rec.1886
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Flawed Emulsion with Phoenix Drift look to Rec.1886.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
+        - !<GradingPrimaryTransform>
+          style: log
+          contrast: {rgb: [1, 1, 1], master: 1.03}
+          saturation: 0.88
+        - !<GradingToneTransform>
+          style: log
+          blacks:     {rgb: [1, 1, 1], master: 0.948, start: 0.34, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.958, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.974, start: 0.34, width: 0.54}
+          s_contrast: 0.99
+        - !<GradingRGBCurveTransform>
+          style: log
+          red:   {control_points: [0, 0, 0.16, 0.170, 0.70, 0.724, 1, 1]}
+          green: {control_points: [0, 0, 0.16, 0.168, 0.70, 0.706, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.150, 0.70, 0.742, 1, 0.984]}
+        - !<CDLTransform>
+          {slope: [1.026, 1.006, 0.964], offset: [0.0040, 0.0020, 0.0060], power: [1.018, 0.996, 0.956], sat: 0.96}
+        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
+
   - !<ColorSpace> #2499DRT Log (2499)
     name: 2499DRT Log (2499)
     aliases: [Log, 2499DRT Log, 2499, 2499DRT 2499 Log]
@@ -1330,14 +1781,14 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_GentleTouch__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Bleached Negative Lift sRGB Display
-    name: OpenDRT Bleached Negative Lift sRGB Display
+  - !<ColorSpace> #OpenDRT Bleached - Negative Print sRGB Display
+    name: OpenDRT Bleached - Negative Print sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
     bitdepth: 32f
     description: |
-      OpenDRT v1.1 Bleached with Negative Lift CDL, baked from FilmLight E-Gamut2 T-LogE to sRGB Display.
+      OpenDRT v1.1 Bleached with Negative Print CDL, baked from FilmLight E-Gamut2 T-LogE to sRGB Display.
     isdata: false
     from_scene_reference: !<GroupTransform>
       children:
@@ -1350,14 +1801,14 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Gentle Touch Negative Lift sRGB Display
-    name: OpenDRT Gentle Touch Negative Lift sRGB Display
+  - !<ColorSpace> #OpenDRT Gentle Touch - Negative Print sRGB Display
+    name: OpenDRT Gentle Touch - Negative Print sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
     bitdepth: 32f
     description: |
-      OpenDRT v1.1 Gentle Touch with Negative Lift CDL, baked from FilmLight E-Gamut2 T-LogE to sRGB Display.
+      OpenDRT v1.1 Gentle Touch with Negative Print CDL, baked from FilmLight E-Gamut2 T-LogE to sRGB Display.
     isdata: false
     from_scene_reference: !<GroupTransform>
       children:
@@ -1397,6 +1848,25 @@ colorspaces:
     from_scene_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_ShiftedCrisp__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Shifted Crisp - Clean Bite sRGB Display
+    name: OpenDRT Shifted Crisp - Clean Bite sRGB Display
+    aliases: []
+    family: Imagery sRGB
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Shifted Crisp with Clean Bite CDL stack to sRGB Display.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.015, 1.025, 1.04], offset: [0, 0, 0], power: [0.985, 0.985, 0.975], sat: 1.035}
+        - !<CDLTransform> {slope: [0.99, 1.0, 1.018], offset: [0.0003, 0.0002, 0.001], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.015, 1.0, 0.985], sat: 1}
+        - !<CDLTransform> {slope: [0.992, 0.992, 0.992], offset: [0, 0, 0], power: [0.985, 0.985, 0.985], sat: 1.02}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_ShiftedCrisp__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
 
@@ -1474,6 +1944,25 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_ShiftedCrisp__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
+  - !<ColorSpace> #OpenDRT Shifted Crisp - Clean Bite Display P3
+    name: OpenDRT Shifted Crisp - Clean Bite Display P3
+    aliases: []
+    family: Imagery Display P3
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Shifted Crisp with Clean Bite CDL stack to Display P3.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.015, 1.025, 1.04], offset: [0, 0, 0], power: [0.985, 0.985, 0.975], sat: 1.035}
+        - !<CDLTransform> {slope: [0.99, 1.0, 1.018], offset: [0.0003, 0.0002, 0.001], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.015, 1.0, 0.985], sat: 1}
+        - !<CDLTransform> {slope: [0.992, 0.992, 0.992], offset: [0, 0, 0], power: [0.985, 0.985, 0.985], sat: 1.02}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_ShiftedCrisp__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
+
 
   - !<ColorSpace> #OpenDRT Standard Rec.1886
     name: OpenDRT Standard Rec.1886
@@ -1547,6 +2036,25 @@ colorspaces:
     from_scene_reference: !<GroupTransform>
       children:
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
+        - !<FileTransform> {src: OpenDRT_v1.1_ShiftedCrisp__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
+
+  - !<ColorSpace> #OpenDRT Shifted Crisp - Clean Bite Rec.1886
+    name: OpenDRT Shifted Crisp - Clean Bite Rec.1886
+    aliases: []
+    family: Imagery Rec.1886
+    equalitygroup:
+    bitdepth: 32f
+    description: |
+      OpenDRT v1.1 Shifted Crisp with Clean Bite CDL stack to Rec.1886.
+    isdata: false
+    from_scene_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
+        - !<CDLTransform> {slope: [1.015, 1.025, 1.04], offset: [0, 0, 0], power: [0.985, 0.985, 0.975], sat: 1.035}
+        - !<CDLTransform> {slope: [0.99, 1.0, 1.018], offset: [0.0003, 0.0002, 0.001], power: [1, 1, 1], sat: 1}
+        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.015, 1.0, 0.985], sat: 1}
+        - !<CDLTransform> {slope: [0.992, 0.992, 0.992], offset: [0, 0, 0], power: [0.985, 0.985, 0.985], sat: 1.02}
+        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_ShiftedCrisp__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
   - !<ColorSpace> #sRGB - Texture
