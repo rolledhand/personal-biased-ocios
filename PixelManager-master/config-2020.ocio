@@ -192,24 +192,17 @@ displays:
     - !<View> {name: OpenDRT Shifted Crisp, colorspace: OpenDRT Shifted Crisp sRGB Display}
     - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard sRGB Display}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base sRGB}
-    - !<View> {name: JP2499DRT - Editorial Soft, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Editorial Soft"}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Editorial Split"}
     - !<View> {name: JP2499DRT - Hard Contrast, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Hard Contrast"}
-    - !<View> {name: JP2499DRT - Film Dense, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Film Dense"}
     - !<View> {name: JP2499DRT - Photochemical, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Photochemical"}
     - !<View> {name: JP2499DRT - Chemical Drift, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Chemical Drift"}
     - !<View> {name: JP2499DRT - Tarnished Print, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Tarnished Print"}
-    - !<View> {name: JP2499DRT - Negative Dust, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Negative Dust"}
-    - !<View> {name: JP2499DRT - Archival Warm-Gray, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Archival Warm-Gray"}
-    - !<View> {name: JP2499DRT - Archival Extreme Matte, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Archival Extreme Matte"}
     - !<View> {name: JP2499DRT - Graphite Matte, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Graphite Matte"}
     - !<View> {name: JP2499DRT - Soot, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Soot"}
     - !<View> {name: JP2499DRT - Carbon Plate, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Carbon Plate"}
     - !<View> {name: JP2499DRT - Carbon Black, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Carbon Black"}
-    - !<View> {name: JP2499DRT - Cold Steel Neutral, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Cold Steel Neutral"}
     - !<View> {name: JP2499DRT - Blue Carbon Print, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Blue Carbon Print"}
     - !<View> {name: JP2499DRT - Funeral Bronze, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Funeral Bronze"}
-    - !<View> {name: JP2499DRT - Verdigris Shadow, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Verdigris Shadow"}
     - !<View> {name: JP2499DRT - Phoenix Drift, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Phoenix Drift"}
     - !<View> {name: None, colorspace: Raw}
   Display P3:
@@ -227,24 +220,17 @@ displays:
     - !<View> {name: OpenDRT Shifted Crisp, colorspace: OpenDRT Shifted Crisp Display P3}
     - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard Display P3}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base Display P3}
-    - !<View> {name: JP2499DRT - Editorial Soft, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Editorial Soft"}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Editorial Split"}
     - !<View> {name: JP2499DRT - Hard Contrast, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Hard Contrast"}
-    - !<View> {name: JP2499DRT - Film Dense, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Film Dense"}
     - !<View> {name: JP2499DRT - Photochemical, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Photochemical"}
     - !<View> {name: JP2499DRT - Chemical Drift, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Chemical Drift"}
     - !<View> {name: JP2499DRT - Tarnished Print, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Tarnished Print"}
-    - !<View> {name: JP2499DRT - Negative Dust, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Negative Dust"}
-    - !<View> {name: JP2499DRT - Archival Warm-Gray, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Archival Warm-Gray"}
-    - !<View> {name: JP2499DRT - Archival Extreme Matte, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Archival Extreme Matte"}
     - !<View> {name: JP2499DRT - Graphite Matte, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Graphite Matte"}
     - !<View> {name: JP2499DRT - Soot, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Soot"}
     - !<View> {name: JP2499DRT - Carbon Plate, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Carbon Plate"}
     - !<View> {name: JP2499DRT - Carbon Black, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Carbon Black"}
-    - !<View> {name: JP2499DRT - Cold Steel Neutral, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Cold Steel Neutral"}
     - !<View> {name: JP2499DRT - Blue Carbon Print, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Blue Carbon Print"}
     - !<View> {name: JP2499DRT - Funeral Bronze, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Funeral Bronze"}
-    - !<View> {name: JP2499DRT - Verdigris Shadow, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Verdigris Shadow"}
     - !<View> {name: JP2499DRT - Phoenix Drift, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Phoenix Drift"}
     - !<View> {name: None, colorspace: Raw}
   Rec.1886:
@@ -262,24 +248,17 @@ displays:
     - !<View> {name: OpenDRT Shifted Crisp, colorspace: OpenDRT Shifted Crisp Rec.1886}
     - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard Rec.1886}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base Rec.1886}
-    - !<View> {name: JP2499DRT - Editorial Soft, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Editorial Soft"}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Editorial Split"}
     - !<View> {name: JP2499DRT - Hard Contrast, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Hard Contrast"}
-    - !<View> {name: JP2499DRT - Film Dense, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Film Dense"}
     - !<View> {name: JP2499DRT - Photochemical, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Photochemical"}
     - !<View> {name: JP2499DRT - Chemical Drift, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Chemical Drift"}
     - !<View> {name: JP2499DRT - Tarnished Print, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Tarnished Print"}
-    - !<View> {name: JP2499DRT - Negative Dust, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Negative Dust"}
-    - !<View> {name: JP2499DRT - Archival Warm-Gray, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Archival Warm-Gray"}
-    - !<View> {name: JP2499DRT - Archival Extreme Matte, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Archival Extreme Matte"}
     - !<View> {name: JP2499DRT - Graphite Matte, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Graphite Matte"}
     - !<View> {name: JP2499DRT - Soot, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Soot"}
     - !<View> {name: JP2499DRT - Carbon Plate, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Carbon Plate"}
     - !<View> {name: JP2499DRT - Carbon Black, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Carbon Black"}
-    - !<View> {name: JP2499DRT - Cold Steel Neutral, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Cold Steel Neutral"}
     - !<View> {name: JP2499DRT - Blue Carbon Print, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Blue Carbon Print"}
     - !<View> {name: JP2499DRT - Funeral Bronze, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Funeral Bronze"}
-    - !<View> {name: JP2499DRT - Verdigris Shadow, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Verdigris Shadow"}
     - !<View> {name: JP2499DRT - Phoenix Drift, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Phoenix Drift"}
     - !<View> {name: None, colorspace: Raw}
   Log:
@@ -291,7 +270,7 @@ displays:
 
 active_displays: [sRGB, Display P3, Rec.1886, Log]
 
-active_views: [OpenDRT Bleached, OpenDRT Bleached - Negative Print, OpenDRT Bleached - Oxide Residue, OpenDRT Gentle Touch, OpenDRT Gentle Touch - Negative Print, OpenDRT Gentle Touch - Surreal Push, OpenDRT Flawed Emulsion, OpenDRT Flawed Emulsion - Editorial Depth, OpenDRT Flawed Emulsion - Deep Contaminate, OpenDRT Flawed Emulsion - Photochemical, OpenDRT Flawed Emulsion - Chemical Drift, OpenDRT Shifted Crisp, OpenDRT Standard, JP2499DRT, JP2499DRT - Editorial Soft, JP2499DRT - Editorial Split, JP2499DRT - Hard Contrast, JP2499DRT - Film Dense, JP2499DRT - Photochemical, JP2499DRT - Chemical Drift, JP2499DRT - Tarnished Print, JP2499DRT - Negative Dust, JP2499DRT - Archival Warm-Gray, JP2499DRT - Archival Extreme Matte, JP2499DRT - Graphite Matte, JP2499DRT - Soot, JP2499DRT - Carbon Plate, JP2499DRT - Carbon Black, JP2499DRT - Cold Steel Neutral, JP2499DRT - Blue Carbon Print, JP2499DRT - Funeral Bronze, JP2499DRT - Verdigris Shadow, JP2499DRT - Phoenix Drift, JP2499 Log, Filmlight T-LogE - E-Gamut 2, ACEScc, ACEScct, None]
+active_views: [OpenDRT Bleached, OpenDRT Bleached - Negative Print, OpenDRT Bleached - Oxide Residue, OpenDRT Gentle Touch, OpenDRT Gentle Touch - Negative Print, OpenDRT Gentle Touch - Surreal Push, OpenDRT Flawed Emulsion, OpenDRT Flawed Emulsion - Editorial Depth, OpenDRT Flawed Emulsion - Deep Contaminate, OpenDRT Flawed Emulsion - Photochemical, OpenDRT Flawed Emulsion - Chemical Drift, OpenDRT Shifted Crisp, OpenDRT Standard, JP2499DRT, JP2499DRT - Editorial Split, JP2499DRT - Hard Contrast, JP2499DRT - Photochemical, JP2499DRT - Chemical Drift, JP2499DRT - Tarnished Print, JP2499DRT - Graphite Matte, JP2499DRT - Soot, JP2499DRT - Carbon Plate, JP2499DRT - Carbon Black, JP2499DRT - Blue Carbon Print, JP2499DRT - Funeral Bronze, JP2499DRT - Phoenix Drift, JP2499 Log, Filmlight T-LogE - E-Gamut 2, ACEScc, ACEScct, None]
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Legacy DRT/display-output colorspaces were intentionally pruned from this slim OpenDRT/JP2499DRT config.
 # Camera/input, ACES interchange, texture/file-rule, OpenDRT, and JP2499DRT spaces remain available.
@@ -2288,25 +2267,7 @@ colorspaces:
     isdata: true
 
 looks:
-  - !<Look> #JP2499DRT - Editorial Soft
-    name: JP2499DRT - Editorial Soft
-    process_space: 2499DRT Log (2499)
-    description: Restrained soft editorial shaping with lower chroma, gentler mid contrast, and protected highlights.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 0.94}
-          saturation: 0.70
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 0.985, start: 0.34, width: 0.48}
-          highlights: {rgb: [1, 1, 1], master: 0.960, start: 0.26, pivot: 0.88}
-          whites: {rgb: [1, 1, 1], master: 0.982, start: 0.35, width: 0.50}
-          s_contrast: 0.96
-        - !<GradingRGBCurveTransform>
-          style: log
-          master: {control_points: [0, 0, 0.42, 0.418, 0.82, 0.800, 1, 0.992]}
+
   - !<Look> #JP2499DRT - Editorial Split
     name: JP2499DRT - Editorial Split
     process_space: 2499DRT Log (2499)
@@ -2351,25 +2312,7 @@ looks:
         - !<GradingRGBCurveTransform>
           style: log
           master: {control_points: [0, 0, 0.12, 0.075, 0.42, 0.375, 0.82, 0.835, 1, 1]}
-  - !<Look> #JP2499DRT - Film Dense
-    name: JP2499DRT - Film Dense
-    process_space: 2499DRT Log (2499)
-    description: Denser film body with thicker low-mids, deep-but-soft blacks, smooth shoulder, and lower chroma.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 1.07}
-          saturation: 0.90
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 1.010, start: 0.36, width: 0.48}
-          highlights: {rgb: [1, 1, 1], master: 0.972, start: 0.30, pivot: 0.90}
-          whites: {rgb: [1, 1, 1], master: 0.988, start: 0.36, width: 0.48}
-          s_contrast: 1.02
-        - !<GradingRGBCurveTransform>
-          style: log
-          master: {control_points: [0, 0, 0.40, 0.360, 1, 1]}
+
   - !<Look> #JP2499DRT - Photochemical
     name: JP2499DRT - Photochemical
     process_space: 2499DRT Log (2499)
@@ -2438,64 +2381,9 @@ looks:
           green: {control_points: [0, 0, 0.16, 0.158, 0.42, 0.418, 0.68, 0.674, 1, 0.992]}
           blue: {control_points: [0, 0, 0.16, 0.168, 0.42, 0.410, 0.68, 0.648, 1, 0.984]}
         - !<CDLTransform> {slope: [1.004, 0.998, 0.982], offset: [0.0010, 0.0006, 0.0014], power: [1.020, 1.018, 1.030], sat: 0.82}
-  - !<Look> #JP2499DRT - Negative Dust
-    name: JP2499DRT - Negative Dust
-    process_space: 2499DRT Log (2499)
-    description: Soft negative-like contamination with lifted shadows, dirty highlights, and elegant hue response.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [0.995, 1.00, 1.005], master: 0.95}
-          saturation: 0.48
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 0.945, start: 0.32, width: 0.52}
-          highlights: {rgb: [1, 1, 1], master: 0.968, start: 0.27, pivot: 0.89}
-          whites: {rgb: [1, 1, 1], master: 0.985, start: 0.34, width: 0.50}
-          s_contrast: 0.98
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.15, 0.154, 0.46, 0.456, 0.74, 0.738, 1, 0.994]}
-          green: {control_points: [0, 0, 0.15, 0.153, 0.46, 0.461, 0.74, 0.742, 1, 0.998]}
-          blue: {control_points: [0, 0, 0.15, 0.158, 0.46, 0.456, 0.74, 0.736, 1, 0.996]}
-        - !<CDLTransform> {slope: [0.998, 1.0005, 0.997], offset: [0.0010, 0.0008, 0.0011], power: [1.010, 1.006, 1.012], sat: 0.92}
-  - !<Look> #JP2499DRT - Archival Warm-Gray
-    name: JP2499DRT - Archival Warm-Gray
-    process_space: 2499DRT Log (2499)
-    description: Warm-gray archival scan feel with low chroma and airy floor.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 0.98}
-          saturation: 0.84
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 0.920, start: 0.32, width: 0.50}
-          highlights: {rgb: [1, 1, 1], master: 0.968, start: 0.27, pivot: 0.88}
-          whites: {rgb: [1, 1, 1], master: 0.984, start: 0.34, width: 0.50}
-          s_contrast: 0.98
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.30, 0.302, 1, 1]}
-          blue: {control_points: [0, 0, 0.30, 0.298, 1, 1]}
-  - !<Look> #JP2499DRT - Archival Extreme Matte
-    name: JP2499DRT - Archival Extreme Matte
-    process_space: 2499DRT Log (2499)
-    description: Extreme matte archival response with lifted blacks, very low chroma, and soft shoulder.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 0.95}
-          saturation: 0.80
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 0.900, start: 0.32, width: 0.50}
-          highlights: {rgb: [1, 1, 1], master: 0.960, start: 0.27, pivot: 0.88}
-          whites: {rgb: [1, 1, 1], master: 0.975, start: 0.34, width: 0.50}
-          s_contrast: 0.97
+
+
+
   - !<Look> #JP2499DRT - Graphite Matte
     name: JP2499DRT - Graphite Matte
     process_space: 2499DRT Log (2499)
@@ -2576,27 +2464,7 @@ looks:
         - !<GradingRGBCurveTransform>
           style: log
           master: {control_points: [0, 0, 0.10, 0.055, 0.22, 0.185, 1, 1]}
-  - !<Look> #JP2499DRT - Cold Steel Neutral
-    name: JP2499DRT - Cold Steel Neutral
-    process_space: 2499DRT Log (2499)
-    description: Neutral-clean highlights with subtle cool steel bias confined to shadows.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [1, 1, 1], master: 1.04}
-          saturation: 0.86
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.44}
-          highlights: {rgb: [1, 1, 1], master: 0.992, start: 0.27, pivot: 0.91}
-          whites: {rgb: [1, 1, 1], master: 1.000, start: 0.33, width: 0.44}
-          s_contrast: 1.00
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.28, 0.276, 1, 1]}
-          blue: {control_points: [0, 0, 0.28, 0.284, 1, 1]}
-          green: {control_points: [0, 0, 0.28, 0.281, 1, 1]}
+
   - !<Look> #JP2499DRT - Blue Carbon Print
     name: JP2499DRT - Blue Carbon Print
     process_space: 2499DRT Log (2499)
@@ -2640,28 +2508,7 @@ looks:
           green: {control_points: [0, 0, 0.18, 0.180, 0.48, 0.484, 0.74, 0.742, 1, 0.996]}
           blue: {control_points: [0, 0, 0.18, 0.184, 0.48, 0.476, 0.74, 0.734, 1, 0.992]}
         - !<CDLTransform> {slope: [1.003, 0.999, 0.991], offset: [0.0000, 0.0002, 0.0006], power: [1.012, 1.006, 1.016], sat: 0.86}
-  - !<Look> #JP2499DRT - Verdigris Shadow
-    name: JP2499DRT - Verdigris Shadow
-    process_space: 2499DRT Log (2499)
-    description: Usable oxidized shadow contamination with restrained warm highlights.
-    transform: !<GroupTransform>
-      children:
-        - !<GradingPrimaryTransform>
-          style: log
-          contrast: {rgb: [0.999, 1.002, 1.002], master: 1.00}
-          saturation: 0.50
-        - !<GradingToneTransform>
-          style: log
-          blacks: {rgb: [1, 1, 1], master: 0.996, start: 0.33, width: 0.47}
-          highlights: {rgb: [1, 1, 1], master: 0.988, start: 0.28, pivot: 0.90}
-          whites: {rgb: [1, 1, 1], master: 0.996, start: 0.35, width: 0.46}
-          s_contrast: 0.99
-        - !<GradingRGBCurveTransform>
-          style: log
-          red: {control_points: [0, 0, 0.16, 0.158, 0.44, 0.441, 0.78, 0.779, 1, 0.998]}
-          green: {control_points: [0, 0, 0.16, 0.164, 0.44, 0.444, 0.78, 0.777, 1, 0.997]}
-          blue: {control_points: [0, 0, 0.16, 0.164, 0.44, 0.443, 0.78, 0.773, 1, 0.996]}
-        - !<CDLTransform> {slope: [0.999, 1.0015, 1.000], offset: [0.0000, 0.00025, 0.0003], power: [1.006, 1.003, 1.004], sat: 0.92}
+
   - !<Look> #JP2499DRT - Phoenix Drift
     name: JP2499DRT - Phoenix Drift
     process_space: 2499DRT Log (2499)
