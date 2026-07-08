@@ -178,15 +178,15 @@ file_rules:
 
 displays: 
   sRGB:
-    - !<View> {name: OpenDRT Bleached, colorspace: OpenDRT Bleached sRGB Display}
-    - !<View> {name: OpenDRT Bleached - Negative Print, colorspace: OpenDRT Bleached - Negative Print sRGB Display}
-    - !<View> {name: OpenDRT Bleached - Oxide Residue, colorspace: OpenDRT Bleached - Oxide Residue sRGB Display}
-    - !<View> {name: OpenDRT Gentle Touch, colorspace: OpenDRT Gentle Touch sRGB Display}
-    - !<View> {name: OpenDRT Gentle Touch - Negative Print, colorspace: OpenDRT Gentle Touch - Negative Print sRGB Display}
-    - !<View> {name: OpenDRT Flawed Emulsion, colorspace: OpenDRT Flawed Emulsion sRGB Display}
-    - !<View> {name: OpenDRT Flawed Emulsion - Editorial Depth, colorspace: OpenDRT Flawed Emulsion - Editorial Depth sRGB Display}
-    - !<View> {name: OpenDRT Flawed Emulsion - Chemical Drift, colorspace: OpenDRT Flawed Emulsion - Chemical Drift sRGB Display}
-    - !<View> {name: OpenDRT Shifted Crisp, colorspace: OpenDRT Shifted Crisp sRGB Display}
+    - !<View> {name: Bleached, colorspace: Bleached sRGB Display}
+    - !<View> {name: Bleached - Negative Print, colorspace: Bleached - Negative Print sRGB Display}
+    - !<View> {name: Bleached - Oxide Residue, colorspace: Bleached - Oxide Residue sRGB Display}
+    - !<View> {name: Gentle Touch, colorspace: Gentle Touch sRGB Display}
+    - !<View> {name: Gentle Touch - Negative Print, colorspace: Gentle Touch - Negative Print sRGB Display}
+    - !<View> {name: Flawed Emulsion, colorspace: Flawed Emulsion sRGB Display}
+    - !<View> {name: Flawed Emulsion - Editorial Depth, colorspace: Flawed Emulsion - Editorial Depth sRGB Display}
+    - !<View> {name: Flawed Emulsion - Chemical Drift, colorspace: Flawed Emulsion - Chemical Drift sRGB Display}
+    - !<View> {name: Shifted Crisp, colorspace: Shifted Crisp sRGB Display}
     - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard sRGB Display}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base sRGB}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Editorial Split"}
@@ -203,15 +203,15 @@ displays:
     - !<View> {name: JP2499DRT - Phoenix Drift, colorspace: 2499DRT Base sRGB, looks: "JP2499DRT - Phoenix Drift"}
     - !<View> {name: None, colorspace: Raw}
   Display P3:
-    - !<View> {name: OpenDRT Bleached, colorspace: OpenDRT Bleached Display P3}
-    - !<View> {name: OpenDRT Bleached - Negative Print, colorspace: OpenDRT Bleached - Negative Print Display P3}
-    - !<View> {name: OpenDRT Bleached - Oxide Residue, colorspace: OpenDRT Bleached - Oxide Residue Display P3}
-    - !<View> {name: OpenDRT Gentle Touch, colorspace: OpenDRT Gentle Touch Display P3}
-    - !<View> {name: OpenDRT Gentle Touch - Negative Print, colorspace: OpenDRT Gentle Touch - Negative Print Display P3}
-    - !<View> {name: OpenDRT Flawed Emulsion, colorspace: OpenDRT Flawed Emulsion Display P3}
-    - !<View> {name: OpenDRT Flawed Emulsion - Editorial Depth, colorspace: OpenDRT Flawed Emulsion - Editorial Depth Display P3}
-    - !<View> {name: OpenDRT Flawed Emulsion - Chemical Drift, colorspace: OpenDRT Flawed Emulsion - Chemical Drift Display P3}
-    - !<View> {name: OpenDRT Shifted Crisp, colorspace: OpenDRT Shifted Crisp Display P3}
+    - !<View> {name: Bleached, colorspace: Bleached Display P3}
+    - !<View> {name: Bleached - Negative Print, colorspace: Bleached - Negative Print Display P3}
+    - !<View> {name: Bleached - Oxide Residue, colorspace: Bleached - Oxide Residue Display P3}
+    - !<View> {name: Gentle Touch, colorspace: Gentle Touch Display P3}
+    - !<View> {name: Gentle Touch - Negative Print, colorspace: Gentle Touch - Negative Print Display P3}
+    - !<View> {name: Flawed Emulsion, colorspace: Flawed Emulsion Display P3}
+    - !<View> {name: Flawed Emulsion - Editorial Depth, colorspace: Flawed Emulsion - Editorial Depth Display P3}
+    - !<View> {name: Flawed Emulsion - Chemical Drift, colorspace: Flawed Emulsion - Chemical Drift Display P3}
+    - !<View> {name: Shifted Crisp, colorspace: Shifted Crisp Display P3}
     - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard Display P3}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base Display P3}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Editorial Split"}
@@ -228,15 +228,15 @@ displays:
     - !<View> {name: JP2499DRT - Phoenix Drift, colorspace: 2499DRT Base Display P3, looks: "JP2499DRT - Phoenix Drift"}
     - !<View> {name: None, colorspace: Raw}
   Rec.1886:
-    - !<View> {name: OpenDRT Bleached, colorspace: OpenDRT Bleached Rec.1886}
-    - !<View> {name: OpenDRT Bleached - Negative Print, colorspace: OpenDRT Bleached - Negative Print Rec.1886}
-    - !<View> {name: OpenDRT Bleached - Oxide Residue, colorspace: OpenDRT Bleached - Oxide Residue Rec.1886}
-    - !<View> {name: OpenDRT Gentle Touch, colorspace: OpenDRT Gentle Touch Rec.1886}
-    - !<View> {name: OpenDRT Gentle Touch - Negative Print, colorspace: OpenDRT Gentle Touch - Negative Print Rec.1886}
-    - !<View> {name: OpenDRT Flawed Emulsion, colorspace: OpenDRT Flawed Emulsion Rec.1886}
-    - !<View> {name: OpenDRT Flawed Emulsion - Editorial Depth, colorspace: OpenDRT Flawed Emulsion - Editorial Depth Rec.1886}
-    - !<View> {name: OpenDRT Flawed Emulsion - Chemical Drift, colorspace: OpenDRT Flawed Emulsion - Chemical Drift Rec.1886}
-    - !<View> {name: OpenDRT Shifted Crisp, colorspace: OpenDRT Shifted Crisp Rec.1886}
+    - !<View> {name: Bleached, colorspace: Bleached Rec.1886}
+    - !<View> {name: Bleached - Negative Print, colorspace: Bleached - Negative Print Rec.1886}
+    - !<View> {name: Bleached - Oxide Residue, colorspace: Bleached - Oxide Residue Rec.1886}
+    - !<View> {name: Gentle Touch, colorspace: Gentle Touch Rec.1886}
+    - !<View> {name: Gentle Touch - Negative Print, colorspace: Gentle Touch - Negative Print Rec.1886}
+    - !<View> {name: Flawed Emulsion, colorspace: Flawed Emulsion Rec.1886}
+    - !<View> {name: Flawed Emulsion - Editorial Depth, colorspace: Flawed Emulsion - Editorial Depth Rec.1886}
+    - !<View> {name: Flawed Emulsion - Chemical Drift, colorspace: Flawed Emulsion - Chemical Drift Rec.1886}
+    - !<View> {name: Shifted Crisp, colorspace: Shifted Crisp Rec.1886}
     - !<View> {name: OpenDRT Standard, colorspace: OpenDRT Standard Rec.1886}
     - !<View> {name: JP2499DRT, colorspace: 2499DRT Base Rec.1886}
     - !<View> {name: JP2499DRT - Editorial Split, colorspace: 2499DRT Base Rec.1886, looks: "JP2499DRT - Editorial Split"}
@@ -261,7 +261,7 @@ displays:
 
 active_displays: [sRGB, Display P3, Rec.1886, Log]
 
-active_views: [OpenDRT Bleached, OpenDRT Bleached - Negative Print, OpenDRT Bleached - Oxide Residue, OpenDRT Gentle Touch, OpenDRT Gentle Touch - Negative Print, OpenDRT Flawed Emulsion, OpenDRT Flawed Emulsion - Editorial Depth, OpenDRT Flawed Emulsion - Chemical Drift, OpenDRT Shifted Crisp, OpenDRT Standard, JP2499DRT, JP2499DRT - Editorial Split, JP2499DRT - Hard Contrast, JP2499DRT - Photochemical, JP2499DRT - Chemical Drift, JP2499DRT - Tarnished Print, JP2499DRT - Graphite Matte, JP2499DRT - Soot, JP2499DRT - Carbon Plate, JP2499DRT - Carbon Black, JP2499DRT - Blue Carbon Print, JP2499DRT - Funeral Bronze, JP2499DRT - Phoenix Drift, JP2499 Log, Filmlight T-LogE - E-Gamut 2, ACEScc, ACEScct, None]
+active_views: [Bleached, Bleached - Negative Print, Bleached - Oxide Residue, Gentle Touch, Gentle Touch - Negative Print, Flawed Emulsion, Flawed Emulsion - Editorial Depth, Flawed Emulsion - Chemical Drift, Shifted Crisp, OpenDRT Standard, JP2499DRT, JP2499DRT - Editorial Split, JP2499DRT - Hard Contrast, JP2499DRT - Photochemical, JP2499DRT - Chemical Drift, JP2499DRT - Tarnished Print, JP2499DRT - Graphite Matte, JP2499DRT - Soot, JP2499DRT - Carbon Plate, JP2499DRT - Carbon Black, JP2499DRT - Blue Carbon Print, JP2499DRT - Funeral Bronze, JP2499DRT - Phoenix Drift, JP2499 Log, Filmlight T-LogE - E-Gamut 2, ACEScc, ACEScct, None]
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Legacy DRT/display-output colorspaces were intentionally pruned from this slim OpenDRT/JP2499DRT config.
 # Camera/input, ACES interchange, texture/file-rule, OpenDRT, and JP2499DRT spaces remain available.
@@ -801,8 +801,8 @@ colorspaces:
         - !<BuiltinTransform> {style: ACEScct_to_ACES2065-1}
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ I-E, dst: ACES2065-1, direction: inverse}
 
-  - !<ColorSpace> #OpenDRT Bleached - Negative Print Display P3
-    name: OpenDRT Bleached - Negative Print Display P3
+  - !<ColorSpace> #Bleached - Negative Print Display P3
+    name: Bleached - Negative Print Display P3
     aliases: []
     family: Imagery Display P3
     equalitygroup:
@@ -820,8 +820,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Bleached - Negative Print Rec.1886
-    name: OpenDRT Bleached - Negative Print Rec.1886
+  - !<ColorSpace> #Bleached - Negative Print Rec.1886
+    name: Bleached - Negative Print Rec.1886
     aliases: []
     family: Imagery Rec.1886
     equalitygroup:
@@ -839,8 +839,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Bleached - Oxide Residue sRGB Display
-    name: OpenDRT Bleached - Oxide Residue sRGB Display
+  - !<ColorSpace> #Bleached - Oxide Residue sRGB Display
+    name: Bleached - Oxide Residue sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
@@ -859,8 +859,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Bleached - Oxide Residue Display P3
-    name: OpenDRT Bleached - Oxide Residue Display P3
+  - !<ColorSpace> #Bleached - Oxide Residue Display P3
+    name: Bleached - Oxide Residue Display P3
     aliases: []
     family: Imagery Display P3
     equalitygroup:
@@ -879,8 +879,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Bleached - Oxide Residue Rec.1886
-    name: OpenDRT Bleached - Oxide Residue Rec.1886
+  - !<ColorSpace> #Bleached - Oxide Residue Rec.1886
+    name: Bleached - Oxide Residue Rec.1886
     aliases: []
     family: Imagery Rec.1886
     equalitygroup:
@@ -899,8 +899,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Gentle Touch - Negative Print Display P3
-    name: OpenDRT Gentle Touch - Negative Print Display P3
+  - !<ColorSpace> #Gentle Touch - Negative Print Display P3
+    name: Gentle Touch - Negative Print Display P3
     aliases: []
     family: Imagery Display P3
     equalitygroup:
@@ -918,8 +918,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_GentleTouch__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Gentle Touch - Negative Print Rec.1886
-    name: OpenDRT Gentle Touch - Negative Print Rec.1886
+  - !<ColorSpace> #Gentle Touch - Negative Print Rec.1886
+    name: Gentle Touch - Negative Print Rec.1886
     aliases: []
     family: Imagery Rec.1886
     equalitygroup:
@@ -937,8 +937,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_GentleTouch__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Photochemical sRGB Display
-    name: OpenDRT Flawed Emulsion - Photochemical sRGB Display
+  - !<ColorSpace> #Flawed Emulsion - Photochemical sRGB Display
+    name: Flawed Emulsion - Photochemical sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
@@ -968,8 +968,8 @@ colorspaces:
           {slope: [1.010, 1.000, 0.988], offset: [0.0015, 0.0005, 0.0025], power: [0.986, 1.000, 1.020], sat: 0.94}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Photochemical Display P3
-    name: OpenDRT Flawed Emulsion - Photochemical Display P3
+  - !<ColorSpace> #Flawed Emulsion - Photochemical Display P3
+    name: Flawed Emulsion - Photochemical Display P3
     aliases: []
     family: Imagery Display P3
     equalitygroup:
@@ -999,8 +999,8 @@ colorspaces:
           {slope: [1.010, 1.000, 0.988], offset: [0.0015, 0.0005, 0.0025], power: [0.986, 1.000, 1.020], sat: 0.94}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Photochemical Rec.1886
-    name: OpenDRT Flawed Emulsion - Photochemical Rec.1886
+  - !<ColorSpace> #Flawed Emulsion - Photochemical Rec.1886
+    name: Flawed Emulsion - Photochemical Rec.1886
     aliases: []
     family: Imagery Rec.1886
     equalitygroup:
@@ -1030,8 +1030,8 @@ colorspaces:
           {slope: [1.010, 1.000, 0.988], offset: [0.0015, 0.0005, 0.0025], power: [0.986, 1.000, 1.020], sat: 0.94}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Chemical Drift sRGB Display
-    name: OpenDRT Flawed Emulsion - Chemical Drift sRGB Display
+  - !<ColorSpace> #Flawed Emulsion - Chemical Drift sRGB Display
+    name: Flawed Emulsion - Chemical Drift sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
@@ -1061,8 +1061,8 @@ colorspaces:
           {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Chemical Drift Display P3
-    name: OpenDRT Flawed Emulsion - Chemical Drift Display P3
+  - !<ColorSpace> #Flawed Emulsion - Chemical Drift Display P3
+    name: Flawed Emulsion - Chemical Drift Display P3
     aliases: []
     family: Imagery Display P3
     equalitygroup:
@@ -1092,8 +1092,8 @@ colorspaces:
           {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Chemical Drift Rec.1886
-    name: OpenDRT Flawed Emulsion - Chemical Drift Rec.1886
+  - !<ColorSpace> #Flawed Emulsion - Chemical Drift Rec.1886
+    name: Flawed Emulsion - Chemical Drift Rec.1886
     aliases: []
     family: Imagery Rec.1886
     equalitygroup:
@@ -1123,8 +1123,8 @@ colorspaces:
           {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Editorial Depth sRGB Display
-    name: OpenDRT Flawed Emulsion - Editorial Depth sRGB Display
+  - !<ColorSpace> #Flawed Emulsion - Editorial Depth sRGB Display
+    name: Flawed Emulsion - Editorial Depth sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
@@ -1142,8 +1142,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Editorial Depth Display P3
-    name: OpenDRT Flawed Emulsion - Editorial Depth Display P3
+  - !<ColorSpace> #Flawed Emulsion - Editorial Depth Display P3
+    name: Flawed Emulsion - Editorial Depth Display P3
     aliases: []
     family: Imagery Display P3
     equalitygroup:
@@ -1161,8 +1161,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Editorial Depth Rec.1886
-    name: OpenDRT Flawed Emulsion - Editorial Depth Rec.1886
+  - !<ColorSpace> #Flawed Emulsion - Editorial Depth Rec.1886
+    name: Flawed Emulsion - Editorial Depth Rec.1886
     aliases: []
     family: Imagery Rec.1886
     equalitygroup:
@@ -1180,8 +1180,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Deep Contaminate sRGB Display
-    name: OpenDRT Flawed Emulsion - Deep Contaminate sRGB Display
+  - !<ColorSpace> #Flawed Emulsion - Deep Contaminate sRGB Display
+    name: Flawed Emulsion - Deep Contaminate sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
@@ -1199,8 +1199,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Deep Contaminate Display P3
-    name: OpenDRT Flawed Emulsion - Deep Contaminate Display P3
+  - !<ColorSpace> #Flawed Emulsion - Deep Contaminate Display P3
+    name: Flawed Emulsion - Deep Contaminate Display P3
     aliases: []
     family: Imagery Display P3
     equalitygroup:
@@ -1218,8 +1218,8 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion - Deep Contaminate Rec.1886
-    name: OpenDRT Flawed Emulsion - Deep Contaminate Rec.1886
+  - !<ColorSpace> #Flawed Emulsion - Deep Contaminate Rec.1886
+    name: Flawed Emulsion - Deep Contaminate Rec.1886
     aliases: []
     family: Imagery Rec.1886
     equalitygroup:
@@ -1689,8 +1689,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_Standard__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Bleached sRGB Display
-    name: OpenDRT Bleached sRGB Display
+  - !<ColorSpace> #Bleached sRGB Display
+    name: Bleached sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
@@ -1704,8 +1704,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Gentle Touch sRGB Display
-    name: OpenDRT Gentle Touch sRGB Display
+  - !<ColorSpace> #Gentle Touch sRGB Display
+    name: Gentle Touch sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
@@ -1719,8 +1719,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_GentleTouch__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Bleached - Negative Print sRGB Display
-    name: OpenDRT Bleached - Negative Print sRGB Display
+  - !<ColorSpace> #Bleached - Negative Print sRGB Display
+    name: Bleached - Negative Print sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
@@ -1739,8 +1739,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Gentle Touch - Negative Print sRGB Display
-    name: OpenDRT Gentle Touch - Negative Print sRGB Display
+  - !<ColorSpace> #Gentle Touch - Negative Print sRGB Display
+    name: Gentle Touch - Negative Print sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
@@ -1759,8 +1759,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_GentleTouch__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion sRGB Display
-    name: OpenDRT Flawed Emulsion sRGB Display
+  - !<ColorSpace> #Flawed Emulsion sRGB Display
+    name: Flawed Emulsion sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
@@ -1774,8 +1774,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Shifted Crisp sRGB Display
-    name: OpenDRT Shifted Crisp sRGB Display
+  - !<ColorSpace> #Shifted Crisp sRGB Display
+    name: Shifted Crisp sRGB Display
     aliases: []
     family: Imagery sRGB
     equalitygroup:
@@ -1804,8 +1804,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_Standard__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Bleached Display P3
-    name: OpenDRT Bleached Display P3
+  - !<ColorSpace> #Bleached Display P3
+    name: Bleached Display P3
     aliases: []
     family: Imagery Display P3
     equalitygroup:
@@ -1819,8 +1819,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Gentle Touch Display P3
-    name: OpenDRT Gentle Touch Display P3
+  - !<ColorSpace> #Gentle Touch Display P3
+    name: Gentle Touch Display P3
     aliases: []
     family: Imagery Display P3
     equalitygroup:
@@ -1834,8 +1834,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_GentleTouch__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion Display P3
-    name: OpenDRT Flawed Emulsion Display P3
+  - !<ColorSpace> #Flawed Emulsion Display P3
+    name: Flawed Emulsion Display P3
     aliases: []
     family: Imagery Display P3
     equalitygroup:
@@ -1849,8 +1849,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Shifted Crisp Display P3
-    name: OpenDRT Shifted Crisp Display P3
+  - !<ColorSpace> #Shifted Crisp Display P3
+    name: Shifted Crisp Display P3
     aliases: []
     family: Imagery Display P3
     equalitygroup:
@@ -1879,8 +1879,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_Standard__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Bleached Rec.1886
-    name: OpenDRT Bleached Rec.1886
+  - !<ColorSpace> #Bleached Rec.1886
+    name: Bleached Rec.1886
     aliases: []
     family: Imagery Rec.1886
     equalitygroup:
@@ -1894,8 +1894,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_Bleached__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Gentle Touch Rec.1886
-    name: OpenDRT Gentle Touch Rec.1886
+  - !<ColorSpace> #Gentle Touch Rec.1886
+    name: Gentle Touch Rec.1886
     aliases: []
     family: Imagery Rec.1886
     equalitygroup:
@@ -1909,8 +1909,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_GentleTouch__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Flawed Emulsion Rec.1886
-    name: OpenDRT Flawed Emulsion Rec.1886
+  - !<ColorSpace> #Flawed Emulsion Rec.1886
+    name: Flawed Emulsion Rec.1886
     aliases: []
     family: Imagery Rec.1886
     equalitygroup:
@@ -1924,8 +1924,8 @@ colorspaces:
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
 
-  - !<ColorSpace> #OpenDRT Shifted Crisp Rec.1886
-    name: OpenDRT Shifted Crisp Rec.1886
+  - !<ColorSpace> #Shifted Crisp Rec.1886
+    name: Shifted Crisp Rec.1886
     aliases: []
     family: Imagery Rec.1886
     equalitygroup:
