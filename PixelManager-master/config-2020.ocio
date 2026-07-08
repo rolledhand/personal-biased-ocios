@@ -1044,21 +1044,21 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
         - !<GradingPrimaryTransform>
           style: log
-          contrast: {rgb: [0.998, 1.002, 1.006], master: 1.03}
-          saturation: 0.90
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.78
         - !<GradingToneTransform>
           style: log
-          blacks:     {rgb: [0.992, 1.004, 1.008], master: 1.010, start: 0.32, width: 0.50}
-          highlights: {rgb: [1.010, 1.002, 0.988], master: 0.968, start: 0.25, pivot: 0.86}
-          whites:     {rgb: [1.012, 1.002, 0.984], master: 0.984, start: 0.33, width: 0.50}
-          s_contrast: 1.015
+          blacks:     {rgb: [1, 1, 1], master: 0.945, start: 0.33, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.952, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.54}
+          s_contrast: 0.98
         - !<GradingRGBCurveTransform>
           style: log
-          red:   {control_points: [0, 0, 0.16, 0.154, 0.44, 0.438, 0.72, 0.724, 1, 0.998]}
-          green: {control_points: [0, 0, 0.16, 0.164, 0.44, 0.444, 0.72, 0.722, 1, 0.996]}
-          blue:  {control_points: [0, 0, 0.16, 0.166, 0.44, 0.446, 0.72, 0.716, 1, 0.986]}
+          red:   {control_points: [0, 0, 0.16, 0.182, 0.68, 0.690, 1, 0.986]}
+          green: {control_points: [0, 0, 0.16, 0.176, 0.68, 0.708, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.158, 0.68, 0.732, 1, 1]}
         - !<CDLTransform>
-          {slope: [1.006, 1.002, 0.990], offset: [0.0003, 0.0008, 0.0010], power: [1.014, 0.998, 0.986], sat: 0.96}
+          {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
 
   - !<ColorSpace> #OpenDRT Flawed Emulsion - Chemical Drift Display P3
@@ -1075,21 +1075,21 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
         - !<GradingPrimaryTransform>
           style: log
-          contrast: {rgb: [0.998, 1.002, 1.006], master: 1.03}
-          saturation: 0.90
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.78
         - !<GradingToneTransform>
           style: log
-          blacks:     {rgb: [0.992, 1.004, 1.008], master: 1.010, start: 0.32, width: 0.50}
-          highlights: {rgb: [1.010, 1.002, 0.988], master: 0.968, start: 0.25, pivot: 0.86}
-          whites:     {rgb: [1.012, 1.002, 0.984], master: 0.984, start: 0.33, width: 0.50}
-          s_contrast: 1.015
+          blacks:     {rgb: [1, 1, 1], master: 0.945, start: 0.33, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.952, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.54}
+          s_contrast: 0.98
         - !<GradingRGBCurveTransform>
           style: log
-          red:   {control_points: [0, 0, 0.16, 0.154, 0.44, 0.438, 0.72, 0.724, 1, 0.998]}
-          green: {control_points: [0, 0, 0.16, 0.164, 0.44, 0.444, 0.72, 0.722, 1, 0.996]}
-          blue:  {control_points: [0, 0, 0.16, 0.166, 0.44, 0.446, 0.72, 0.716, 1, 0.986]}
+          red:   {control_points: [0, 0, 0.16, 0.182, 0.68, 0.690, 1, 0.986]}
+          green: {control_points: [0, 0, 0.16, 0.176, 0.68, 0.708, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.158, 0.68, 0.732, 1, 1]}
         - !<CDLTransform>
-          {slope: [1.006, 1.002, 0.990], offset: [0.0003, 0.0008, 0.0010], power: [1.014, 0.998, 0.986], sat: 0.96}
+          {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
 
   - !<ColorSpace> #OpenDRT Flawed Emulsion - Chemical Drift Rec.1886
@@ -1106,21 +1106,21 @@ colorspaces:
         - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: T-LogeE - E-Gamut 2}
         - !<GradingPrimaryTransform>
           style: log
-          contrast: {rgb: [0.998, 1.002, 1.006], master: 1.03}
-          saturation: 0.90
+          contrast: {rgb: [1, 1, 1], master: 1.00}
+          saturation: 0.78
         - !<GradingToneTransform>
           style: log
-          blacks:     {rgb: [0.992, 1.004, 1.008], master: 1.010, start: 0.32, width: 0.50}
-          highlights: {rgb: [1.010, 1.002, 0.988], master: 0.968, start: 0.25, pivot: 0.86}
-          whites:     {rgb: [1.012, 1.002, 0.984], master: 0.984, start: 0.33, width: 0.50}
-          s_contrast: 1.015
+          blacks:     {rgb: [1, 1, 1], master: 0.945, start: 0.33, width: 0.54}
+          highlights: {rgb: [1, 1, 1], master: 0.952, start: 0.25, pivot: 0.86}
+          whites:     {rgb: [1, 1, 1], master: 0.970, start: 0.33, width: 0.54}
+          s_contrast: 0.98
         - !<GradingRGBCurveTransform>
           style: log
-          red:   {control_points: [0, 0, 0.16, 0.154, 0.44, 0.438, 0.72, 0.724, 1, 0.998]}
-          green: {control_points: [0, 0, 0.16, 0.164, 0.44, 0.444, 0.72, 0.722, 1, 0.996]}
-          blue:  {control_points: [0, 0, 0.16, 0.166, 0.44, 0.446, 0.72, 0.716, 1, 0.986]}
+          red:   {control_points: [0, 0, 0.16, 0.182, 0.68, 0.690, 1, 0.986]}
+          green: {control_points: [0, 0, 0.16, 0.176, 0.68, 0.708, 1, 0.992]}
+          blue:  {control_points: [0, 0, 0.16, 0.158, 0.68, 0.732, 1, 1]}
         - !<CDLTransform>
-          {slope: [1.006, 1.002, 0.990], offset: [0.0003, 0.0008, 0.0010], power: [1.014, 0.998, 0.986], sat: 0.96}
+          {slope: [1.014, 1.000, 0.978], offset: [0.0030, 0.0020, 0.0040], power: [1.028, 0.996, 0.970], sat: 0.90}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
 
   - !<ColorSpace> #OpenDRT Flawed Emulsion - Editorial Depth sRGB Display
