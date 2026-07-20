@@ -179,12 +179,10 @@ file_rules:
 displays: 
   sRGB:
     - !<View> {name: Flawed Emulsion, colorspace: Flawed Emulsion sRGB Display}
-    - !<View> {name: Flawed Emulsion 2, colorspace: Flawed Emulsion 2 sRGB Display}
     - !<View> {name: Flawed Emulsion - Mineral Fade, colorspace: Flawed Emulsion - Mineral Fade sRGB Display}
     - !<View> {name: Flawed Emulsion - Chemical Veil, colorspace: Flawed Emulsion - Chemical Veil sRGB Display}
     - !<View> {name: Flawed Emulsion - Spilled, colorspace: Flawed Emulsion - Spilled sRGB Display}
-    - !<View> {name: Flawed Emulsion 2 - Spilled, colorspace: Flawed Emulsion 2 - Spilled sRGB Display}
-    - !<View> {name: Flawed Emulsion - Hard Push, colorspace: Flawed Emulsion - Hard Push sRGB Display}
+    - !<View> {name: Flawed Emulsion 2, colorspace: Flawed Emulsion 2 sRGB Display}
     - !<View> {name: Bleached, colorspace: Bleached sRGB Display}
     - !<View> {name: Bleached - Negative Print, colorspace: Bleached - Negative Print sRGB Display}
     - !<View> {name: Bleached - Oxide Residue, colorspace: Bleached - Oxide Residue sRGB Display}
@@ -209,12 +207,10 @@ displays:
     - !<View> {name: None, colorspace: Raw}
   Display P3:
     - !<View> {name: Flawed Emulsion, colorspace: Flawed Emulsion Display P3}
-    - !<View> {name: Flawed Emulsion 2, colorspace: Flawed Emulsion 2 Display P3}
     - !<View> {name: Flawed Emulsion - Mineral Fade, colorspace: Flawed Emulsion - Mineral Fade Display P3}
     - !<View> {name: Flawed Emulsion - Chemical Veil, colorspace: Flawed Emulsion - Chemical Veil Display P3}
     - !<View> {name: Flawed Emulsion - Spilled, colorspace: Flawed Emulsion - Spilled Display P3}
-    - !<View> {name: Flawed Emulsion 2 - Spilled, colorspace: Flawed Emulsion 2 - Spilled Display P3}
-    - !<View> {name: Flawed Emulsion - Hard Push, colorspace: Flawed Emulsion - Hard Push Display P3}
+    - !<View> {name: Flawed Emulsion 2, colorspace: Flawed Emulsion 2 Display P3}
     - !<View> {name: Bleached, colorspace: Bleached Display P3}
     - !<View> {name: Bleached - Negative Print, colorspace: Bleached - Negative Print Display P3}
     - !<View> {name: Bleached - Oxide Residue, colorspace: Bleached - Oxide Residue Display P3}
@@ -239,12 +235,10 @@ displays:
     - !<View> {name: None, colorspace: Raw}
   Rec.1886:
     - !<View> {name: Flawed Emulsion, colorspace: Flawed Emulsion Rec.1886}
-    - !<View> {name: Flawed Emulsion 2, colorspace: Flawed Emulsion 2 Rec.1886}
     - !<View> {name: Flawed Emulsion - Mineral Fade, colorspace: Flawed Emulsion - Mineral Fade Rec.1886}
     - !<View> {name: Flawed Emulsion - Chemical Veil, colorspace: Flawed Emulsion - Chemical Veil Rec.1886}
     - !<View> {name: Flawed Emulsion - Spilled, colorspace: Flawed Emulsion - Spilled Rec.1886}
-    - !<View> {name: Flawed Emulsion 2 - Spilled, colorspace: Flawed Emulsion 2 - Spilled Rec.1886}
-    - !<View> {name: Flawed Emulsion - Hard Push, colorspace: Flawed Emulsion - Hard Push Rec.1886}
+    - !<View> {name: Flawed Emulsion 2, colorspace: Flawed Emulsion 2 Rec.1886}
     - !<View> {name: Bleached, colorspace: Bleached Rec.1886}
     - !<View> {name: Bleached - Negative Print, colorspace: Bleached - Negative Print Rec.1886}
     - !<View> {name: Bleached - Oxide Residue, colorspace: Bleached - Oxide Residue Rec.1886}
@@ -276,7 +270,7 @@ displays:
 
 active_displays: [sRGB, Display P3, Rec.1886, Log]
 
-active_views: [Flawed Emulsion, Flawed Emulsion 2, Flawed Emulsion - Mineral Fade, Flawed Emulsion - Chemical Veil, Flawed Emulsion - Spilled, Flawed Emulsion 2 - Spilled, Flawed Emulsion - Hard Push, Bleached, Bleached - Negative Print, Bleached - Oxide Residue, Gentle Touch, Gentle Touch - Negative Print, Gentle Touch - Surreal Push, Shifted Crisp, OpenDRT Standard, JP2499DRT, JP2499DRT - Editorial Split, JP2499DRT - Hard Contrast, JP2499DRT - Photochemical, JP2499DRT - Chemical Drift, JP2499DRT - Tarnished Print, JP2499DRT - Graphite Matte, JP2499DRT - Soot, JP2499DRT - Carbon Plate, JP2499DRT - Carbon Black, JP2499DRT - Blue Carbon Print, JP2499DRT - Funeral Bronze, JP2499DRT - Phoenix Drift, JP2499 Log, Filmlight T-LogE - E-Gamut 2, ACEScc, ACEScct, None]
+active_views: [Flawed Emulsion, Flawed Emulsion - Mineral Fade, Flawed Emulsion - Chemical Veil, Flawed Emulsion - Spilled, Flawed Emulsion 2, Bleached, Bleached - Negative Print, Bleached - Oxide Residue, Gentle Touch, Gentle Touch - Negative Print, Gentle Touch - Surreal Push, Shifted Crisp, OpenDRT Standard, JP2499DRT, JP2499DRT - Editorial Split, JP2499DRT - Hard Contrast, JP2499DRT - Photochemical, JP2499DRT - Chemical Drift, JP2499DRT - Tarnished Print, JP2499DRT - Graphite Matte, JP2499DRT - Soot, JP2499DRT - Carbon Plate, JP2499DRT - Carbon Black, JP2499DRT - Blue Carbon Print, JP2499DRT - Funeral Bronze, JP2499DRT - Phoenix Drift, JP2499 Log, Filmlight T-LogE - E-Gamut 2, ACEScc, ACEScct, None]
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Legacy DRT/display-output colorspaces were intentionally pruned from this slim OpenDRT/JP2499DRT config.
 # Camera/input, ACES interchange, texture/file-rule, OpenDRT, and JP2499DRT spaces remain available.
@@ -1263,64 +1257,6 @@ colorspaces:
         - !<CDLTransform> {slope: [1.06, 0.96, 1.14], offset: [0, 0, 0], power: [1.08, 1.02, 1.26], sat: 1}
         - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.12, 1.08, 1.12], sat: 1.12}
         - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion2__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
-
-  - !<ColorSpace> #Flawed Emulsion - Hard Push sRGB Display
-    name: Flawed Emulsion - Hard Push sRGB Display
-    aliases: []
-    family: Imagery sRGB
-    equalitygroup:
-    bitdepth: 32f
-    description: |
-      OpenDRT v1.1 Flawed Emulsion with Hard Push CDL stack to sRGB Display.
-    isdata: false
-    from_scene_reference: !<GroupTransform>
-      children:
-        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
-        - !<CDLTransform> {slope: [0.9, 0.94, 1.02], offset: [0, 0, 0], power: [1.16, 1.08, 0.94], sat: 1.16}
-        - !<CDLTransform> {slope: [1.08, 0.98, 0.92], offset: [0.002, 0, 0.0035], power: [1, 1, 1], sat: 1}
-        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.1, 1.02, 0.9], sat: 1}
-        - !<CDLTransform> {slope: [0.88, 0.88, 0.88], offset: [0, 0, 0], power: [0.92, 0.92, 0.92], sat: 1.08}
-        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
-        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_srgb-display.cube, interpolation: tetrahedral}
-
-  - !<ColorSpace> #Flawed Emulsion - Hard Push Display P3
-    name: Flawed Emulsion - Hard Push Display P3
-    aliases: []
-    family: Imagery Display P3
-    equalitygroup:
-    bitdepth: 32f
-    description: |
-      OpenDRT v1.1 Flawed Emulsion with Hard Push CDL stack to Display P3.
-    isdata: false
-    from_scene_reference: !<GroupTransform>
-      children:
-        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
-        - !<CDLTransform> {slope: [0.9, 0.94, 1.02], offset: [0, 0, 0], power: [1.16, 1.08, 0.94], sat: 1.16}
-        - !<CDLTransform> {slope: [1.08, 0.98, 0.92], offset: [0.002, 0, 0.0035], power: [1, 1, 1], sat: 1}
-        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.1, 1.02, 0.9], sat: 1}
-        - !<CDLTransform> {slope: [0.88, 0.88, 0.88], offset: [0, 0, 0], power: [0.92, 0.92, 0.92], sat: 1.08}
-        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
-        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_display-p3.cube, interpolation: tetrahedral}
-
-  - !<ColorSpace> #Flawed Emulsion - Hard Push Rec.1886
-    name: Flawed Emulsion - Hard Push Rec.1886
-    aliases: []
-    family: Imagery Rec.1886
-    equalitygroup:
-    bitdepth: 32f
-    description: |
-      OpenDRT v1.1 Flawed Emulsion with Hard Push CDL stack to Rec.1886.
-    isdata: false
-    from_scene_reference: !<GroupTransform>
-      children:
-        - !<ColorSpaceTransform> {src: Linear CIE-XYZ E, dst: Linear Rec.2020}
-        - !<CDLTransform> {slope: [0.9, 0.94, 1.02], offset: [0, 0, 0], power: [1.16, 1.08, 0.94], sat: 1.16}
-        - !<CDLTransform> {slope: [1.08, 0.98, 0.92], offset: [0.002, 0, 0.0035], power: [1, 1, 1], sat: 1}
-        - !<CDLTransform> {slope: [1, 1, 1], offset: [0, 0, 0], power: [1.1, 1.02, 0.9], sat: 1}
-        - !<CDLTransform> {slope: [0.88, 0.88, 0.88], offset: [0, 0, 0], power: [0.92, 0.92, 0.92], sat: 1.08}
-        - !<ColorSpaceTransform> {src: Linear Rec.2020, dst: T-LogeE - E-Gamut 2}
-        - !<FileTransform> {src: OpenDRT_v1.1_FlawedEmulsion__filmlight-egamut2-tloge_to_rec1886.cube, interpolation: tetrahedral}
-
 
   - !<ColorSpace> #2499DRT Log (2499)
     name: 2499DRT Log (2499)
