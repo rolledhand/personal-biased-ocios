@@ -1,18 +1,18 @@
 # authored-DRTs
 
-Authored OCIO display rendering views built around OpenDRT v1.1, with a lean set of supporting camera/log spaces and selected JP2499DRT looks.
+Authored OCIO display rendering views built around OpenDRT v1.1, with a lean set of supporting camera/log spaces and custom JP2499DRT looks.
 
-This repository is intended as a practical creative display config rather than a complete color-management distribution. It keeps the working surface small, the view menu readable, and the custom looks easy to test in real grading, comp, and look-development work.
+This repository is intended as a practical creative (heavily authored and biased) display config rather than a neutral color-management option. I didn't like any of the other base neautral DRTs so I made my own. Will most likely be evolving this in the future based on explorations and deleting stuff as I'll get bored from it (very soon deleting JP2499 DRT and the looks there).
 
 ## What This Is
 
 `authored-DRTs` contains a slim OCIO v2 config centered on:
 
-- OpenDRT v1.1 display rendering views
-- Custom authored OpenDRT variants
-- A retained set of JP2499DRT looks
+- Non-neutral display rendering views
+- Multiple variants of each DRT
+- A retained set of JP2499DRT looks (to be deleted soon most likely)
 - Common camera/log input spaces
-- ACES interchange spaces
+- ACES interchange spaces (for pipe sanity, make it ACEScg config yourself if you want to)
 - Texture/data utility spaces
 
 The config is currently built for a Rec.2020 scene-linear working space and exposes display views for:
@@ -35,8 +35,6 @@ The active display-rendering views are intentionally curated. The current OpenDR
 ## Authored Display Responses
 
 All views in this section are intentionally authored display responses rather than neutral technical transforms. The descriptions below summarize the intended image character of each one.
-
-`Bleached` uses a D55-oriented response. `Gentle Touch` uses a D50-oriented response. `Flawed Emulsion`, `Shifted Crisp`, and `OpenDRT Standard` use D65-oriented responses.
 
 ### Flawed Emulsion
 
