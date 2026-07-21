@@ -4,7 +4,7 @@ ocio_profile_version: 2.0
 
 environment:
   {}
-search_path: "luts:OpenDRT:2499DRT:TCAMv3"
+search_path: "luts:OpenDRT:OpenDRT/transfer-functions:2499DRT"
 strictparsing: true
 luma: [0.2126, 0.7152, 0.0722]
 
